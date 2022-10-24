@@ -14,4 +14,7 @@ fun <T> buildList(input: String, transform: (String) -> T): List<T> {
 /**
  * Display
  */
+fun stringFromArray(array: IntArray): String = stringFromArray(array.toTypedArray())
 fun stringFromArray(array: Array<String>): String = array.joinToString(prefix = "[", postfix = "]")
+
+fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]")

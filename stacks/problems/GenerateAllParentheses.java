@@ -27,7 +27,7 @@ public class GenerateAllParentheses implements Problem<String, Integer> {
         return isValid(testInput);
     }
 
-    static int isValid(String input) {
+    int isValid(String input) {
         Stack<Character> stack = new Stack<>();
         for (char ch : input.toCharArray()) {
             if (stack.empty() && isClosing(ch)) return 0;
@@ -43,15 +43,15 @@ public class GenerateAllParentheses implements Problem<String, Integer> {
         return stack.empty() ? 1 : 0;
     }
 
-    static boolean isOpening(char ch) {
+    boolean isOpening(char ch) {
         return ch == '(' || ch == '[' || ch == '{';
     }
 
-    static boolean isClosing(char ch) {
+    boolean isClosing(char ch) {
         return ch == ')' || ch == ']' || ch == '}';
     }
 
-    static boolean isMatching(char open, char close) {
+    boolean isMatching(char open, char close) {
         if (open == '(' && close == ')') return true;
         if (open == '[' && close == ']') return true;
         return open == '{' && close == '}';
