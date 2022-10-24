@@ -1,4 +1,4 @@
-package stacks.problems;
+package src.stacks.problems;
 
 import src.Problem;
 

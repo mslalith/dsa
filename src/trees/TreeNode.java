@@ -1,4 +1,4 @@
-package trees;
+package src.trees;
 
 import org.jetbrains.annotations.NotNull;
 

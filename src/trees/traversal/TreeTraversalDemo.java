@@ -1,6 +1,6 @@
-package trees.traversal;
+package src.trees.traversal;
 
-import trees.TreeNode;
+import src.trees.TreeNode;
 
 import java.util.ArrayList;
 

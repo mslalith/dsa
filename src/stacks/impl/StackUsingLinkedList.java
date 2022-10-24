@@ -1,6 +1,6 @@
-package stacks.impl;
+package src.stacks.impl;
 
-import stacks.IStack;
+import src.stacks.IStack;
 
 import java.util.LinkedList;
 

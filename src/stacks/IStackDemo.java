@@ -1,7 +1,7 @@
-package stacks;
+package src.stacks;
 
-import stacks.impl.StackUsingArrayList;
-import stacks.impl.StackUsingLinkedList;
+import src.stacks.impl.StackUsingArrayList;
+import src.stacks.impl.StackUsingLinkedList;
 
 public class IStackDemo {
     public static void main(String[] args) {

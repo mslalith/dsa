@@ -1,7 +1,7 @@
-package stacks.problems;
+package src.stacks.problems;
 
 import src.Problem;
-import utils.ListUtilsKt;
+import src.utils.ListUtilsKt;
 
 import java.util.Stack;
 

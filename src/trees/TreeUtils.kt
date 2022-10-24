@@ -1,4 +1,4 @@
-package trees
+package src.trees
 
 import java.util.PriorityQueue
 

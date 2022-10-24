@@ -1,4 +1,4 @@
-package stacks;
+package src.stacks;
 
 public interface IStack<T> {
     void push(T item);
