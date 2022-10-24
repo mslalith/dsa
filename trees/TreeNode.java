@@ -1,6 +1,8 @@
 package trees;
 
-public class TreeNode {
+import org.jetbrains.annotations.NotNull;
+
+public class TreeNode implements Comparable<TreeNode> {
     public int val;
     public TreeNode left;
     public TreeNode right;
@@ -9,5 +11,10 @@ public class TreeNode {
         this.val = val;
         left = null;
         right = null;
+    }
+
+    @Override
+    public int compareTo(@NotNull TreeNode o) {
+        return Integer.compare(val, o.val);
     }
 }
