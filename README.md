@@ -5,6 +5,9 @@
 - Problems
   - [Generate All Parentheses](https://github.com/mslalith/dsa/blob/main/stacks/problems/GenerateAllParentheses.java)
   - [Evaluate Expression](https://github.com/mslalith/dsa/blob/main/stacks/problems/EvaluateExpression.java)
+  - [RedundantBraces](https://github.com/mslalith/dsa/blob/main/stacks/problems/RedundantBraces.java)
+  - [NearestSmallerElement](https://github.com/mslalith/dsa/blob/main/stacks/problems/NearestSmallerElement.java)
+
 
 
 ## Trees
