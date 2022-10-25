@@ -6,14 +6,17 @@ import src.linkedlist.abstraction.ILinkedList;
 public class ILinkedListImpl<T> implements ILinkedList<T> {
 
     ListNode<T> head;
+    int size;
 
     public ILinkedListImpl() {
         this.head = null;
+        this.size = 0;
     }
 
     @Override
     public void addFirst(T data) {
         ListNode<T> newNode = new ListNode<>(data);
+        size++;
         if (isEmpty()) {
             head = newNode;
             return;
@@ -25,6 +28,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
     @Override
     public void addLast(T data) {
         ListNode<T> newNode = new ListNode<>(data);
+        size++;
         if (isEmpty()) {
             head = newNode;
             return;
@@ -45,6 +49,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         }
 
         ListNode<T> newNode = new ListNode<>(data);
+        size++;
         if (isEmpty()) {
             head = newNode;
             return;
@@ -65,6 +70,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
     public T deleteFirst() {
         if (isEmpty()) return null;
 
+        size--;
         T item = head.data;
         head = head.next;
         return item;
@@ -75,6 +81,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         if (isEmpty()) return null;
         if (head.next == null) return deleteFirst();
 
+        size--;
         ListNode<T> curr = head;
         while (curr.next.next != null) {
             curr = curr.next;
@@ -90,6 +97,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         if (isEmpty()) return null;
         if (head.next == null) return deleteFirst();
 
+        size--;
         ListNode<T> curr = head;
         while (curr.next.data != data) {
             curr = curr.next;
@@ -119,12 +127,18 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
     }
 
     @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
     public void traverse() {
         if (isEmpty()) {
             System.out.println("Linked List is empty");
             return;
         }
 
+        System.out.print("(" + size + ") ");
         ListNode<T> curr = head;
         while (curr != null) {
             System.out.print(curr.data + " -> ");

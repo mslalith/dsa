@@ -4,4 +4,5 @@ public interface ILinkedList<T> extends ILinkedListInsertion<T>, ILinkedListDele
     void traverse();
     int search(T data);
     boolean isEmpty();
+    int size();
 }
