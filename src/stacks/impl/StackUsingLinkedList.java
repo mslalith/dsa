@@ -1,45 +1,62 @@
 package src.stacks.impl;
 
+import src.linkedlist.ListNode;
 import src.stacks.IStack;
 
-import java.util.LinkedList;
-
-// TODO: refactor this with custom LinkedList
 public class StackUsingLinkedList<T> implements IStack<T> {
-    LinkedList<T> linkedList;
+    ListNode<T> head;
 
     public StackUsingLinkedList() {
-        linkedList = new LinkedList<>();
+        this.head = null;
     }
 
     @Override
     public void push(T item) {
-        linkedList.push(item);
+        ListNode<T> newNode = new ListNode<>(item);
+        if (isEmpty()) {
+            head = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
     }
 
     @Override
     public T pop() {
-        return linkedList.pop();
+        if (isEmpty()) return null;
+
+        T item = head.data;
+        head = head.next;
+        return item;
     }
 
     @Override
     public T peek() {
-        return linkedList.peek();
+        if (isEmpty()) return null;
+        return head.data;
     }
 
     @Override
     public boolean isEmpty() {
-        return linkedList.isEmpty();
+        return head == null;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (int i = linkedList.size() - 1; i >= 0; i--) {
-            sb.append(linkedList.get(i));
-            if (i != 0) sb.append(", ");
+
+        ListNode<T> curr = head;
+        if (curr != null) {
+            sb.append(curr.data);
+            curr = curr.next;
+            while (curr != null) {
+                sb.insert(0, curr.data + ", ");
+                curr = curr.next;
+            }
         }
+
+        sb.insert(0, "[");
         sb.append("]");
         return sb.toString();
     }
