@@ -1,31 +1,28 @@
 package src.stacks.problems;
 
-import src.Problem;
+import src.core.Problem;
+import src.core.TestCase;
 import src.utils.ListUtilsKt;
 
 import java.util.Stack;
 
-public class EvaluateExpression implements Problem<String[], Integer> {
+public class EvaluateExpression extends Problem<String[], Integer> {
     public static void main(String[] args) {
-        EvaluateExpression problem = new EvaluateExpression();
-        for (String[] testInput : problem.getTestInputs()) {
-            String inputString = ListUtilsKt.stringFromArray(testInput);
-            System.out.println(inputString + ": " + problem.solution(testInput));
-        }
+        new EvaluateExpression().run();
     }
 
     @Override
-    public String[][] getTestInputs() {
-        String[][] array = new String[4][];
-        array[0] = ListUtilsKt.buildArray("2 1 + 3 *"); // 9
-        array[1] = ListUtilsKt.buildArray("4 13 5 / +"); // 6
-        array[2] = ListUtilsKt.buildArray("5 1 2 + 4 * + 3 -"); // 14
-        array[3] = ListUtilsKt.buildArray("5"); // 5
-        return array;
+    protected TestCase<String[], Integer>[] getTestCases() {
+        return new TestCase[]{
+                new TestCase<>(ListUtilsKt.buildArray("2 1 + 3 *"), 9),
+                new TestCase<>(ListUtilsKt.buildArray("4 13 5 / +"), 6),
+                new TestCase<>(ListUtilsKt.buildArray("5 1 2 + 4 * + 3 -"), 14),
+                new TestCase<>(ListUtilsKt.buildArray("5"), 5),
+        };
     }
 
     @Override
-    public Integer solution(String[] testInput) {
+    public Integer solve(String[] testInput) {
         return eval(testInput);
     }
 

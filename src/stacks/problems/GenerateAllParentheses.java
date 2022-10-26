@@ -1,29 +1,27 @@
 package src.stacks.problems;
 
-import src.Problem;
+import src.core.Problem;
+import src.core.TestCase;
 
 import java.util.Stack;
 
-public class GenerateAllParentheses implements Problem<String, Integer> {
+public class GenerateAllParentheses extends Problem<String, Integer> {
     public static void main(String[] args) {
-        GenerateAllParentheses problem = new GenerateAllParentheses();
-        for (String testInput : problem.getTestInputs()) {
-            System.out.println(testInput + ": " + problem.solution(testInput));
-        }
+        new GenerateAllParentheses().run();
     }
 
     @Override
-    public String[] getTestInputs() {
-        return new String[]{
-                "()[]{}", // 1
-                "([[{}]()])", // 1
-                "){}", // 0
-                "{(}" // 0
+    protected TestCase<String, Integer>[] getTestCases() {
+        return new TestCase[]{
+                new TestCase<>("()[]{}", 1),
+                new TestCase<>("([[{}]()])", 1),
+                new TestCase<>("){}", 0),
+                new TestCase<>("{(}", 0),
         };
     }
 
     @Override
-    public Integer solution(String testInput) {
+    public Integer solve(String testInput) {
         return isValid(testInput);
     }
 

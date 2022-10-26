@@ -1,29 +1,27 @@
 package src.stacks.problems;
 
-import src.Problem;
+import src.core.Problem;
+import src.core.TestCase;
 
 import java.util.Stack;
 
-public class RedundantBraces implements Problem<String, Integer> {
+public class RedundantBraces extends Problem<String, Integer> {
     public static void main(String[] args) {
-        RedundantBraces problem = new RedundantBraces();
-        for (String testInput : problem.getTestInputs()) {
-            System.out.println(testInput + ": " + problem.solution(testInput));
-        }
+        new RedundantBraces().run();
     }
 
     @Override
-    public String[] getTestInputs() {
-        return new String[]{
-                "((a+b))", // 1
-                "(a+(a+b))", // 0
-                "((a*b)+(c+d))", // 0
-                "(a+((b*c)+c))" // 0
+    protected TestCase<String, Integer>[] getTestCases() {
+        return new TestCase[]{
+                new TestCase<>("((a+b))", 1),
+                new TestCase<>("(a+(a+b))", 0),
+                new TestCase<>("((a*b)+(c+d))", 0),
+                new TestCase<>("(a+((b*c)+c))", 0),
         };
     }
 
     @Override
-    public Integer solution(String testInput) {
+    public Integer solve(String testInput) {
         return braces(testInput);
     }
 
