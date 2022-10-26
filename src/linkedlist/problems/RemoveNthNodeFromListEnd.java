@@ -1,6 +1,7 @@
 package src.linkedlist.problems;
 
-import src.Problem;
+import src.core.Problem;
+import src.core.TestCase;
 import src.linkedlist.ListNode;
 import src.utils.LinkedListUtilsKt;
 
@@ -15,42 +16,46 @@ class RemoveNthNodeFromListEndParams {
 
     @Override
     public String toString() {
-        return "Linked List: " + LinkedListUtilsKt.stringFromListNode(head) +
+        return "\nLinked List: " + LinkedListUtilsKt.stringFromListNode(head) +
                 "\n" +
                 "Last nth index: " + lastNthIndexToRemove;
     }
 }
 
-public class RemoveNthNodeFromListEnd implements Problem<RemoveNthNodeFromListEndParams, ListNode<Integer>> {
+public class RemoveNthNodeFromListEnd extends Problem<RemoveNthNodeFromListEndParams, ListNode<Integer>> {
     public static void main(String[] args) {
-        RemoveNthNodeFromListEnd problem = new RemoveNthNodeFromListEnd();
-        for (RemoveNthNodeFromListEndParams testInput : problem.getTestInputs()) {
-            System.out.println(testInput);
-            System.out.println("Output: " + LinkedListUtilsKt.stringFromListNode(problem.solution(testInput)));
-            System.out.println();
-        }
+        new RemoveNthNodeFromListEnd().run();
     }
 
     @Override
-    public RemoveNthNodeFromListEndParams[] getTestInputs() {
-        return new RemoveNthNodeFromListEndParams[]{
-                new RemoveNthNodeFromListEndParams(
-                        LinkedListUtilsKt.buildLinkedListFromInt("1 2 3 4 5"),
-                        2
-                ), // 1 2 3 5
-                new RemoveNthNodeFromListEndParams(
-                        LinkedListUtilsKt.buildLinkedListFromInt("1"),
-                        1
-                ), // 1
-                new RemoveNthNodeFromListEndParams(
-                        LinkedListUtilsKt.buildLinkedListFromInt("20 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460"),
-                        82
-                ) // 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460
+    protected TestCase<RemoveNthNodeFromListEndParams, ListNode<Integer>>[] getTestCases() {
+        return new TestCase[]{
+                new TestCase<>(
+                        new RemoveNthNodeFromListEndParams(
+                                LinkedListUtilsKt.buildLinkedListFromInt("1 2 3 4 5"),
+                                2
+                        ),
+                        LinkedListUtilsKt.buildLinkedListFromInt("1 2 3 5")
+                ),
+                new TestCase<>(
+                        new RemoveNthNodeFromListEndParams(
+                                LinkedListUtilsKt.buildLinkedListFromInt("1"),
+                                1
+                        ),
+                        null
+                ),
+                new TestCase<>(
+                        new RemoveNthNodeFromListEndParams(
+                                LinkedListUtilsKt.buildLinkedListFromInt("20 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460"),
+                                82
+                        ),
+                        LinkedListUtilsKt.buildLinkedListFromInt("380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460")
+                )
         };
     }
 
     @Override
-    public ListNode<Integer> solution(RemoveNthNodeFromListEndParams testInput) {
+    public ListNode<Integer> solve(RemoveNthNodeFromListEndParams testInput) {
         return removeNthFromEnd(testInput.head, testInput.lastNthIndexToRemove);
     }
 

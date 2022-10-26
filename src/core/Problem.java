@@ -1,5 +1,7 @@
 package src.core;
 
+import src.linkedlist.ListNode;
+import src.utils.LinkedListUtilsKt;
 import src.utils.ListUtilsKt;
 
 import java.util.Arrays;
@@ -23,13 +25,17 @@ public abstract class Problem<I, O> {
         }
     }
 
-    String stringFromType(Object input) {
+    protected String stringFromType(Object input) {
+        if (input == null) return "null";
         if (input instanceof String[]) return ListUtilsKt.stringFromArray((String[]) input);
         if (input instanceof int[]) return ListUtilsKt.stringFromArray((int[]) input);
+        if (input instanceof ListNode<?>) return LinkedListUtilsKt.stringFromListNode((ListNode<?>) input);
         return input.toString();
     }
 
-    boolean isTestPassed(O actual, O expected) {
+    protected <T> boolean isTestPassed(T actual, T expected) {
+        if (actual == null && expected == null) return true;
+        if (actual == null || expected == null) return false;
         if (actual instanceof int[]) return Arrays.equals((int[]) actual, (int[]) expected);
         return actual.equals(expected);
     }
