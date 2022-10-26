@@ -71,7 +71,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         if (isEmpty()) return null;
 
         size--;
-        T item = head.data;
+        T item = head.val;
         head = head.next;
         return item;
     }
@@ -87,7 +87,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
             curr = curr.next;
         }
 
-        T item = curr.data;
+        T item = curr.val;
         curr.next = null;
         return item;
     }
@@ -99,7 +99,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
 
         size--;
         ListNode<T> curr = head;
-        while (curr.next.data != data) {
+        while (curr.next.val != data) {
             curr = curr.next;
         }
         curr.next = curr.next.next;
@@ -113,7 +113,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         ListNode<T> curr = head;
 
         int count = 0;
-        while (curr != null && curr.data != data) {
+        while (curr != null && curr.val != data) {
             curr = curr.next;
             count++;
         }
@@ -141,7 +141,7 @@ public class ILinkedListImpl<T> implements ILinkedList<T> {
         System.out.print("(" + size + ") ");
         ListNode<T> curr = head;
         while (curr != null) {
-            System.out.print(curr.data + " -> ");
+            System.out.print(curr.val + " -> ");
             curr = curr.next;
         }
         System.out.println("null");

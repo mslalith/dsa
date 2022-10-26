@@ -26,7 +26,7 @@ public class StackUsingLinkedList<T> implements IStack<T> {
     public T pop() {
         if (isEmpty()) return null;
 
-        T item = head.data;
+        T item = head.val;
         head = head.next;
         return item;
     }
@@ -34,7 +34,7 @@ public class StackUsingLinkedList<T> implements IStack<T> {
     @Override
     public T peek() {
         if (isEmpty()) return null;
-        return head.data;
+        return head.val;
     }
 
     @Override
@@ -48,10 +48,10 @@ public class StackUsingLinkedList<T> implements IStack<T> {
 
         ListNode<T> curr = head;
         if (curr != null) {
-            sb.append(curr.data);
+            sb.append(curr.val);
             curr = curr.next;
             while (curr != null) {
-                sb.insert(0, curr.data + ", ");
+                sb.insert(0, curr.val + ", ");
                 curr = curr.next;
             }
         }
