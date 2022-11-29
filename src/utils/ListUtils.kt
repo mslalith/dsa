@@ -5,6 +5,8 @@ package src.utils
  */
 fun buildArray(input: String): Array<String> = buildList(input).toTypedArray()
 
+fun buildArrayInt(input: String): IntArray = buildList(input) { it.toInt() }.toIntArray()
+
 fun buildList(input: String): List<String> = buildList(input) { it }
 
 fun <T> buildList(input: String, transform: (String) -> T): List<T> {
@@ -17,4 +19,4 @@ fun <T> buildList(input: String, transform: (String) -> T): List<T> {
 fun stringFromArray(array: IntArray): String = stringFromArray(array.toTypedArray())
 fun stringFromArray(array: Array<String>): String = array.joinToString(prefix = "[", postfix = "]")
 
-fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]")
+fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]", separator = " ")
