@@ -33,7 +33,9 @@ public class ILinkedListDemo {
 
         System.out.println();
         System.out.println("Is empty: " + iLinkedList.isEmpty());
+        System.out.println("Size: " + iLinkedList.size());
 
+        System.out.println();
         System.out.println("Searching for 4");
         int index = iLinkedList.search(4);
         System.out.println("Found 4 at index " + index);
@@ -47,6 +49,7 @@ public class ILinkedListDemo {
         iLinkedList.deleteFirst();
 
         System.out.println("Is empty: " + iLinkedList.isEmpty());
+        System.out.println("Size: " + iLinkedList.size());
         iLinkedList.traverse();
     }
 }
