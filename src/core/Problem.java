@@ -36,8 +36,11 @@ public abstract class Problem<I, O> {
         if (!silent) System.out.println("Output: " + outputString);
 
         boolean isTestPassed = isTestPassed(testCase.output, output);
-        if (!silent) System.out.println(isTestPassed ? "✅ Passed" : "❌ Failed");
-        if (!silent) System.out.println();
+        if (!silent) {
+            if (!isTestPassed) System.out.println("Expected: " + stringFromType(testCase.output));
+            System.out.println(isTestPassed ? "✅ Passed" : "❌ Failed");
+            System.out.println();
+        }
         return isTestPassed;
     }
 
