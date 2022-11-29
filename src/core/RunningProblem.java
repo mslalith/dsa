@@ -1,18 +1,18 @@
 package src.core;
 
-public class RunningProblem extends Problem<Integer, String> {
+public class RunningProblem extends Problem<String, Integer> {
 
     public static void main(String[] args) {
         new RunningProblem().run();
     }
 
     @Override
-    protected TestCase<Integer, String>[] getTestCases() {
-        return new TestCase[0];
+    protected TestCase<String, Integer>[] getTestCases() {
+        return new TestCase[]{};
     }
 
     @Override
-    public String solve(Integer testInput) {
+    protected Integer solve(String testCaseInput) {
         return null;
     }
 }
