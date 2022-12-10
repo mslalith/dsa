@@ -14,6 +14,19 @@ public class TreeTraversalDemo {
     }
 
     static TreeNode createTree() {
+        /*
+                               1
+                             /   \
+                           /      \
+                         /         \
+                       2            3
+                     /   \
+                   4      5
+                 /   \
+               6      7
+                 \
+                  8
+         */
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(3);
         root.left = new TreeNode(2);
