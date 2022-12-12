@@ -5,7 +5,7 @@ import src.linkedlist.ListNode
 /**
  * Builders
  */
-fun buildLinkedList(input: String): ListNode {
+fun buildLinkedList(input: String): ListNode? {
     val split = input.split(" ")
     var head: ListNode? = null
     var curr = head
@@ -18,7 +18,7 @@ fun buildLinkedList(input: String): ListNode {
         curr?.next = ListNode(it)
         curr = curr?.next
     }
-    return head!!
+    return head
 }
 
 /**

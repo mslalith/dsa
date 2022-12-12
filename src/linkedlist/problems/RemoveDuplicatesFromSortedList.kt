@@ -5,25 +5,25 @@ import src.core.TestCase
 import src.linkedlist.ListNode
 import src.utils.buildLinkedList
 
-class RemoveDuplicatesFromSortedList : Problem<ListNode, ListNode>() {
+class RemoveDuplicatesFromSortedList : Problem<ListNode?, ListNode?>() {
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) = RemoveDuplicatesFromSortedList().run()
     }
 
-    override fun getTestCases(): Array<TestCase<ListNode, ListNode>> = arrayOf(
+    override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(
         TestCase(
             input = buildLinkedList(input = "1 2 2 3 3"),
             output = buildLinkedList(input = "1 2 3")
         )
     )
 
-    override fun solve(testCaseInput: ListNode): ListNode {
+    override fun solve(testCaseInput: ListNode?): ListNode? {
         return deleteDuplicates(testCaseInput)
     }
 
-    private fun deleteDuplicates(head: ListNode): ListNode {
+    private fun deleteDuplicates(head: ListNode?): ListNode? {
         var curr: ListNode? = head
         while (curr != null) {
             var first = curr

@@ -88,7 +88,7 @@ class ILinkedListImpl : ILinkedList {
 
     override fun delete(data: Int): Int? {
         if (isEmpty()) return null
-        if (head!!.next == null) return deleteFirst()
+        if (head?.next == null) return deleteFirst()
 
         size--
         var curr = head

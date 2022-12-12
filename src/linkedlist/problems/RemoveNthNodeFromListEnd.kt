@@ -37,18 +37,18 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
         )
     )
 
-    override fun solve(testCaseInput: RemoveNthNodeFromListEndParams): ListNode {
-        return removeNthFromEnd(testCaseInput.head, testCaseInput.lastNthIndexToRemove)!!
+    override fun solve(testCaseInput: RemoveNthNodeFromListEndParams): ListNode? {
+        return removeNthFromEnd(testCaseInput.head, testCaseInput.lastNthIndexToRemove)
     }
 
-    private fun removeNthFromEnd(head: ListNode, index: Int): ListNode? {
+    private fun removeNthFromEnd(head: ListNode?, index: Int): ListNode? {
         var size = 0
         var curr: ListNode? = head
         while (curr != null) {
             curr = curr.next
             size++
         }
-        if (index >= size) return head.next
+        if (index >= size) return head?.next
         val indexToRemove = size - index
         var count = 0
         curr = head
@@ -63,7 +63,7 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
 }
 
 data class RemoveNthNodeFromListEndParams(
-    val head: ListNode,
+    val head: ListNode?,
     val lastNthIndexToRemove: Int
 ) {
     override fun toString(): String {

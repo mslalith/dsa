@@ -29,7 +29,7 @@ object IStackDemo {
         println()
         println("Popping till stack is empty")
         while (!iStack.isEmpty()) {
-            val item = iStack.peek()!!
+            val item = iStack.peek()
             iStack.pop()
             println("Popped: $item")
             println("Stack: $iStack")

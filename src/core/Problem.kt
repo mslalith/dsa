@@ -1,6 +1,7 @@
 package src.core
 
 import src.linkedlist.ListNode
+import src.utils.areListNodesEqual
 import src.utils.stringFromArray
 import src.utils.stringFromListNode
 
@@ -40,7 +41,7 @@ abstract class Problem<I, O> {
         return isTestPassed
     }
 
-    private fun stringFromType(input: Any?): String = when(input) {
+    private fun stringFromType(input: Any?): String = when (input) {
         is Array<*> -> stringFromArray(input)
         is IntArray -> stringFromArray(input)
         is ListNode -> stringFromListNode(input)
@@ -51,11 +52,8 @@ abstract class Problem<I, O> {
     private fun <T> isTestPassed(actual: T?, expected: T?): Boolean {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
-//        if (actual is IntArray) return Arrays.equals(actual as IntArray?, expected as IntArray?)
+        if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
+        if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
-//        return if (actual is ListNode<*>) areListNodesEqual<Any>(
-//            actual as ListNode<*>?,
-//            expected as ListNode<*>?
-//        ) else actual == expected
     }
 }
