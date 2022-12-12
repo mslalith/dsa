@@ -5,10 +5,12 @@ import src.core.TestCase
 import src.trees.TreeNode
 import src.trees.buildTreeNode
 
-object PathSum : Problem<PathSumParams, Boolean>() {
+class PathSum : Problem<PathSumParams, Boolean>() {
 
-    @JvmStatic
-    fun main(args: Array<String>) = run()
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = PathSum().run()
+    }
 
     override fun getTestCases(): Array<TestCase<PathSumParams, Boolean>> = arrayOf(
         TestCase(

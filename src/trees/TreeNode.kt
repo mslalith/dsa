@@ -1,7 +1,7 @@
 package src.trees
 
 data class TreeNode(
-    val `val`: Int,
+    var `val`: Int,
     var left: TreeNode? = null,
     var right: TreeNode? = null
 ) : Comparable<TreeNode> {

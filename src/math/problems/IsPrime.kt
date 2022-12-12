@@ -3,10 +3,12 @@ package src.math.problems
 import src.core.Problem
 import src.core.TestCase
 
-object IsPrime : Problem<Int, Boolean>() {
+class IsPrime : Problem<Int, Boolean>() {
 
-    @JvmStatic
-    fun main(args: Array<String>) = run()
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = IsPrime().run()
+    }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(
         TestCase(input = 10, output = false),

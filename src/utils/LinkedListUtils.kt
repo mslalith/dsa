@@ -5,13 +5,11 @@ import src.linkedlist.ListNode
 /**
  * Builders
  */
-fun buildLinkedListFromInt(input: String) = buildLinkedList(input) { it.toInt() }
-
-fun <T> buildLinkedList(input: String, transform: (String) -> T): ListNode<T> {
+fun buildLinkedList(input: String): ListNode? {
     val split = input.split(" ")
-    var head: ListNode<T>? = null
+    var head: ListNode? = null
     var curr = head
-    split.map(transform).forEach {
+    split.map { it.toInt() }.forEach {
         if (head == null) {
             head = ListNode(it)
             curr = head
@@ -20,13 +18,13 @@ fun <T> buildLinkedList(input: String, transform: (String) -> T): ListNode<T> {
         curr?.next = ListNode(it)
         curr = curr?.next
     }
-    return head!!
+    return head
 }
 
 /**
  * Display
  */
-fun <T> stringFromListNode(head: ListNode<T>?): String = buildString {
+fun stringFromListNode(head: ListNode?): String = buildString {
     var curr = head
     while (curr != null) {
         append(curr.`val`)
@@ -39,7 +37,7 @@ fun <T> stringFromListNode(head: ListNode<T>?): String = buildString {
 /**
  * Display
  */
-fun <T> areListNodesEqual(first: ListNode<T>?, second: ListNode<T>?): Boolean {
+fun areListNodesEqual(first: ListNode?, second: ListNode?): Boolean {
     if (first == null && second == null) return true
     if (first == null || second == null) return false
 

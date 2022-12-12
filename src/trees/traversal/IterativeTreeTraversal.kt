@@ -45,11 +45,12 @@ class IterativeTreeTraversal : TreeTraversal {
         while (!stack.empty()) {
             val node = stack.pop()
             stack2.add(node)
-            if (node!!.left != null) stack.push(node.left)
-            if (node.right != null) stack.push(node.right)
+            if (node?.left != null) stack.push(node.left)
+            if (node?.right != null) stack.push(node.right)
         }
         while (!stack2.isEmpty()) {
-            list.add(stack2.pop()!!.`val`)
+            val item = stack2.pop()?.`val` ?: continue
+            list.add(item)
         }
         return list
     }
