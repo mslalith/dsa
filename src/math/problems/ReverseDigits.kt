@@ -1,33 +1,29 @@
-package src.math.problems;
+package src.math.problems
 
-import src.core.Problem;
-import src.core.TestCase;
+import src.core.Problem
+import src.core.TestCase
 
-public class ReverseDigits extends Problem<Integer, Integer> {
+object ReverseDigits : Problem<Int, Int>() {
 
-    public static void main(String[] args) {
-        new ReverseDigits().run();
+    @JvmStatic
+    fun main(args: Array<String>) = run()
+
+    override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(
+        TestCase(123, 321),
+        TestCase(89723478, 87432798)
+    )
+
+    override fun solve(testCaseInput: Int): Int {
+        return reverseDigits(testCaseInput)
     }
 
-    @Override
-    protected TestCase<Integer, Integer>[] getTestCases() {
-        return new TestCase[]{
-                new TestCase(123, 321),
-                new TestCase<>(89723478, 87432798)
-        };
-    }
-
-    @Override
-    protected Integer solve(Integer testCaseInput) {
-        return reverseDigits(testCaseInput);
-    }
-
-    private int reverseDigits(int n) {
-        int rev = 0;
-        while (n > 0) {
-            rev = (rev * 10) + (n % 10);
-            n /= 10;
+    private fun reverseDigits(n: Int): Int {
+        var x = n
+        var rev = 0
+        while (x > 0) {
+            rev = rev * 10 + x % 10
+            x /= 10
         }
-        return rev;
+        return rev
     }
 }

@@ -1,35 +1,30 @@
-package src.math.problems;
+package src.math.problems
 
-import src.core.Problem;
-import src.core.TestCase;
+import src.core.Problem
+import src.core.TestCase
 
-public class IsPrime extends Problem<Integer, Boolean> {
+object IsPrime : Problem<Int, Boolean>() {
 
-    public static void main(String[] args) {
-        new IsPrime().run();
+    @JvmStatic
+    fun main(args: Array<String>) = run()
+
+    override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(
+        TestCase(input = 10, output = false),
+        TestCase(input = 59, output = true)
+    )
+
+    override fun solve(testCaseInput: Int): Boolean {
+        return isPrime(testCaseInput)
     }
 
-    @Override
-    protected TestCase<Integer, Boolean>[] getTestCases() {
-        return new TestCase[]{
-                new TestCase(10, false),
-                new TestCase(59, true)
-        };
-    }
-
-    @Override
-    protected Boolean solve(Integer testCaseInput) {
-        return isPrime(testCaseInput);
-    }
-
-    private boolean isPrime(int n) {
-        if (n == 2 || n == 3) return true;
-        if (n % 2 == 0 || n % 3 == 0) return false;
-
-        for (int i = 5; i * i <= n; i += 6) {
-            if (n % i == 0 || n % (i + 2) == 0) return false;
+    private fun isPrime(n: Int): Boolean {
+        if (n == 2 || n == 3) return true
+        if (n % 2 == 0 || n % 3 == 0) return false
+        var i = 5
+        while (i * i <= n) {
+            if (n % i == 0 || n % (i + 2) == 0) return false
+            i += 6
         }
-
-        return true;
+        return true
     }
 }
