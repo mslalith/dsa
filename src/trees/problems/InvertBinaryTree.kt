@@ -5,10 +5,12 @@ import src.core.TestCase
 import src.trees.TreeNode
 import src.trees.buildTreeNode
 
-object InvertBinaryTree : Problem<TreeNode?, TreeNode?>() {
+class InvertBinaryTree : Problem<TreeNode?, TreeNode?>() {
 
-    @JvmStatic
-    fun main(args: Array<String>) = run()
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = InvertBinaryTree().run()
+    }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, TreeNode?>> = arrayOf(
         TestCase(
