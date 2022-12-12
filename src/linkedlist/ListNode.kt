@@ -1,11 +1,6 @@
-package src.linkedlist;
+package src.linkedlist
 
-public class ListNode<T> {
-    public T val;
-    public ListNode<T> next;
-
-    public ListNode(T val) {
-        this.val = val;
-        this.next = null;
-    }
-}
+data class ListNode(
+    var `val`: Int,
+    var next: ListNode? = null
+)

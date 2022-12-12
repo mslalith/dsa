@@ -1,7 +1,7 @@
-package src.linkedlist.abstraction;
+package src.linkedlist.abstraction
 
-public interface ILinkedListInsertion<T> {
-    void addFirst(T data);
-    void addLast(T data);
-    void add(T data, int index);
+interface ILinkedListInsertion {
+    fun addFirst(data: Int)
+    fun addLast(data: Int)
+    fun add(data: Int, index: Int)
 }

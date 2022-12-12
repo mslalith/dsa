@@ -1,82 +1,76 @@
-package src.linkedlist.problems;
+package src.linkedlist.problems
 
-import src.core.Problem;
-import src.core.TestCase;
-import src.linkedlist.ListNode;
-import src.utils.LinkedListUtilsKt;
+import src.core.Problem
+import src.core.TestCase
+import src.linkedlist.ListNode
+import src.utils.buildLinkedList
+import src.utils.stringFromListNode
 
-class RemoveNthNodeFromListEndParams {
-    ListNode<Integer> head;
-    int lastNthIndexToRemove;
+class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNode?>() {
 
-    public RemoveNthNodeFromListEndParams(ListNode<Integer> head, int lastNthIndexToRemove) {
-        this.head = head;
-        this.lastNthIndexToRemove = lastNthIndexToRemove;
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = RemoveNthNodeFromListEnd().run()
     }
 
-    @Override
-    public String toString() {
-        return "\nLinked List: " + LinkedListUtilsKt.stringFromListNode(head) +
-                "\n" +
-                "Last nth index: " + lastNthIndexToRemove;
+    override fun getTestCases(): Array<TestCase<RemoveNthNodeFromListEndParams, ListNode?>> = arrayOf(
+        TestCase(
+            RemoveNthNodeFromListEndParams(
+                buildLinkedList("1 2 3 4 5"),
+                2
+            ),
+            buildLinkedList("1 2 3 5")
+        ),
+        TestCase(
+            RemoveNthNodeFromListEndParams(
+                buildLinkedList("1"),
+                1
+            ),
+            null
+        ),
+        TestCase(
+            RemoveNthNodeFromListEndParams(
+                buildLinkedList("20 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460"),
+                82
+            ),
+            buildLinkedList("380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460")
+        )
+    )
+
+    override fun solve(testCaseInput: RemoveNthNodeFromListEndParams): ListNode {
+        return removeNthFromEnd(testCaseInput.head, testCaseInput.lastNthIndexToRemove)!!
     }
+
+    private fun removeNthFromEnd(head: ListNode, index: Int): ListNode? {
+        var size = 0
+        var curr: ListNode? = head
+        while (curr != null) {
+            curr = curr.next
+            size++
+        }
+        if (index >= size) return head.next
+        val indexToRemove = size - index
+        var count = 0
+        curr = head
+        while (count != indexToRemove - 1) {
+            curr = curr?.next
+            count++
+        }
+        curr?.next = curr?.next?.next
+        return head
+    }
+
 }
 
-public class RemoveNthNodeFromListEnd extends Problem<RemoveNthNodeFromListEndParams, ListNode<Integer>> {
-    public static void main(String[] args) {
-        new RemoveNthNodeFromListEnd().run();
-    }
-
-    @Override
-    protected TestCase<RemoveNthNodeFromListEndParams, ListNode<Integer>>[] getTestCases() {
-        return new TestCase[]{
-                new TestCase<>(
-                        new RemoveNthNodeFromListEndParams(
-                                LinkedListUtilsKt.buildLinkedListFromInt("1 2 3 4 5"),
-                                2
-                        ),
-                        LinkedListUtilsKt.buildLinkedListFromInt("1 2 3 5")
-                ),
-                new TestCase<>(
-                        new RemoveNthNodeFromListEndParams(
-                                LinkedListUtilsKt.buildLinkedListFromInt("1"),
-                                1
-                        ),
-                        null
-                ),
-                new TestCase<>(
-                        new RemoveNthNodeFromListEndParams(
-                                LinkedListUtilsKt.buildLinkedListFromInt("20 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460"),
-                                82
-                        ),
-                        LinkedListUtilsKt.buildLinkedListFromInt("380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460")
-                )
-        };
-    }
-
-    @Override
-    public ListNode<Integer> solve(RemoveNthNodeFromListEndParams testInput) {
-        return removeNthFromEnd(testInput.head, testInput.lastNthIndexToRemove);
-    }
-
-    ListNode<Integer> removeNthFromEnd(ListNode<Integer> head, int index) {
-        int size = 0;
-        ListNode<Integer> curr = head;
-        while (curr != null) {
-            curr = curr.next;
-            size++;
-        }
-
-        if (index >= size) return head.next;
-
-        int indexToRemove = size - index;
-        int count = 0;
-        curr = head;
-        while (count != indexToRemove - 1) {
-            curr = curr.next;
-            count++;
-        }
-        curr.next = curr.next.next;
-        return head;
+data class RemoveNthNodeFromListEndParams(
+    val head: ListNode,
+    val lastNthIndexToRemove: Int
+) {
+    override fun toString(): String {
+        return """
+              
+              Linked List: ${stringFromListNode(head)}
+              Last nth index: $lastNthIndexToRemove
+              """.trimIndent()
     }
 }

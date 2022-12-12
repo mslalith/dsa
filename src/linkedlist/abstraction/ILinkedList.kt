@@ -1,8 +1,8 @@
-package src.linkedlist.abstraction;
+package src.linkedlist.abstraction
 
-public interface ILinkedList<T> extends ILinkedListInsertion<T>, ILinkedListDeletion<T> {
-    void traverse();
-    int search(T data);
-    boolean isEmpty();
-    int size();
+interface ILinkedList : ILinkedListInsertion, ILinkedListDeletion {
+    fun traverse()
+    fun search(data: Int): Int
+    fun isEmpty(): Boolean
+    fun size(): Int
 }
