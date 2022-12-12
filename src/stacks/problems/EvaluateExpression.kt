@@ -1,67 +1,57 @@
-package src.stacks.problems;
+package src.stacks.problems
 
-import src.core.Problem;
-import src.core.TestCase;
-import src.utils.ListUtilsKt;
+import src.core.Problem
+import src.core.TestCase
+import src.utils.buildArray
+import java.util.Stack
 
-import java.util.Stack;
+class EvaluateExpression : Problem<Array<String>, Int>() {
 
-public class EvaluateExpression extends Problem<String[], Integer> {
-    public static void main(String[] args) {
-        new EvaluateExpression().run();
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = EvaluateExpression().run()
     }
 
-    @Override
-    protected TestCase<String[], Integer>[] getTestCases() {
-        return new TestCase[]{
-                new TestCase<>(ListUtilsKt.buildArray("2 1 + 3 *"), 9),
-                new TestCase<>(ListUtilsKt.buildArray("4 13 5 / +"), 6),
-                new TestCase<>(ListUtilsKt.buildArray("5 1 2 + 4 * + 3 -"), 14),
-                new TestCase<>(ListUtilsKt.buildArray("5"), 5),
-        };
+    override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(
+        TestCase(input = buildArray(input = "2 1 + 3 *"), output = 9),
+        TestCase(input = buildArray(input = "4 13 5 / +"), output = 6),
+        TestCase(input = buildArray(input = "5 1 2 + 4 * + 3 -"), output = 14),
+        TestCase(input = buildArray(input = "5"), output = 5)
+    )
+
+    override fun solve(testCaseInput: Array<String>): Int {
+        return eval(testCaseInput)
     }
 
-    @Override
-    public Integer solve(String[] testInput) {
-        return eval(testInput);
-    }
-
-    int eval(String[] inputArray) {
-        Stack<String> stack = new Stack<>();
-
-        int result = Integer.parseInt(inputArray[0]);
-        for (String input : inputArray) {
+    private fun eval(inputArray: Array<String>): Int {
+        val stack = Stack<String>()
+        var result = inputArray[0].toInt()
+        for (input in inputArray) {
             if (isOperator(input)) {
-                result = handleOperator(input, stack.pop(), stack.pop());
-                stack.push(String.valueOf(result));
+                result = handleOperator(input, stack.pop(), stack.pop())
+                stack.push(result.toString())
             } else {
-                stack.push(input);
+                stack.push(input)
             }
         }
-        return result;
+        return result
     }
 
-    int handleOperator(String operator, String right, String left) {
-        int leftInt = Integer.parseInt(left);
-        int rightInt = Integer.parseInt(right);
-        switch (operator) {
-            case "+":
-                return leftInt + rightInt;
-            case "-":
-                return leftInt - rightInt;
-            case "*":
-                return leftInt * rightInt;
-            case "/":
-                return leftInt / rightInt;
-            default:
-                throw new UnsupportedOperationException(operator + " not supported");
+    private fun handleOperator(operator: String, right: String, left: String): Int {
+        val leftInt = left.toInt()
+        val rightInt = right.toInt()
+        return when (operator) {
+            "+" -> leftInt + rightInt
+            "-" -> leftInt - rightInt
+            "*" -> leftInt * rightInt
+            "/" -> leftInt / rightInt
+            else -> throw UnsupportedOperationException("$operator not supported")
         }
     }
 
-    boolean isOperator(String character) {
-        if (character.equals("+")) return true;
-        if (character.equals("-")) return true;
-        if (character.equals("*")) return true;
-        return character.equals("/");
+    private fun isOperator(character: String): Boolean {
+        if (character == "+") return true
+        if (character == "-") return true
+        return if (character == "*") true else character == "/"
     }
 }

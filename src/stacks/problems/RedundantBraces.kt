@@ -1,55 +1,46 @@
-package src.stacks.problems;
+package src.stacks.problems
 
-import src.core.Problem;
-import src.core.TestCase;
+import src.core.Problem
+import src.core.TestCase
+import java.util.Stack
 
-import java.util.Stack;
+class RedundantBraces : Problem<String, Int>() {
 
-public class RedundantBraces extends Problem<String, Integer> {
-    public static void main(String[] args) {
-        new RedundantBraces().run();
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = RedundantBraces().run()
     }
 
-    @Override
-    protected TestCase<String, Integer>[] getTestCases() {
-        return new TestCase[]{
-                new TestCase<>("((a+b))", 1),
-                new TestCase<>("(a+(a+b))", 0),
-                new TestCase<>("((a*b)+(c+d))", 0),
-                new TestCase<>("(a+((b*c)+c))", 0),
-        };
+    override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(
+        TestCase(input = "((a+b))", output = 1),
+        TestCase(input = "(a+(a+b))", output = 0),
+        TestCase(input = "((a*b)+(c+d))", output = 0),
+        TestCase(input = "(a+((b*c)+c))", output = 0)
+    )
+
+    override fun solve(testCaseInput: String): Int {
+        return braces(testCaseInput)
     }
 
-    @Override
-    public Integer solve(String testInput) {
-        return braces(testInput);
-    }
-
-    int braces(String input) {
-        Stack<Character> stack = new Stack<>();
-        for (char ch : input.toCharArray()) {
+    private fun braces(input: String): Int {
+        val stack = Stack<Char>()
+        for (ch in input.toCharArray()) {
             if (isOpening(ch) || isOperator(ch)) {
-                stack.push(ch);
+                stack.push(ch)
             } else if (isClosing(ch)) {
-                if (isOpening(stack.peek())) return 1;
+                if (isOpening(stack.peek())) return 1
                 while (!isOpening(stack.peek())) {
-                    stack.pop();
+                    stack.pop()
                 }
-                stack.pop();
+                stack.pop()
             }
         }
-        return 0;
+        return 0
     }
 
-    boolean isOpening(char ch) {
-        return ch == '(';
-    }
+    private fun isOpening(ch: Char): Boolean = ch == '('
 
-    boolean isClosing(char ch) {
-        return ch == ')';
-    }
+    private fun isClosing(ch: Char): Boolean = ch == ')'
 
-    boolean isOperator(char ch) {
-        return ch == '+' || ch == '-' || ch == '*' || ch == '/';
-    }
+    private fun isOperator(ch: Char): Boolean = ch == '+' || ch == '-' || ch == '*' || ch == '/'
 }
