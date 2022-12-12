@@ -1,20 +1,12 @@
-package src.trees;
+package src.trees
 
-import org.jetbrains.annotations.NotNull;
+data class TreeNode(
+    val `val`: Int,
+    var left: TreeNode? = null,
+    var right: TreeNode? = null
+) : Comparable<TreeNode> {
 
-public class TreeNode implements Comparable<TreeNode> {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-
-    public TreeNode(int val) {
-        this.val = val;
-        left = null;
-        right = null;
-    }
-
-    @Override
-    public int compareTo(@NotNull TreeNode o) {
-        return Integer.compare(val, o.val);
+    override fun compareTo(other: TreeNode): Int {
+        return `val`.compareTo(other.`val`)
     }
 }

@@ -5,27 +5,28 @@ import src.core.TestCase
 import src.trees.TreeNode
 import src.trees.buildTreeNode
 
-private fun main() = PathSum().run()
+object PathSum : Problem<PathSumParams, Boolean>() {
 
-class PathSum : Problem<PathSumParams, Boolean>() {
+    @JvmStatic
+    fun main(args: Array<String>) = run()
 
     override fun getTestCases(): Array<TestCase<PathSumParams, Boolean>> {
         return arrayOf(
             TestCase(
-                PathSumParams(treeString = "5,4,8,11,null,13,4,7,2,null,null,null,1", targetSum = 22),
-                true
+                input = PathSumParams(treeString = "5,4,8,11,null,13,4,7,2,null,null,null,1", targetSum = 22),
+                output = true
             ),
             TestCase(
-                PathSumParams(treeString = "-2,null,-3", targetSum = -5),
-                true
+                input = PathSumParams(treeString = "-2,null,-3", targetSum = -5),
+                output = true
             ),
             TestCase(
-                PathSumParams(treeString = "1,-2,-3,1,3,-2,null,-1", targetSum = -1),
-                true
+                input = PathSumParams(treeString = "1,-2,-3,1,3,-2,null,-1", targetSum = -1),
+                output = true
             ),
             TestCase(
-                PathSumParams(treeString = "1,2", targetSum = 1),
-                false
+                input = PathSumParams(treeString = "1,2", targetSum = 1),
+                output = false
             )
         )
     }

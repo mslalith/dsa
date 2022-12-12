@@ -12,18 +12,19 @@ fun buildTreeNode(input: String): TreeNode? {
     var count = 1
     while (count < numbers.size && !queue.isEmpty()) {
         val node = queue.removeFirst()
-        numbers[count++].let { left ->
-            if (left != null) {
-                node.left = TreeNode(left)
-                queue.add(node.left)
-            } else null
+
+        numbers[count++]?.let { left ->
+            val treeNode = TreeNode(left)
+            node.left = treeNode
+            queue.add(treeNode)
         }
+
         if (count >= numbers.size) break
-        numbers[count++].let { right ->
-            if (right != null) {
-                node.right = TreeNode(right)
-                queue.add(node.right)
-            } else null
+
+        numbers[count++]?.let { right ->
+            val treeNode = TreeNode(right)
+            node.right = treeNode
+            queue.add(treeNode)
         }
     }
 

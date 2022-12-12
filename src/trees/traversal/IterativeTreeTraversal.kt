@@ -1,69 +1,56 @@
-package src.trees.traversal;
+package src.trees.traversal
 
-import src.trees.TreeNode;
+import src.trees.TreeNode
+import java.util.Stack
 
-import java.util.ArrayList;
-import java.util.Stack;
+class IterativeTreeTraversal : TreeTraversal {
 
-public class IterativeTreeTraversal implements TreeTraversal {
-    @Override
-    public ArrayList<Integer> preOrderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        ArrayList<Integer> list = new ArrayList<>();
-        TreeNode node = root;
-
+    override fun preOrderTraversal(root: TreeNode?): List<Int> {
+        val stack = Stack<TreeNode>()
+        val list = mutableListOf<Int>()
+        var node: TreeNode? = root
         while (node != null || !stack.empty()) {
             while (node != null) {
-                stack.add(node);
-                list.add(node.val);
-                node = node.left;
+                stack.add(node)
+                list.add(node.`val`)
+                node = node.left
             }
-            node = stack.pop();
-            node = node.right;
+            node = stack.pop()
+            node = node.right
         }
-
-        return list;
+        return list
     }
 
-    @Override
-    public ArrayList<Integer> inOrderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        ArrayList<Integer> list = new ArrayList<>();
-        TreeNode node = root;
-
+    override fun inOrderTraversal(root: TreeNode?): List<Int> {
+        val stack = Stack<TreeNode>()
+        val list = mutableListOf<Int>()
+        var node: TreeNode? = root
         while (node != null || !stack.empty()) {
             while (node != null) {
-                stack.add(node);
-                node = node.left;
+                stack.add(node)
+                node = node.left
             }
-            node = stack.pop();
-            list.add(node.val);
-            node = node.right;
+            node = stack.pop()
+            list.add(node.`val`)
+            node = node.right
         }
-
-        return list;
+        return list
     }
 
-    @Override
-    public ArrayList<Integer> postOrderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        Stack<TreeNode> stack2 = new Stack<>();
-        ArrayList<Integer> list = new ArrayList<>();
-
-        stack.add(root);
+    override fun postOrderTraversal(root: TreeNode?): List<Int> {
+        val stack = Stack<TreeNode?>()
+        val stack2 = Stack<TreeNode?>()
+        val list = mutableListOf<Int>()
+        stack.add(root)
         while (!stack.empty()) {
-            TreeNode node = stack.pop();
-            stack2.add(node);
-            if (node.left != null)
-                stack.push(node.left);
-            if (node.right != null)
-                stack.push(node.right);
+            val node = stack.pop()
+            stack2.add(node)
+            if (node!!.left != null) stack.push(node.left)
+            if (node.right != null) stack.push(node.right)
         }
-
         while (!stack2.isEmpty()) {
-            list.add(stack2.pop().val);
+            list.add(stack2.pop()!!.`val`)
         }
-
-        return list;
+        return list
     }
 }
