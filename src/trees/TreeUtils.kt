@@ -1,26 +1,29 @@
 package src.trees
 
-import java.util.PriorityQueue
+fun buildTreeNode(input: String): TreeNode? {
+    val numStrings = input.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+    val numbers = numStrings.map { it.toIntOrNull() }
+    if (numStrings.size != numbers.size) throw Exception("Unable to parse input")
 
-fun buildTreeNode(input: String): TreeNode {
-    val numStrings = input.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-    val numbers = numStrings.map { it.toInt() }
-    if (numStrings.size != numbers.size) throw Exception ("Unable to parse input")
-
-    val queue = PriorityQueue<TreeNode>()
-    val root = TreeNode(numbers[0])
+    val queue = ArrayDeque<TreeNode>()
+    val root = TreeNode(numbers[0] ?: return null)
     queue.add(root)
 
     var count = 1
     while (count < numbers.size && !queue.isEmpty()) {
-        val node = queue.remove()
-        numbers[count++].takeIf { it != -1 }?.let { left ->
-            node.left = TreeNode(left)
-            queue.add(node.left)
+        val node = queue.removeFirst()
+        numbers[count++].let { left ->
+            if (left != null) {
+                node.left = TreeNode(left)
+                queue.add(node.left)
+            } else null
         }
-        numbers[count++].takeIf { it != -1 }?.let { right ->
-            node.right = TreeNode(right)
-            queue.add(node.right)
+        if (count >= numbers.size) break
+        numbers[count++].let { right ->
+            if (right != null) {
+                node.right = TreeNode(right)
+                queue.add(node.right)
+            } else null
         }
     }
 
