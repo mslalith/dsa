@@ -1,8 +1,8 @@
-package src.stacks;
+package src.stacks
 
-public interface IStack<T> {
-    void push(T item);
-    T pop();
-    T peek();
-    boolean isEmpty();
+interface IStack<T> {
+    fun push(item: T)
+    fun pop(): T?
+    fun peek(): T?
+    fun isEmpty(): Boolean
 }

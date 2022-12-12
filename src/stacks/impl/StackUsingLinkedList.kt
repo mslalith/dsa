@@ -1,63 +1,44 @@
-package src.stacks.impl;
+package src.stacks.impl
 
-import src.linkedlist.ListNode;
-import src.stacks.IStack;
+import src.linkedlist.ListNode
+import src.stacks.IStack
 
-public class StackUsingLinkedList<T> implements IStack<T> {
-    ListNode<T> head;
+class StackUsingLinkedList<T> : IStack<T> {
 
-    public StackUsingLinkedList() {
-        this.head = null;
-    }
+    private var head: ListNode<T>? = null
 
-    @Override
-    public void push(T item) {
-        ListNode<T> newNode = new ListNode<>(item);
+    override fun push(item: T) {
+        val newNode = ListNode(item)
         if (isEmpty()) {
-            head = newNode;
-            return;
+            head = newNode
+            return
         }
-
-        newNode.next = head;
-        head = newNode;
+        newNode.next = head
+        head = newNode
     }
 
-    @Override
-    public T pop() {
-        if (isEmpty()) return null;
-
-        T item = head.val;
-        head = head.next;
-        return item;
+    override fun pop(): T? {
+        if (isEmpty()) return null
+        val item = head?.`val`
+        head = head?.next
+        return item
     }
 
-    @Override
-    public T peek() {
-        if (isEmpty()) return null;
-        return head.val;
-    }
+    override fun peek(): T? = if (isEmpty()) null else head?.`val`
 
-    @Override
-    public boolean isEmpty() {
-        return head == null;
-    }
+    override fun isEmpty(): Boolean = head == null
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        ListNode<T> curr = head;
+    override fun toString(): String = buildString {
+        var curr = head
         if (curr != null) {
-            sb.append(curr.val);
-            curr = curr.next;
+            append(curr.`val`)
+            curr = curr.next
             while (curr != null) {
-                sb.insert(0, curr.val + ", ");
-                curr = curr.next;
+                insert(0, curr.`val`.toString() + ", ")
+                curr = curr.next
             }
         }
-
-        sb.insert(0, "[");
-        sb.append("]");
-        return sb.toString();
+        insert(0, "[")
+        append("]")
     }
 }

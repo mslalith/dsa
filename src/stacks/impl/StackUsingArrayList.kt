@@ -1,48 +1,31 @@
-package src.stacks.impl;
+package src.stacks.impl
 
-import src.stacks.IStack;
+import src.stacks.IStack
 
-import java.util.ArrayList;
+class StackUsingArrayList<T> : IStack<T> {
 
-public class StackUsingArrayList<T> implements IStack<T> {
-    ArrayList<T> arrayList;
+    private var arrayList = arrayListOf<T>()
 
-    public StackUsingArrayList() {
-        arrayList = new ArrayList<>();
+    override fun push(item: T) {
+        arrayList.add(item)
     }
 
-    @Override
-    public void push(T item) {
-        arrayList.add(item);
+    override fun pop(): T? {
+        val item = arrayList.last()
+        arrayList.removeLast()
+        return item
     }
 
-    @Override
-    public T pop() {
-        int lastIndex = arrayList.size() - 1;
-        T item = arrayList.get(lastIndex);
-        arrayList.remove(lastIndex);
-        return item;
-    }
+    override fun peek(): T? = arrayList.last()
 
-    @Override
-    public T peek() {
-        return arrayList.get(arrayList.size() - 1);
-    }
+    override fun isEmpty(): Boolean = arrayList.isEmpty()
 
-    @Override
-    public boolean isEmpty() {
-        return arrayList.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (int i = 0; i < arrayList.size(); i++) {
-            sb.append(arrayList.get(i));
-            if (i != arrayList.size() - 1) sb.append(", ");
+    override fun toString(): String = buildString {
+        append("[")
+        for (i in arrayList.indices) {
+            append(arrayList[i])
+            if (i != arrayList.size - 1) append(", ")
         }
-        sb.append("]");
-        return sb.toString();
+        append("]")
     }
 }
