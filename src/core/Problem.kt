@@ -1,63 +1,61 @@
-package src.core;
+package src.core
 
-import src.linkedlist.ListNode;
-import src.utils.LinkedListUtilsKt;
-import src.utils.ListUtilsKt;
+import src.linkedlist.ListNode
+import src.utils.stringFromArray
+import src.utils.stringFromListNode
 
-import java.util.Arrays;
+abstract class Problem<I, O> {
 
-public abstract class Problem<I, O> {
-    protected abstract TestCase<I, O>[] getTestCases();
+    protected abstract fun getTestCases(): Array<TestCase<I, O>>
+    protected abstract fun solve(testCaseInput: I): O
 
-    protected abstract O solve(I testCaseInput);
+    fun runSilent(): TestResult {
+        val testCases = getTestCases()
+        val passed = testCases.count { runSingle(testCase = it, silent = true) }
+        val failed = testCases.size - passed
 
-    public TestResult runSilent() {
-        int allTests = getTestCases().length;
-        int passed = 0;
-        int failed = 0;
-        for (TestCase<I, O> testCase : getTestCases()) {
-            if (runSingle(testCase, true)) passed++;
-            else failed++;
-        }
-        return new TestResult(allTests, passed, failed);
+        return TestResult(
+            allTests = testCases.size,
+            passed = passed,
+            failed = failed
+        )
     }
 
-    public void run() {
-        for (TestCase<I, O> testCase : getTestCases()) {
-            runSingle(testCase, false);
-        }
-    }
+    fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
 
-    private boolean runSingle(TestCase<I, O> testCase, boolean silent) {
-        String inputString = stringFromType(testCase.input);
-        O output = solve(testCase.input);
-        String outputString = stringFromType(output);
-        if (!silent) System.out.println("Input: " + inputString);
-        if (!silent) System.out.println("Output: " + outputString);
+    private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
+        val inputString = stringFromType(testCase.input)
+        val output = solve(testCase.input)
+        val outputString = stringFromType(output)
 
-        boolean isTestPassed = isTestPassed(testCase.output, output);
+        if (!silent) println("Input: $inputString")
+        if (!silent) println("Output: $outputString")
+
+        val isTestPassed = isTestPassed<O>(testCase.output, output)
         if (!silent) {
-            if (!isTestPassed) System.out.println("Expected: " + stringFromType(testCase.output));
-            System.out.println(isTestPassed ? "✅ Passed" : "❌ Failed");
-            System.out.println();
+            if (!isTestPassed) println("Expected: " + stringFromType(testCase.output))
+            println(if (isTestPassed) "✅ Passed" else "❌ Failed")
+            println()
         }
-        return isTestPassed;
+        return isTestPassed
     }
 
-    protected String stringFromType(Object input) {
-        if (input == null) return "null";
-        if (input instanceof String[]) return ListUtilsKt.stringFromArray((String[]) input);
-        if (input instanceof int[]) return ListUtilsKt.stringFromArray((int[]) input);
-        if (input instanceof ListNode<?>) return LinkedListUtilsKt.stringFromListNode((ListNode<?>) input);
-        return input.toString();
+    private fun stringFromType(input: Any?): String = when(input) {
+        is Array<*> -> stringFromArray(input)
+        is IntArray -> stringFromArray(input)
+        is ListNode -> stringFromListNode(input)
+        null -> "null"
+        else -> input.toString()
     }
 
-    protected <T> boolean isTestPassed(T actual, T expected) {
-        if (actual == null && expected == null) return true;
-        if (actual == null || expected == null) return false;
-        if (actual instanceof int[]) return Arrays.equals((int[]) actual, (int[]) expected);
-        if (actual instanceof ListNode<?>)
-            return LinkedListUtilsKt.areListNodesEqual((ListNode) actual, (ListNode) expected);
-        return actual.equals(expected);
+    private fun <T> isTestPassed(actual: T?, expected: T?): Boolean {
+        if (actual == null && expected == null) return true
+        if (actual == null || expected == null) return false
+//        if (actual is IntArray) return Arrays.equals(actual as IntArray?, expected as IntArray?)
+        return actual == expected
+//        return if (actual is ListNode<*>) areListNodesEqual<Any>(
+//            actual as ListNode<*>?,
+//            expected as ListNode<*>?
+//        ) else actual == expected
     }
 }

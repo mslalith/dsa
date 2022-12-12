@@ -18,7 +18,7 @@ object IStackDemo {
         println()
     }
 
-    private fun baseDemo(iStack: IStack<Int?>) {
+    private fun baseDemo(iStack: IStack) {
         val end = 5
         println("Pushing 1 till $end to stack")
         for (i in 1..end) {

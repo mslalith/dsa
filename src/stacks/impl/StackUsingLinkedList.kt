@@ -3,28 +3,31 @@ package src.stacks.impl
 import src.linkedlist.ListNode
 import src.stacks.IStack
 
-class StackUsingLinkedList<T> : IStack<T> {
+class StackUsingLinkedList : IStack {
 
-    private var head: ListNode<T>? = null
+    private var head: ListNode? = null
 
-    override fun push(item: T) {
+    override fun push(item: Int) {
         val newNode = ListNode(item)
+
         if (isEmpty()) {
             head = newNode
             return
         }
+
         newNode.next = head
         head = newNode
     }
 
-    override fun pop(): T? {
+    override fun pop(): Int? {
         if (isEmpty()) return null
+
         val item = head?.`val`
         head = head?.next
         return item
     }
 
-    override fun peek(): T? = if (isEmpty()) null else head?.`val`
+    override fun peek(): Int? = if (isEmpty()) null else head?.`val`
 
     override fun isEmpty(): Boolean = head == null
 

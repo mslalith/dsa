@@ -2,21 +2,21 @@ package src.stacks.impl
 
 import src.stacks.IStack
 
-class StackUsingArrayList<T> : IStack<T> {
+class StackUsingArrayList : IStack {
 
-    private var arrayList = arrayListOf<T>()
+    private var arrayList = arrayListOf<Int>()
 
-    override fun push(item: T) {
+    override fun push(item: Int) {
         arrayList.add(item)
     }
 
-    override fun pop(): T? {
-        val item = arrayList.last()
+    override fun pop(): Int? {
+        val item = arrayList.lastOrNull()
         arrayList.removeLast()
         return item
     }
 
-    override fun peek(): T? = arrayList.last()
+    override fun peek(): Int? = arrayList.lastOrNull()
 
     override fun isEmpty(): Boolean = arrayList.isEmpty()
 

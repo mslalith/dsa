@@ -1,40 +1,61 @@
-package src.core;
+package src.core
 
-import src.linkedlist.problems.RemoveDuplicatesFromSortedList;
-import src.linkedlist.problems.RemoveNthNodeFromListEnd;
-import src.stacks.problems.*;
+import src.linkedlist.problems.RemoveDuplicatesFromSortedList
+import src.linkedlist.problems.RemoveNthNodeFromListEnd
+import src.math.problems.IsPrime
+import src.math.problems.ReverseDigits
+import src.math.problems.SumOfDigits
+import src.stacks.problems.EvaluateExpression
+import src.stacks.problems.GenerateAllParentheses
+import src.stacks.problems.NearestSmallerElement
+import src.stacks.problems.RedundantBraces
+import src.trees.problems.InvertBinaryTree
+import src.trees.problems.PathSum
 
-public class RunAllProblems {
-    public static void main(String[] args) {
-        System.out.println("======= Running Stack problems =======");
-        run(new EvaluateExpression());
-        run(new GenerateAllParentheses());
-        run(new NearestSmallerElement());
-        run(new RedundantBraces());
-        System.out.println();
+object RunAllProblems {
 
-        System.out.println("======= Running Linked List problems =======");
-        run(new RemoveDuplicatesFromSortedList());
-        run(new RemoveNthNodeFromListEnd());
+    @JvmStatic
+    fun main(args: Array<String>) {
+        println("======= Running Math problems =======")
+        run(IsPrime())
+        run(ReverseDigits())
+        run(SumOfDigits())
+        println()
+
+        println("======= Running Stack problems =======")
+        run(EvaluateExpression())
+        run(GenerateAllParentheses())
+        run(NearestSmallerElement())
+        run(RedundantBraces())
+        println()
+
+        println("======= Running Linked List problems =======")
+        run(RemoveDuplicatesFromSortedList())
+        run(RemoveNthNodeFromListEnd())
+
+        println("======= Running Tree problems =======")
+        run(InvertBinaryTree())
+        run(PathSum())
+        println()
     }
 
-    static void run(Problem<?, ?> problem) {
-        TestResult testResult = problem.runSilent();
-        StringBuilder sb = new StringBuilder();
+    private fun run(problem: Problem<*, *>) {
+        buildString {
+            val testResult = problem.runSilent()
+            append("Running ${problem.javaClass.simpleName}")
 
-        sb.append("Running ").append(problem.getClass().getSimpleName());
-        sb.append(": (").append(testResult.allTests).append(") test").append(testResult.allTests > 1 ? "s" : "");
-        sb.append("\n");
+            val testSuffix = if (testResult.allTests > 1) "s" else ""
+            append(": (${testResult.allTests}) test$testSuffix")
+            appendLine()
 
-        String passedText = testResult.hasAllTestsPassed() ? "All" : String.valueOf(testResult.passed);
-        sb.append("✅ ").append(passedText).append(" Passed");
-        sb.append("\n");
+            val passedText = if (testResult.hasAllTestsPassed()) "All" else testResult.passed.toString()
+            append("✅ $passedText Passed")
+            appendLine()
 
-        if (testResult.failed > 0) {
-            sb.append("❌ ").append(testResult.failed).append(" Failed");
-            sb.append("\n");
-        }
-
-        System.out.println(sb);
+            if (testResult.failed > 0) {
+                append("❌ ${testResult.failed} Failed")
+                appendLine()
+            }
+        }.also(::println)
     }
 }

@@ -1,8 +1,8 @@
 package src.stacks
 
-interface IStack<T> {
-    fun push(item: T)
-    fun pop(): T?
-    fun peek(): T?
+interface IStack {
+    fun push(item: Int)
+    fun pop(): Int?
+    fun peek(): Int?
     fun isEmpty(): Boolean
 }

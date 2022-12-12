@@ -3,10 +3,12 @@ package src.math.problems
 import src.core.Problem
 import src.core.TestCase
 
-object SumOfDigits : Problem<Int, Int>() {
+class SumOfDigits : Problem<Int, Int>() {
 
-    @JvmStatic
-    fun main(args: Array<String>) = run()
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = SumOfDigits().run()
+    }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(
         TestCase(123, 6),
