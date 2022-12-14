@@ -10,6 +10,7 @@ import src.stacks.problems.GenerateAllParentheses
 import src.stacks.problems.NearestSmallerElement
 import src.stacks.problems.RedundantBraces
 import src.trees.problems.InvertBinaryTree
+import src.trees.problems.IsValidBST
 import src.trees.problems.PathSum
 
 object RunAllProblems {
@@ -36,6 +37,7 @@ object RunAllProblems {
         println("======= Running Tree problems =======")
         run(InvertBinaryTree())
         run(PathSum())
+        run(IsValidBST())
         println()
     }
 
