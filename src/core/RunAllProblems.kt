@@ -1,5 +1,6 @@
 package src.core
 
+import src.array.problems.FindFirstAndLastPositionOfElementInSortedArray
 import src.array.problems.PlusOne
 import src.array.problems.SpiralMatrix
 import src.linkedlist.problems.RemoveDuplicatesFromSortedList
@@ -28,6 +29,7 @@ object RunAllProblems {
 
         println("======= Running Array problems =======")
         run(PlusOne())
+        run(FindFirstAndLastPositionOfElementInSortedArray())
         run(SpiralMatrix())
         println()
 

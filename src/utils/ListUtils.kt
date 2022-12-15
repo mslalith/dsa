@@ -5,12 +5,16 @@ package src.utils
  */
 fun buildArray(input: String): Array<String> = buildList(input).toTypedArray()
 
-fun buildArrayInt(input: String): IntArray = buildList(input) { it.toInt() }.toIntArray()
+fun buildIntArray(input: String, separator: String = " "): IntArray = buildList(
+    input = input,
+    separator = separator
+) { it.toInt() }.toIntArray()
 
-fun buildList(input: String): List<String> = buildList(input) { it }
+fun buildList(input: String): List<String> = buildList(input = input, separator = " ") { it }
 
-fun <T> buildList(input: String, transform: (String) -> T): List<T> {
-    return input.split(" ").map(transform)
+fun <T> buildList(input: String, separator: String, transform: (String) -> T): List<T> {
+    if (input.isEmpty()) return emptyList()
+    return input.split(separator).map(transform)
 }
 
 /**
