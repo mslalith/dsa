@@ -1,5 +1,7 @@
 package src.core
 
+import src.array.problems.PlusOne
+import src.array.problems.SpiralMatrix
 import src.linkedlist.problems.RemoveDuplicatesFromSortedList
 import src.linkedlist.problems.RemoveNthNodeFromListEnd
 import src.math.problems.IsPrime
@@ -9,6 +11,7 @@ import src.stacks.problems.EvaluateExpression
 import src.stacks.problems.GenerateAllParentheses
 import src.stacks.problems.NearestSmallerElement
 import src.stacks.problems.RedundantBraces
+import src.string.problems.LongestCommonPrefix
 import src.trees.problems.InvertBinaryTree
 import src.trees.problems.IsValidBST
 import src.trees.problems.PathSum
@@ -21,6 +24,15 @@ object RunAllProblems {
         run(IsPrime())
         run(ReverseDigits())
         run(SumOfDigits())
+        println()
+
+        println("======= Running Array problems =======")
+        run(PlusOne())
+        run(SpiralMatrix())
+        println()
+
+        println("======= Running String problems =======")
+        run(LongestCommonPrefix())
         println()
 
         println("======= Running Stack problems =======")
