@@ -4,7 +4,7 @@ import src.core.Problem
 import src.core.TestCase
 import src.linkedlist.ListNode
 import src.utils.buildLinkedList
-import src.utils.stringFromListNode
+import src.utils.displayStringFromListNode
 
 class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNode?>() {
 
@@ -42,22 +42,22 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
     }
 
     private fun removeNthFromEnd(head: ListNode?, index: Int): ListNode? {
-        var size = 0
-        var curr: ListNode? = head
-        while (curr != null) {
-            curr = curr.next
-            size++
+        if (head == null) return null
+
+        val start: ListNode? = ListNode(0)
+        start?.next = head
+        var slow = start
+        var fast = start
+
+        for (i in 0 until index + 1) fast = fast?.next
+
+        while (fast != null) {
+            fast = fast.next
+            slow = slow?.next
         }
-        if (index >= size) return head?.next
-        val indexToRemove = size - index
-        var count = 0
-        curr = head
-        while (count != indexToRemove - 1) {
-            curr = curr?.next
-            count++
-        }
-        curr?.next = curr?.next?.next
-        return head
+
+        slow?.next = slow?.next?.next
+        return start?.next
     }
 
 }
@@ -69,7 +69,7 @@ data class RemoveNthNodeFromListEndParams(
     override fun toString(): String {
         return """
               
-              Linked List: ${stringFromListNode(head)}
+              Linked List: ${displayStringFromListNode(head)}
               Last nth index: $lastNthIndexToRemove
               """.trimIndent()
     }

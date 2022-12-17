@@ -5,8 +5,8 @@ import src.linkedlist.ListNode
 /**
  * Builders
  */
-fun buildLinkedList(input: String): ListNode? {
-    val split = input.split(" ")
+fun buildLinkedList(input: String, separator: String = " "): ListNode? {
+    val split = input.split(separator)
     var head: ListNode? = null
     var curr = head
     split.map { it.toInt() }.forEach {
@@ -24,7 +24,7 @@ fun buildLinkedList(input: String): ListNode? {
 /**
  * Display
  */
-fun stringFromListNode(head: ListNode?): String = buildString {
+fun displayStringFromListNode(head: ListNode?): String = buildString {
     var curr = head
     while (curr != null) {
         append(curr.`val`)
@@ -32,6 +32,16 @@ fun stringFromListNode(head: ListNode?): String = buildString {
         curr = curr.next
     }
     append("null")
+}
+
+fun stringFromListNode(head: ListNode?, separator: String = " "): String = buildString {
+    var curr = head
+    while (curr != null) {
+        append(curr.`val`)
+        append(separator)
+        curr = curr.next
+    }
+    deleteCharAt(lastIndex)
 }
 
 /**

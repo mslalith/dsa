@@ -3,7 +3,7 @@ package src.core
 import src.linkedlist.ListNode
 import src.utils.areListNodesEqual
 import src.utils.stringFromArray
-import src.utils.stringFromListNode
+import src.utils.displayStringFromListNode
 
 abstract class Problem<I, O> {
 
@@ -44,7 +44,7 @@ abstract class Problem<I, O> {
     private fun stringFromType(input: Any?): String = when (input) {
         is Array<*> -> stringFromArray(input)
         is IntArray -> stringFromArray(input)
-        is ListNode -> stringFromListNode(input)
+        is ListNode -> displayStringFromListNode(input)
         null -> "null"
         else -> input.toString()
     }
