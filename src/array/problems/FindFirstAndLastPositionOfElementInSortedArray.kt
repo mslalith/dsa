@@ -48,7 +48,7 @@ class FindFirstAndLastPositionOfElementInSortedArray :
 
     override fun solve(testCaseInput: FindFirstAndLastPositionOfElementInSortedArrayParams): IntArray {
         return searchRange(
-            nums = buildIntArray(input = testCaseInput.nums, separator = ","),
+            nums = buildIntArray(input = testCaseInput.nums),
             target = testCaseInput.target
         )
     }

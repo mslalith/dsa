@@ -13,10 +13,10 @@ class EvaluateExpression : Problem<Array<String>, Int>() {
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(
-        TestCase(input = buildArray(input = "2 1 + 3 *"), output = 9),
-        TestCase(input = buildArray(input = "4 13 5 / +"), output = 6),
-        TestCase(input = buildArray(input = "5 1 2 + 4 * + 3 -"), output = 14),
-        TestCase(input = buildArray(input = "5"), output = 5)
+        TestCase(input = buildArray(input = "2 1 + 3 *", separator = " "), output = 9),
+        TestCase(input = buildArray(input = "4 13 5 / +", separator = " "), output = 6),
+        TestCase(input = buildArray(input = "5 1 2 + 4 * + 3 -", separator = " "), output = 14),
+        TestCase(input = buildArray(input = "5", separator = " "), output = 5)
     )
 
     override fun solve(testCaseInput: Array<String>): Int {

@@ -14,11 +14,11 @@ class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
 
     override fun getTestCases(): Array<TestCase<ListNode?, Boolean>> = arrayOf(
         TestCase(
-            input = buildLinkedList(input = "1,2,2,1", separator = ","),
+            input = buildLinkedList(input = "1,2,2,1"),
             output = true
         ),
         TestCase(
-            input = buildLinkedList(input = "1,21", separator = ","),
+            input = buildLinkedList(input = "1,21"),
             output = false
         )
     )

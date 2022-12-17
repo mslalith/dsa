@@ -5,7 +5,7 @@ import src.linkedlist.ListNode
 /**
  * Builders
  */
-fun buildLinkedList(input: String, separator: String = " "): ListNode? {
+fun buildLinkedList(input: String, separator: String = ","): ListNode? {
     val split = input.split(separator)
     var head: ListNode? = null
     var curr = head
@@ -34,7 +34,7 @@ fun displayStringFromListNode(head: ListNode?): String = buildString {
     append("null")
 }
 
-fun stringFromListNode(head: ListNode?, separator: String = " "): String = buildString {
+fun stringFromListNode(head: ListNode?, separator: String = ","): String = buildString {
     var curr = head
     while (curr != null) {
         append(curr.`val`)

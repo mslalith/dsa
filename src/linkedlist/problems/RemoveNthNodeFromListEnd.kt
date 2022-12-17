@@ -16,10 +16,10 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
     override fun getTestCases(): Array<TestCase<RemoveNthNodeFromListEndParams, ListNode?>> = arrayOf(
         TestCase(
             input = RemoveNthNodeFromListEndParams(
-                head = buildLinkedList(input = "1 2 3 4 5"),
+                head = buildLinkedList(input = "1,2,3,4,5"),
                 lastNthIndexToRemove = 2
             ),
-            output = buildLinkedList(input = "1 2 3 5")
+            output = buildLinkedList(input = "1,2,3,5")
         ),
         TestCase(
             input = RemoveNthNodeFromListEndParams(
@@ -30,10 +30,10 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
         ),
         TestCase(
             input = RemoveNthNodeFromListEndParams(
-                head = buildLinkedList(input = "20 380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460"),
+                head = buildLinkedList(input = "20,380,349,322,389,424,429,120,64,691,677,58,327,631,916,203,484,918,596,252,509,644,33,460"),
                 lastNthIndexToRemove = 82
             ),
-            output = buildLinkedList(input = "380 349 322 389 424 429 120 64 691 677 58 327 631 916 203 484 918 596 252 509 644 33 460")
+            output = buildLinkedList(input = "380,349,322,389,424,429,120,64,691,677,58,327,631,916,203,484,918,596,252,509,644,33,460")
         )
     )
 

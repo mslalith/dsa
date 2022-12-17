@@ -14,8 +14,8 @@ class RemoveDuplicatesFromSortedList : Problem<ListNode?, ListNode?>() {
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(
         TestCase(
-            input = buildLinkedList(input = "1 2 2 3 3"),
-            output = buildLinkedList(input = "1 2 3")
+            input = buildLinkedList(input = "1,2,2,3,3"),
+            output = buildLinkedList(input = "1,2,3")
         )
     )
 
