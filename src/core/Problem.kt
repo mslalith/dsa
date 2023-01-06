@@ -10,6 +10,8 @@ abstract class Problem<I, O> {
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
     protected abstract fun solve(testCaseInput: I): O
 
+    open fun skipIO(): Boolean = false
+
     fun runSilent(): TestResult {
         val testCases = getTestCases()
         val passed = testCases.count { runSingle(testCase = it, silent = true) }
@@ -25,19 +27,23 @@ abstract class Problem<I, O> {
     fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
-        val inputString = stringFromType(testCase.input)
         val output = solve(testCase.input)
-        val outputString = stringFromType(output)
+        val silentInternal = silent || skipIO()
 
-        if (!silent) println("Input: $inputString")
-        if (!silent) println("Output: $outputString")
+        if (!silentInternal) {
+            val inputString = stringFromType(testCase.input)
+            val outputString = stringFromType(output)
+
+            println("Input: $inputString")
+            println("Output: $outputString")
+        }
 
         val isTestPassed = isTestPassed<O>(testCase.output, output)
-        if (!silent) {
-            if (!isTestPassed) println("Expected: " + stringFromType(testCase.output))
-            println(if (isTestPassed) "✅ Passed" else "❌ Failed")
-            println()
-        }
+
+        if (!silentInternal && !isTestPassed) println("Expected: " + stringFromType(testCase.output))
+        if (!silent) println(if (isTestPassed) "✅ Passed" else "❌ Failed")
+        if (!silent) println()
+
         return isTestPassed
     }
 
