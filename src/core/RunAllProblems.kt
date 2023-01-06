@@ -1,8 +1,12 @@
 package src.core
 
 import src.array.problems.FindFirstAndLastPositionOfElementInSortedArray
+import src.array.problems.FindPivotIndex
 import src.array.problems.PlusOne
 import src.array.problems.SpiralMatrix
+import src.linkedlist.problems.LinkedListCycleII
+import src.linkedlist.problems.OddEvenLinkedList
+import src.linkedlist.problems.PalindromeLinkedList
 import src.linkedlist.problems.RemoveDuplicatesFromSortedList
 import src.linkedlist.problems.RemoveNthNodeFromListEnd
 import src.math.problems.IsPrime
@@ -31,6 +35,7 @@ object RunAllProblems {
         run(PlusOne())
         run(FindFirstAndLastPositionOfElementInSortedArray())
         run(SpiralMatrix())
+        run(FindPivotIndex())
         println()
 
         println("======= Running String problems =======")
@@ -46,7 +51,10 @@ object RunAllProblems {
 
         println("======= Running Linked List problems =======")
         run(RemoveDuplicatesFromSortedList())
+        run(PalindromeLinkedList())
         run(RemoveNthNodeFromListEnd())
+        run(OddEvenLinkedList())
+        run(LinkedListCycleII())
 
         println("======= Running Tree problems =======")
         run(InvertBinaryTree())
