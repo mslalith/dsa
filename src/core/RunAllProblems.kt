@@ -2,7 +2,6 @@ package src.core
 
 import java.io.File
 
-
 object RunAllProblems {
 
     @JvmStatic
@@ -12,6 +11,7 @@ object RunAllProblems {
             println("==========================================")
             println("======= Running ${getProblemTypeName(problemType)} problems =======")
             println("==========================================")
+            println()
             getProblemFilesForType(problemType).forEach { problemFile ->
                 runProblemFile(problemFile)
             }
