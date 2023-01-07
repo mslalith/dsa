@@ -1,5 +1,6 @@
 package src.core
 
+import src.array.problems.BestTimeToBuyAndSellStock
 import src.array.problems.FindFirstAndLastPositionOfElementInSortedArray
 import src.array.problems.FindPivotIndex
 import src.array.problems.PlusOne
@@ -16,7 +17,10 @@ import src.stacks.problems.EvaluateExpression
 import src.stacks.problems.GenerateAllParentheses
 import src.stacks.problems.NearestSmallerElement
 import src.stacks.problems.RedundantBraces
+import src.string.problems.IsSubsequence
+import src.string.problems.IsomorphicStrings
 import src.string.problems.LongestCommonPrefix
+import src.string.problems.LongestPalindrome
 import src.trees.problems.InvertBinaryTree
 import src.trees.problems.IsValidBST
 import src.trees.problems.PathSum
@@ -36,10 +40,14 @@ object RunAllProblems {
         run(FindFirstAndLastPositionOfElementInSortedArray())
         run(SpiralMatrix())
         run(FindPivotIndex())
+        run(BestTimeToBuyAndSellStock())
         println()
 
         println("======= Running String problems =======")
         run(LongestCommonPrefix())
+        run(IsomorphicStrings())
+        run(IsSubsequence())
+        run(LongestPalindrome())
         println()
 
         println("======= Running Stack problems =======")
