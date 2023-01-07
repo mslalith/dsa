@@ -1,6 +1,6 @@
 package src.core
 
-import src.linkedlist.ListNode
+import src.linked_list.ListNode
 import src.utils.areListNodesEqual
 import src.utils.stringFromArray
 import src.utils.displayStringFromListNode

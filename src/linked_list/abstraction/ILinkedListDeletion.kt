@@ -1,4 +1,4 @@
-package src.linkedlist.abstraction
+package src.linked_list.abstraction
 
 interface ILinkedListDeletion {
     fun deleteFirst(): Int?

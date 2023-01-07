@@ -1,4 +1,4 @@
-package src.linkedlist
+package src.linked_list
 
 data class ListNode(
     var `val`: Int,

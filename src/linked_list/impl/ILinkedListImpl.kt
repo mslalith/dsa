@@ -1,7 +1,7 @@
-package src.linkedlist.impl
+package src.linked_list.impl
 
-import src.linkedlist.ListNode
-import src.linkedlist.abstraction.ILinkedList
+import src.linked_list.ListNode
+import src.linked_list.abstraction.ILinkedList
 
 class ILinkedListImpl : ILinkedList {
 

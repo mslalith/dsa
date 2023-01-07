@@ -1,6 +1,6 @@
-package src.linkedlist.impl
+package src.linked_list.impl
 
-import src.linkedlist.abstraction.ILinkedList
+import src.linked_list.abstraction.ILinkedList
 
 object ILinkedListDemo {
 

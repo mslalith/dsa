@@ -1,6 +1,6 @@
 package src.utils
 
-import src.linkedlist.ListNode
+import src.linked_list.ListNode
 
 /**
  * Builders

@@ -1,8 +1,8 @@
-package src.linkedlist.problems
+package src.linked_list.problems
 
 import src.core.Problem
 import src.core.TestCase
-import src.linkedlist.ListNode
+import src.linked_list.ListNode
 import src.utils.buildLinkedList
 
 class OddEvenLinkedList : Problem<ListNode?, ListNode?>() {
