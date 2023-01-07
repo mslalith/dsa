@@ -1,74 +1,56 @@
 package src.core
 
-import src.array.problems.BestTimeToBuyAndSellStock
-import src.array.problems.FindFirstAndLastPositionOfElementInSortedArray
-import src.array.problems.FindPivotIndex
-import src.array.problems.PlusOne
-import src.array.problems.SpiralMatrix
-import src.linkedlist.problems.LinkedListCycleII
-import src.linkedlist.problems.OddEvenLinkedList
-import src.linkedlist.problems.PalindromeLinkedList
-import src.linkedlist.problems.RemoveDuplicatesFromSortedList
-import src.linkedlist.problems.RemoveNthNodeFromListEnd
-import src.math.problems.IsPrime
-import src.math.problems.ReverseDigits
-import src.math.problems.SumOfDigits
-import src.stacks.problems.EvaluateExpression
-import src.stacks.problems.GenerateAllParentheses
-import src.stacks.problems.NearestSmallerElement
-import src.stacks.problems.RedundantBraces
-import src.string.problems.IsSubsequence
-import src.string.problems.IsomorphicStrings
-import src.string.problems.LongestCommonPrefix
-import src.string.problems.LongestPalindrome
-import src.trees.problems.InvertBinaryTree
-import src.trees.problems.IsValidBST
-import src.trees.problems.PathSum
+import java.io.File
+
 
 object RunAllProblems {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        println("======= Running Math problems =======")
-        run(IsPrime())
-        run(ReverseDigits())
-        run(SumOfDigits())
         println()
-
-        println("======= Running Array problems =======")
-        run(PlusOne())
-        run(FindFirstAndLastPositionOfElementInSortedArray())
-        run(SpiralMatrix())
-        run(FindPivotIndex())
-        run(BestTimeToBuyAndSellStock())
+        getProblemFileTypes().forEach { problemType ->
+            println("==========================================")
+            println("======= Running ${getProblemTypeName(problemType)} problems =======")
+            println("==========================================")
+            getProblemFilesForType(problemType).forEach { problemFile ->
+                runProblemFile(problemFile)
+            }
+        }
         println()
+    }
 
-        println("======= Running String problems =======")
-        run(LongestCommonPrefix())
-        run(IsomorphicStrings())
-        run(IsSubsequence())
-        run(LongestPalindrome())
-        println()
+    private fun getProblemFileTypes(): List<File> {
+        val srcDirectory = File("./src").canonicalFile
+        return srcDirectory.listFiles()?.mapNotNull { file ->
+            file.listFiles()?.firstOrNull { it.path.endsWith("problems") }
+        } ?: emptyList()
+    }
 
-        println("======= Running Stack problems =======")
-        run(EvaluateExpression())
-        run(GenerateAllParentheses())
-        run(NearestSmallerElement())
-        run(RedundantBraces())
-        println()
+    private fun getProblemFilesForType(file: File): List<File> {
+        return file.listFiles()?.filterNotNull() ?: emptyList()
+    }
 
-        println("======= Running Linked List problems =======")
-        run(RemoveDuplicatesFromSortedList())
-        run(PalindromeLinkedList())
-        run(RemoveNthNodeFromListEnd())
-        run(OddEvenLinkedList())
-        run(LinkedListCycleII())
+    private fun getProblemTypeName(file: File): String {
+        val typeName = file.path.split("src/").last().split("/").first()
+        return typeName.split("_").joinToString(separator = " ") {
+            it.first().uppercaseChar() + it.substring(1)
+        }
+    }
 
-        println("======= Running Tree problems =======")
-        run(InvertBinaryTree())
-        run(PathSum())
-        run(IsValidBST())
-        println()
+    private fun runProblemFile(file: File) {
+        val problemName = file.path.split("/").last()
+        val clazz = classFromFile(file)
+        val instance = clazz?.constructors?.firstOrNull()?.newInstance()
+        if (instance is Problem<*, *>) run(instance)
+        else println("⚠️ Skipping $problemName (not a Problem)")
+    }
+
+    private fun classFromFile(file: File): Class<*>? = try {
+        val packageName = "src" + file.parentFile.path.split("src")[1].replace("/", ".")
+        Class.forName("$packageName.${file.nameWithoutExtension}")
+    } catch (e: ClassNotFoundException) {
+        println("⚠️ Skipping file: $file (not found)")
+        null
     }
 
     private fun run(problem: Problem<*, *>) {
