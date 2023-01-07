@@ -20,17 +20,15 @@ class LongestPalindrome : Problem<String, Int>() {
     }
 
     private fun longestPalindrome(s: String): Int {
-        val map = hashMapOf<Char, Int>()
+        val set = hashSetOf<Char>()
         var count = 0
         s.forEach { ch ->
-            if (map.containsKey(ch)) {
-                if (map[ch] == 1) {
-                    count += 2
-                    map.remove(ch)
-                }
-            } else map[ch] = 1
+            if (!set.add(ch)) {
+                count += 2
+                set.remove(ch)
+            }
         }
-        if (map.isNotEmpty()) count += 1
+        if (set.isNotEmpty()) count += 1
         return count
     }
 }
