@@ -6,6 +6,7 @@ import src.linked_list.ListNode
  * Builders
  */
 fun buildLinkedList(input: String, separator: String = ","): ListNode? {
+    if (input.isEmpty()) return null
     val split = input.split(separator)
     var head: ListNode? = null
     var curr = head
