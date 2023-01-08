@@ -47,8 +47,7 @@ class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
             slow = slow.next
             fast = fast.next
         }
-        if (slow == null) return true
-        return false
+        return slow == null
     }
 
     private fun reverseLinkedList(root: ListNode?): ListNode? {

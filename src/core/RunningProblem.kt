@@ -1,5 +1,3 @@
-@file:JvmName("RunningProblemKt")
-
 package src.core
 
 class RunningProblem : Problem<Int, Boolean>() {
