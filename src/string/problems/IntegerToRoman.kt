@@ -2,7 +2,6 @@ package src.string.problems
 
 import src.core.Problem
 import src.core.TestCase
-import java.lang.StringBuilder
 
 class IntegerToRoman : Problem<Int, String>() {
 
