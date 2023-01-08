@@ -6,7 +6,7 @@ fun buildTreeNode(input: String): TreeNode? {
     if (numStrings.size != numbers.size) throw Exception("Unable to parse input")
 
     val queue = ArrayDeque<TreeNode>()
-    val root = TreeNode(numbers[0] ?: return null)
+    val root = TreeNode(numbers.getOrNull(0) ?: return null)
     queue.add(root)
 
     var count = 1
