@@ -11,13 +11,13 @@ class FindAllAnagramsInAString : Problem<FindAllAnagramsInAStringParams, List<In
     }
     
     override fun getTestCases(): Array<TestCase<FindAllAnagramsInAStringParams, List<Int>>> = arrayOf(
-//        TestCase(
-//            input = FindAllAnagramsInAStringParams(
-//                s = "cbaebabacd",
-//                p = "abc"
-//            ),
-//            output = listOf(0, 6)
-//        ),
+        TestCase(
+            input = FindAllAnagramsInAStringParams(
+                s = "cbaebabacd",
+                p = "abc"
+            ),
+            output = listOf(0, 6)
+        ),
         TestCase(
             input = FindAllAnagramsInAStringParams(
                 s = "abab",
