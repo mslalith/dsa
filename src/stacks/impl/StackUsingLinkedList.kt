@@ -1,6 +1,6 @@
 package src.stacks.impl
 
-import src.linked_list.ListNode
+import src.linkedlist.ListNode
 import src.stacks.IStack
 
 class StackUsingLinkedList : IStack {

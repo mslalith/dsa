@@ -1,8 +1,8 @@
-package src.linked_list.problems
+package src.linkedlist.problems
 
 import src.core.Problem
 import src.core.TestCase
-import src.linked_list.ListNode
+import src.linkedlist.ListNode
 import src.utils.buildLinkedList
 
 class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
