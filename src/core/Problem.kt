@@ -51,8 +51,18 @@ abstract class Problem<I, O> {
         is Array<*> -> stringFromArray(input)
         is IntArray -> stringFromArray(input)
         is ListNode -> displayStringFromListNode(input)
+        is Pair<*, *> -> displayStringFromPair(input)
         null -> "null"
         else -> input.toString()
+    }
+
+
+    private fun displayStringFromPair(pair: Pair<*, *>): String = buildString {
+        append("(")
+        append(stringFromType(input = pair.first))
+        append(", ")
+        append(stringFromType(input = pair.second))
+        append(")")
     }
 
     private fun <T> isTestPassed(actual: T?, expected: T?): Boolean {
