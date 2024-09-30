@@ -3,6 +3,7 @@ package src.linkedlist.problems
 import src.core.Problem
 import src.core.TestCase
 import src.linkedlist.ListNode
+import src.linkedlist.utils.reverseLinkedList
 import src.utils.buildLinkedList
 import src.utils.stringFromListNode
 
@@ -52,17 +53,5 @@ class ReorderList : Problem<ListNode?, ListNode?>() {
             slow = slowNode.next
             fast = fast.next
         }
-    }
-
-    private fun reverseLinkedList(head: ListNode?): ListNode? {
-        var prev: ListNode? = null
-        var curr = head
-        while (curr != null) {
-            val next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        return prev
     }
 }

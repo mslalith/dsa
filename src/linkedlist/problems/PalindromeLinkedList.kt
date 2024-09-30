@@ -3,6 +3,7 @@ package src.linkedlist.problems
 import src.core.Problem
 import src.core.TestCase
 import src.linkedlist.ListNode
+import src.linkedlist.utils.reverseLinkedList
 import src.utils.buildLinkedList
 
 class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
@@ -48,17 +49,5 @@ class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
             fast = fast.next
         }
         return slow == null
-    }
-
-    private fun reverseLinkedList(root: ListNode?): ListNode? {
-        var prev: ListNode? = null
-        var curr = root
-        while (curr != null) {
-            val next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        return prev
     }
 }

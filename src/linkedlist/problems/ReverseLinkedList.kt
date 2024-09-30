@@ -3,6 +3,7 @@ package src.linkedlist.problems
 import src.core.Problem
 import src.core.TestCase
 import src.linkedlist.ListNode
+import src.linkedlist.utils.reverseLinkedList
 import src.utils.buildLinkedList
 
 class ReverseLinkedList : Problem<ListNode?, ListNode?>() {
@@ -28,22 +29,6 @@ class ReverseLinkedList : Problem<ListNode?, ListNode?>() {
     )
 
     override fun solve(testCaseInput: ListNode?): ListNode? {
-        return reverseList(testCaseInput)
-    }
-
-    private fun reverseList(head: ListNode?): ListNode? {
-        if (head == null) return null
-
-        var prev: ListNode? = null
-        var curr = head
-
-        while (curr != null) {
-            val next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-
-        return prev
+        return reverseLinkedList(testCaseInput)
     }
 }
