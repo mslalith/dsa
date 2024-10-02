@@ -40,7 +40,7 @@ class DecodeString : Problem<String, String>() {
         while (i < s.length) {
             var count = 0
             while (i < s.length && s[i] in '0'..'9') {
-                count = (count * 10) + Character.getNumericValue(s[i])
+                count = (count * 10) + s[i].digitToInt()
                 i++
             }
 
