@@ -2,8 +2,8 @@ package src.core
 
 import src.linkedlist.ListNode
 import src.utils.areListNodesEqual
-import src.utils.stringFromArray
 import src.utils.displayStringFromListNode
+import src.utils.stringFromArray
 
 abstract class Problem<I, O> {
 
@@ -48,7 +48,7 @@ abstract class Problem<I, O> {
     }
 
     private fun stringFromType(input: Any?): String = when (input) {
-        is Array<*> -> stringFromArray(input)
+        is Array<*> -> displayStringFromArray(input)
         is IntArray -> stringFromArray(input)
         is ListNode -> displayStringFromListNode(input)
         is Pair<*, *> -> displayStringFromPair(input)
@@ -56,6 +56,29 @@ abstract class Problem<I, O> {
         else -> input.toString()
     }
 
+    @Suppress("UNCHECKED_CAST")
+    private fun displayStringFromArray(array: Array<*>): String = when {
+        array.isEmpty() -> stringFromArray(array)
+        else -> when (array.first()) {
+            is IntArray -> buildDisplayStringFromIntArray(array as Array<IntArray>)
+            else -> stringFromArray(array)
+        }
+    }
+
+    private fun buildDisplayStringFromIntArray(array: Array<IntArray>) = buildString {
+        append("[")
+        append("\n\t")
+        array.forEach {
+            append(stringFromArray(it))
+            append(",\n\t")
+        }
+        // remove last appended chars
+        deleteAt(length - 1)
+        deleteAt(length - 1)
+        deleteAt(length - 1)
+        append("\n")
+        append("]")
+    }
 
     private fun displayStringFromPair(pair: Pair<*, *>): String = buildString {
         append("(")
