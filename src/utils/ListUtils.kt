@@ -29,3 +29,30 @@ fun stringFromArray(array: IntArray): String = stringFromArray(array.toTypedArra
 fun stringFromArray(array: CharArray): String = stringFromArray(array.toTypedArray())
 
 fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]", separator = " ")
+
+/**
+ * Helpers
+ */
+fun <T> List<T>.unOrderEquals(other: List<T>): Boolean {
+    if (this.size != other.size) return false
+
+    val set = hashSetOf<T>()
+
+    for (item in this) {
+        set.add(item)
+    }
+
+    for (item in other) {
+        val match = set.firstOrNull {
+            when (it) {
+                is List<*> -> it.unOrderEquals(item as List<*>)
+                else -> it == item
+            }
+        }
+        if (!set.contains(match)) return false
+        if (match == null) return false
+        set.remove(match)
+    }
+
+    return set.isEmpty()
+}

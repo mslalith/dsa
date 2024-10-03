@@ -14,6 +14,7 @@ abstract class Problem<I, O> {
 
     open val trackTime: Boolean get() = false
     open val skipIO: Boolean get() = false
+    open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
 
     fun runSilent(): TestResult {
         val testCases = getTestCases()
@@ -42,7 +43,7 @@ abstract class Problem<I, O> {
             println("Output: $outputString")
         }
 
-        val isTestPassed = isTestPassed<O>(testCase.output, output)
+        val isTestPassed = isTestPassed(testCase.output, output)
 
         if (!silentInternal && !isTestPassed) println("Expected: " + stringFromType(testCase.output))
 
@@ -50,8 +51,8 @@ abstract class Problem<I, O> {
             if (!silent) append(if (isTestPassed) "✅ Passed" else "❌ Failed")
             if (trackTime) {
                 append(" (")
-                append(timeTaken.inWholeMilliseconds)
-                append("ms)")
+                append(timeTaken)
+                append(")")
             }
         }
         if (!silent) println(displayResultStatus)
@@ -101,7 +102,7 @@ abstract class Problem<I, O> {
         append(")")
     }
 
-    private fun <T> isTestPassed(actual: T?, expected: T?): Boolean {
+    private fun <T> isTestPassedInternal(actual: T?, expected: T?): Boolean {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
