@@ -4,13 +4,16 @@ import src.linkedlist.ListNode
 import src.utils.areListNodesEqual
 import src.utils.displayStringFromListNode
 import src.utils.stringFromArray
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTimedValue
 
 abstract class Problem<I, O> {
 
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
     protected abstract fun solve(testCaseInput: I): O
 
-    open fun skipIO(): Boolean = false
+    open val trackTime: Boolean get() = false
+    open val skipIO: Boolean get() = false
 
     fun runSilent(): TestResult {
         val testCases = getTestCases()
@@ -26,9 +29,10 @@ abstract class Problem<I, O> {
 
     fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
 
+    @OptIn(ExperimentalTime::class)
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
-        val output = solve(testCase.input)
-        val silentInternal = silent || skipIO()
+        val (output, timeTaken) = measureTimedValue { solve(testCase.input) }
+        val silentInternal = silent || skipIO
 
         if (!silentInternal) {
             val inputString = stringFromType(testCase.input)
@@ -41,7 +45,16 @@ abstract class Problem<I, O> {
         val isTestPassed = isTestPassed<O>(testCase.output, output)
 
         if (!silentInternal && !isTestPassed) println("Expected: " + stringFromType(testCase.output))
-        if (!silent) println(if (isTestPassed) "✅ Passed" else "❌ Failed")
+
+        val displayResultStatus = buildString {
+            if (!silent) append(if (isTestPassed) "✅ Passed" else "❌ Failed")
+            if (trackTime) {
+                append(" (")
+                append(timeTaken.inWholeMilliseconds)
+                append("ms)")
+            }
+        }
+        if (!silent) println(displayResultStatus)
         if (!silent) println()
 
         return isTestPassed

@@ -11,7 +11,7 @@ class LinkedListCycleII : Problem<ListNode?, Int?>() {
         fun main(args: Array<String>) = LinkedListCycleII().run()
     }
 
-    override fun skipIO(): Boolean = true
+    override val skipIO: Boolean get() = true
 
     override fun getTestCases(): Array<TestCase<ListNode?, Int?>> {
         val input = ListNode(3)
