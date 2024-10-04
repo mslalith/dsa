@@ -24,15 +24,14 @@ class ValidPalindrome : Problem<String, Boolean>() {
         val n = s.length
         if (n == 0 || n == 1) return true
 
-        val sb = StringBuilder(s)
         var left = 0
         var right = n - 1
 
         while (left < right) {
-            while (left < n && !isAlphaNumeric(sb[left])) left++
-            while (right >= 0 && !isAlphaNumeric(sb[right])) right--
+            while (left < n && !isAlphaNumeric(s[left])) left++
+            while (right >= 0 && !isAlphaNumeric(s[right])) right--
             if (left >= right) return true
-            if (sb[left].lowercaseChar() != sb[right].lowercaseChar()) return false
+            if (s[left].lowercaseChar() != s[right].lowercaseChar()) return false
             left++
             right--
         }
