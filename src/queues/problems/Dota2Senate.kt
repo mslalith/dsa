@@ -10,8 +10,6 @@ class Dota2Senate : Problem<String, String>() {
         fun main(args: Array<String>) = Dota2Senate().run()
     }
 
-    override val trackTime: Boolean get() = true
-    
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(
         TestCase(
             input = "RD",

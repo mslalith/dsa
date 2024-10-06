@@ -30,9 +30,6 @@ class KokoEatingBananas : Problem<Pair<IntArray, Int>, Int>() {
         )
     )
 
-    override val trackTime: Boolean
-        get() = true
-    
     override fun solve(testCaseInput: Pair<IntArray, Int>): Int {
         return minEatingSpeed(testCaseInput.first, testCaseInput.second)
     }

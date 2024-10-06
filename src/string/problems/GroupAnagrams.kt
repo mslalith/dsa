@@ -13,9 +13,6 @@ class GroupAnagrams : Problem<Array<String>, List<List<String>>>() {
         fun main(args: Array<String>) = GroupAnagrams().run()
     }
 
-    override val trackTime: Boolean
-        get() = true
-
     override fun getTestCases(): Array<TestCase<Array<String>, List<List<String>>>> = arrayOf(
         TestCase(
             input = arrayOf("eat", "tea", "tan", "ate", "nat", "bat"),
