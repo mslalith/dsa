@@ -12,7 +12,7 @@ abstract class Problem<I, O> {
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
     protected abstract fun solve(testCaseInput: I): O
 
-    open val trackTime: Boolean get() = false
+    open val trackTime: Boolean get() = true
     open val skipIO: Boolean get() = false
     open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
 
@@ -75,23 +75,9 @@ abstract class Problem<I, O> {
         array.isEmpty() -> stringFromArray(array)
         else -> when (array.first()) {
             is IntArray -> buildDisplayStringFromIntArray(array as Array<IntArray>)
+            is CharArray -> buildDisplayStringFromCharArray(array as Array<CharArray>)
             else -> stringFromArray(array)
         }
-    }
-
-    private fun buildDisplayStringFromIntArray(array: Array<IntArray>) = buildString {
-        append("[")
-        append("\n\t")
-        array.forEach {
-            append(stringFromArray(it))
-            append(",\n\t")
-        }
-        // remove last appended chars
-        deleteAt(length - 1)
-        deleteAt(length - 1)
-        deleteAt(length - 1)
-        append("\n")
-        append("]")
     }
 
     private fun displayStringFromPair(pair: Pair<*, *>): String = buildString {
@@ -109,4 +95,25 @@ abstract class Problem<I, O> {
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
     }
+}
+
+private fun buildDisplayStringFromIntArray(array: Array<IntArray>): String = buildDisplayStringFromTypedArray(array = array, map = ::stringFromArray)
+private fun buildDisplayStringFromCharArray(array: Array<CharArray>): String = buildDisplayStringFromTypedArray(array = array, map = ::stringFromArray)
+
+private fun <T> buildDisplayStringFromTypedArray(
+    array: Array<T>,
+    map: (T) -> String
+) = buildString {
+    append("[")
+    append("\n\t")
+    array.forEach {
+        append(map(it))
+        append(",\n\t")
+    }
+    // remove last appended chars
+    deleteAt(length - 1)
+    deleteAt(length - 1)
+    deleteAt(length - 1)
+    append("\n")
+    append("]")
 }
