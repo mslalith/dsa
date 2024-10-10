@@ -1,4 +1,4 @@
-package src.array.problems
+package src.bits.problems
 
 import src.core.Problem
 import src.core.TestCase
