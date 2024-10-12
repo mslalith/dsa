@@ -64,6 +64,7 @@ abstract class Problem<I, O> {
     private fun stringFromType(input: Any?): String = when (input) {
         is Array<*> -> displayStringFromArray(input)
         is IntArray -> stringFromArray(input)
+        is CharArray -> stringFromArray(input)
         is ListNode -> displayStringFromListNode(input)
         is Pair<*, *> -> displayStringFromPair(input)
         null -> "null"

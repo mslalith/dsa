@@ -1,4 +1,4 @@
-package src.string.problems
+package src.dp.problems
 
 import src.core.Problem
 import src.core.TestCase
