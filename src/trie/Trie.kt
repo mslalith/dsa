@@ -40,4 +40,36 @@ class Trie {
         }
         return true
     }
+
+    fun findAllThatStartsWith(word: String): List<String> {
+        if (word.isEmpty()) return emptyList()
+
+        var i = 0
+        var node = root
+        while (i < word.length) {
+            node = node.children[word[i]] ?: return emptyList()
+            i++
+        }
+
+        val prefix = word.dropLast(n = 1)
+        return findCompleteWordsFrom(node)
+            .map { prefix + it }
+    }
+
+    private fun findCompleteWordsFrom(node: TrieNode<Char>): List<String> {
+        val list = arrayListOf<String>()
+        findCompleteWordsFromInternal(node, list, StringBuilder())
+        return list
+    }
+
+    private fun findCompleteWordsFromInternal(node: TrieNode<Char>, outList: ArrayList<String>, sb: StringBuilder) {
+        if (node.value == END_SYMBOL) {
+            outList.add(sb.toString())
+            return
+        }
+
+        sb.append(node.value)
+        node.children.forEach { (_, childNode) -> findCompleteWordsFromInternal(childNode, outList, sb) }
+        sb.deleteAt(sb.length - 1)
+    }
 }
