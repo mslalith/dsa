@@ -28,7 +28,7 @@ fun stringFromArray(array: IntArray): String = stringFromArray(array.toTypedArra
 
 fun stringFromArray(array: CharArray): String = stringFromArray(array.toTypedArray())
 
-fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]", separator = " ")
+fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]", separator = ", ")
 
 /**
  * Helpers
