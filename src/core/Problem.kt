@@ -14,7 +14,11 @@ abstract class Problem<I, O> {
 
     open val trackTime: Boolean get() = true
     open val skipIO: Boolean get() = false
+
     open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
+    open fun displayInput(input: I): String = stringFromType(input)
+    open fun displayOutput(output: O): String = stringFromType(output)
+    open fun displayExpected(expected: O): String = stringFromType(expected)
 
     fun runSilent(): TestResult {
         val testCases = getTestCases()
@@ -36,8 +40,8 @@ abstract class Problem<I, O> {
         val silentInternal = silent || skipIO
 
         if (!silentInternal) {
-            val inputString = stringFromType(testCase.input)
-            val outputString = stringFromType(output)
+            val inputString = displayInput(testCase.input)
+            val outputString = displayOutput(output)
 
             println("Input: $inputString")
             println("Output: $outputString")
@@ -45,7 +49,7 @@ abstract class Problem<I, O> {
 
         val isTestPassed = isTestPassed(testCase.output, output)
 
-        if (!silentInternal && !isTestPassed) println("Expected: " + stringFromType(testCase.output))
+        if (!silentInternal && !isTestPassed) println("Expected: " + displayExpected(testCase.output))
 
         val displayResultStatus = buildString {
             if (!silent) append(if (isTestPassed) "✅ Passed" else "❌ Failed")
@@ -73,12 +77,12 @@ abstract class Problem<I, O> {
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun displayStringFromArray(array: Array<*>): String = when {
+    private fun displayStringFromArray(array: Array<*>, pretty: Boolean = false): String = when {
         array.isEmpty() -> stringFromArray(array)
         else -> when (array.first()) {
-            is IntArray -> buildDisplayStringFromIntArray(array as Array<IntArray>)
-            is CharArray -> buildDisplayStringFromCharArray(array as Array<CharArray>)
-            else -> stringFromArray(array)
+            is IntArray -> buildDisplayStringFromIntArray(array as Array<IntArray>, pretty)
+            is CharArray -> buildDisplayStringFromCharArray(array as Array<CharArray>, pretty)
+            else -> buildDisplayStringFromArray(array, pretty)
         }
     }
 
@@ -98,20 +102,24 @@ abstract class Problem<I, O> {
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
     }
+
+    protected fun buildDisplayStringFromList(list: List<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = list, pretty = pretty, map = { it.toString() })
 }
 
-private fun buildDisplayStringFromIntArray(array: Array<IntArray>): String = buildDisplayStringFromTypedArray(array = array, map = ::stringFromArray)
-private fun buildDisplayStringFromCharArray(array: Array<CharArray>): String = buildDisplayStringFromTypedArray(array = array, map = ::stringFromArray)
+private fun buildDisplayStringFromArray(array: Array<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = array.asIterable(), pretty = pretty, map = { it.toString() })
+private fun buildDisplayStringFromIntArray(array: Array<IntArray>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = array.asIterable(), pretty = pretty, map = ::stringFromArray)
+private fun buildDisplayStringFromCharArray(array: Array<CharArray>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = array.asIterable(), pretty = pretty, map = ::stringFromArray)
 
-private fun <T> buildDisplayStringFromTypedArray(
-    array: Array<T>,
+private fun <T> buildDisplayStringFromIterable(
+    iterable: Iterable<T>,
+    pretty: Boolean,
     map: (T) -> String
 ) = buildString {
     append("[")
     append("\n\t")
-    array.forEach {
+    iterable.forEach {
         append(map(it))
-        append(",\n\t")
+        if (pretty) append(",\n\t") else append(", ")
     }
     // remove last appended chars
     deleteAt(length - 1)
