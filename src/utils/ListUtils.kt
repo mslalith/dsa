@@ -21,11 +21,10 @@ fun <T> buildList(input: String, separator: String, transform: (String) -> T): L
  * Display
  */
 fun stringFromArray(array: Array<IntArray>): String = array.joinToString(prefix = "[", postfix = "]") { stringFromArray(it) }
-
 fun stringFromArray(array: Array<CharArray>): String = array.joinToString(prefix = "[", postfix = "]") { stringFromArray(it) }
 
 fun stringFromArray(array: IntArray): String = stringFromArray(array.toTypedArray())
-
+fun stringFromArray(array: DoubleArray): String = stringFromArray(array.toTypedArray())
 fun stringFromArray(array: CharArray): String = stringFromArray(array.toTypedArray())
 
 fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "[", postfix = "]", separator = ", ")

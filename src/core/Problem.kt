@@ -64,6 +64,7 @@ abstract class Problem<I, O> {
     private fun stringFromType(input: Any?): String = when (input) {
         is Array<*> -> displayStringFromArray(input)
         is IntArray -> stringFromArray(input)
+        is DoubleArray -> stringFromArray(input)
         is CharArray -> stringFromArray(input)
         is ListNode -> displayStringFromListNode(input)
         is Pair<*, *> -> displayStringFromPair(input)
@@ -93,6 +94,7 @@ abstract class Problem<I, O> {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
+        if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
     }
