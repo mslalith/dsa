@@ -25,6 +25,23 @@ class ProductOfArrayExceptSelf : Problem<IntArray, IntArray>() {
         return productExceptSelfSpaceOptimized(testCaseInput)
     }
 
+    private fun productExceptSelfSpaceOptimized(nums: IntArray): IntArray {
+        var product = 1
+        val suffixProduct = IntArray(nums.size)
+        for (i in nums.lastIndex downTo 0) {
+            suffixProduct[i] = product
+            product *= nums[i]
+        }
+
+        var prefixProduct = 1
+        for (i in nums.indices) {
+            suffixProduct[i] = prefixProduct * suffixProduct[i]
+            prefixProduct *= nums[i]
+        }
+
+        return suffixProduct
+    }
+
     private fun productExceptSelf(nums: IntArray): IntArray {
         var product = 1
         val prefixProduct = IntArray(nums.size)
@@ -46,22 +63,5 @@ class ProductOfArrayExceptSelf : Problem<IntArray, IntArray>() {
         }
 
         return result
-    }
-
-    private fun productExceptSelfSpaceOptimized(nums: IntArray): IntArray {
-        var product = 1
-        val suffixProduct = IntArray(nums.size)
-        for (i in nums.lastIndex downTo 0) {
-            suffixProduct[i] = product
-            product *= nums[i]
-        }
-
-        var prefixProduct = 1
-        for (i in nums.indices) {
-            suffixProduct[i] = prefixProduct * suffixProduct[i]
-            prefixProduct *= nums[i]
-        }
-
-        return suffixProduct
     }
 }

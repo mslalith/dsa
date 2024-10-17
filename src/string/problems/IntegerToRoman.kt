@@ -36,14 +36,17 @@ class IntegerToRoman : Problem<Int, String>() {
             4 to "IV",
             1 to "I"
         )
+
         val sb = StringBuilder()
         var n = num
+
         mapping.forEach { (value, roman) ->
             while (n >= value) {
                 sb.append(roman)
                 n -= value
             }
         }
+
         return sb.toString()
     }
 }

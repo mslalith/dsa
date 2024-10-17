@@ -2,6 +2,7 @@ package src.dp.problems
 
 import src.core.Problem
 import src.core.TestCase
+import kotlin.math.max
 
 class BestTimeToBuyAndSellStock : Problem<IntArray, Int>() {
 
@@ -26,17 +27,24 @@ class BestTimeToBuyAndSellStock : Problem<IntArray, Int>() {
     }
 
     private fun maxProfit(prices: IntArray): Int {
-        if (prices.isEmpty() || prices.size == 1) return 0
+        val n = prices.size
+        if (n == 0 || n == 1) return 0
+
         var min = prices[0]
         var max = min
         var profit = 0
-        for (i in 1 until prices.size) {
-            if (prices[i] < min) {
-                min = prices[i]
-                max = min
-            } else max = Math.max(prices[i], max)
-            profit = Math.max(profit, max - min)
+
+        for (i in 1 until n) {
+            when {
+                prices[i] >= min -> max = max(prices[i], max)
+                else -> {
+                    min = prices[i]
+                    max = min
+                }
+            }
+            profit = max(profit, max - min)
         }
+
         return profit
     }
 }
