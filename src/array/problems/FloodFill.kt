@@ -146,9 +146,7 @@ data class FloodFillOutput(
 
         other as FloodFillOutput
 
-        if (!output.contentDeepEquals(other.output)) return false
-
-        return true
+        return output.contentDeepEquals(other.output)
     }
 
     override fun hashCode(): Int {

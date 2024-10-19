@@ -2,6 +2,7 @@ package src.string.problems
 
 import src.core.Problem
 import src.core.TestCase
+import kotlin.math.max
 
 class LongestRepeatingCharacterReplacement : Problem<LongestRepeatingCharacterReplacementParams, Int>() {
     
@@ -46,14 +47,14 @@ class LongestRepeatingCharacterReplacement : Problem<LongestRepeatingCharacterRe
 
         for (right in s.indices) {
             array[s[right] - 'A']++
-            frequencyCount = Math.max(frequencyCount, array[s[right] - 'A'])
+            frequencyCount = max(frequencyCount, array[s[right] - 'A'])
 
             val lettersChanged = (right - left + 1) - frequencyCount
             if (lettersChanged > k) {
                 array[s[left] - 'A']--
                 left++
             }
-            max = Math.max(max, right - left + 1)
+            max = max(max, right - left + 1)
         }
 
         return max

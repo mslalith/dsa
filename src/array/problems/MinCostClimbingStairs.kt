@@ -2,6 +2,7 @@ package src.array.problems
 
 import src.core.Problem
 import src.core.TestCase
+import kotlin.math.min
 
 class MinCostClimbingStairs : Problem<IntArray, Int>() {
 
@@ -29,14 +30,14 @@ class MinCostClimbingStairs : Problem<IntArray, Int>() {
         val n = cost.size
         var first = cost[0]
         var second = cost[1]
-        if (n == 2) return Math.min(first, second)
+        if (n == 2) return min(first, second)
 
         for (i in 2 until n) {
-            val min = cost[i] + Math.min(first, second)
+            val min = cost[i] + min(first, second)
             first = second
             second = min
         }
 
-        return Math.min(first, second)
+        return min(first, second)
     }
 }

@@ -4,6 +4,7 @@ import src.core.Problem
 import src.core.TestCase
 import src.trees.TreeNode
 import src.trees.buildTreeNode
+import kotlin.math.max
 
 class DiameterOfBinaryTree : Problem<TreeNode?, Int>() {
 
@@ -43,8 +44,8 @@ class DiameterOfBinaryTree : Problem<TreeNode?, Int>() {
 
         val left = diameterAndHeightOfBinaryTree(root.left)
         val right = diameterAndHeightOfBinaryTree(root.right)
-        val height = Math.max(left.height, right.height) + 1
-        val diameter = Math.max(Math.max(left.diameter, right.diameter), left.height + right.height + 1)
+        val height = max(left.height, right.height) + 1
+        val diameter = max(max(left.diameter, right.diameter), left.height + right.height + 1)
         return TreeInfo(diameter, height)
     }
 

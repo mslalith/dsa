@@ -44,10 +44,11 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
     private fun removeNthFromEnd(head: ListNode?, index: Int): ListNode? {
         if (head == null) return null
 
-        val start: ListNode? = ListNode(0)
-        start?.next = head
-        var slow = start
-        var fast = start
+        val start = ListNode(0)
+        start.next = head
+
+        var slow: ListNode? = start
+        var fast: ListNode? = start
 
         for (i in 0 until index + 1) fast = fast?.next
 
@@ -57,7 +58,7 @@ class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNod
         }
 
         slow?.next = slow?.next?.next
-        return start?.next
+        return start.next
     }
 
 }

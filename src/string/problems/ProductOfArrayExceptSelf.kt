@@ -22,10 +22,10 @@ class ProductOfArrayExceptSelf : Problem<IntArray, IntArray>() {
     )
     
     override fun solve(testCaseInput: IntArray): IntArray {
-        return productExceptSelfSpaceOptimized(testCaseInput)
+        return productExceptSelf(testCaseInput)
     }
 
-    private fun productExceptSelfSpaceOptimized(nums: IntArray): IntArray {
+    private fun productExceptSelf(nums: IntArray): IntArray {
         var product = 1
         val suffixProduct = IntArray(nums.size)
         for (i in nums.lastIndex downTo 0) {
@@ -42,7 +42,7 @@ class ProductOfArrayExceptSelf : Problem<IntArray, IntArray>() {
         return suffixProduct
     }
 
-    private fun productExceptSelf(nums: IntArray): IntArray {
+    private fun productExceptSelfNaive(nums: IntArray): IntArray {
         var product = 1
         val prefixProduct = IntArray(nums.size)
         for (i in nums.indices) {

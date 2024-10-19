@@ -94,9 +94,7 @@ data class NumberOfIslandsParams(
 
         other as NumberOfIslandsParams
 
-        if (!grid.contentDeepEquals(other.grid)) return false
-
-        return true
+        return grid.contentDeepEquals(other.grid)
     }
 
     override fun hashCode(): Int {

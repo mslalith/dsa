@@ -29,11 +29,11 @@ class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
     }
 
     private fun isPalindrome(head: ListNode?): Boolean {
-        val start: ListNode? = ListNode(0)
-        start?.next = head
+        val start = ListNode(0)
+        start.next = head
 
-        var slow = start
-        var fast = start
+        var slow: ListNode? = start
+        var fast: ListNode? = start
 
         while (fast?.next != null) {
             slow = slow?.next

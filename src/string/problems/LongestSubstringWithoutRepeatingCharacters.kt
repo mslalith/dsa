@@ -2,6 +2,7 @@ package src.string.problems
 
 import src.core.Problem
 import src.core.TestCase
+import kotlin.math.max
 
 class LongestSubstringWithoutRepeatingCharacters : Problem<String, Int>() {
 
@@ -31,7 +32,7 @@ class LongestSubstringWithoutRepeatingCharacters : Problem<String, Int>() {
             } else {
                 set.add(s[j++])
             }
-            length = Math.max(length, j - i)
+            length = max(length, j - i)
         }
         return length
     }

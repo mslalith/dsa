@@ -2,7 +2,6 @@ package src.array.problems
 
 import src.core.Problem
 import src.core.TestCase
-import kotlin.math.max
 
 class FindPeakElement : Problem<IntArray, Int>() {
 

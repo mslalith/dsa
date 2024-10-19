@@ -2,6 +2,7 @@ package src.string.problems
 
 import src.core.Problem
 import src.core.TestCase
+import kotlin.math.min
 
 class ReverseStringII : Problem<ReverseStringIIParams, String>() {
 
@@ -11,10 +12,10 @@ class ReverseStringII : Problem<ReverseStringIIParams, String>() {
     }
 
     override fun getTestCases(): Array<TestCase<ReverseStringIIParams, String>> = arrayOf(
-//        TestCase(
-//            input = ReverseStringIIParams(s = "abcdefg", k = 2),
-//            output = "bacdfeg"
-//        ),
+        TestCase(
+            input = ReverseStringIIParams(s = "abcdefg", k = 2),
+            output = "bacdfeg"
+        ),
         TestCase(
             input = ReverseStringIIParams(s = "abcd", k = 4),
             output = "dcba"
@@ -29,7 +30,7 @@ class ReverseStringII : Problem<ReverseStringIIParams, String>() {
         val array = s.toCharArray()
         val n = s.length
         var start = 0
-        var end = Math.min(n, k)
+        var end = min(n, k)
         while (start < n && end <= n) {
             val half = start + (end - start) / 2
             for (i in start until half) {
@@ -37,8 +38,8 @@ class ReverseStringII : Problem<ReverseStringIIParams, String>() {
                 array[i] = array[start + end - i - 1]
                 array[start + end - i - 1] = temp
             }
-            start = Math.min(n, end + k)
-            end = Math.min(n, start + k)
+            start = min(n, end + k)
+            end = min(n, start + k)
         }
         return String(array)
     }
