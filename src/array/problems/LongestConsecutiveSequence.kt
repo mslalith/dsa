@@ -38,6 +38,30 @@ class LongestConsecutiveSequence : Problem<IntArray, Int>() {
         val n = nums.size
         if (n == 0 || n == 1) return n
 
+        val hashSet = hashSetOf<Int>()
+        var longestCount = 0
+
+        nums.forEach { hashSet.add(it) }
+
+        for (num in nums) {
+            if (!hashSet.contains(num - 1)) {
+                var run = num
+                var currCount = 0
+                while (hashSet.contains(run)) {
+                    run++
+                    currCount++
+                }
+                longestCount = max(currCount, longestCount)
+            }
+        }
+
+        return longestCount
+    }
+
+    private fun longestConsecutiveUsingSort(nums: IntArray): Int {
+        val n = nums.size
+        if (n == 0 || n == 1) return n
+
         nums.sort()
 
         var currCount = 1
