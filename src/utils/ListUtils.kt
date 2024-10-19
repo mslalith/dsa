@@ -35,23 +35,23 @@ fun <T> stringFromArray(array: Array<T>): String = array.joinToString(prefix = "
 fun <T> List<T>.unOrderEquals(other: List<T>): Boolean {
     if (this.size != other.size) return false
 
-    val set = hashSetOf<T>()
+    val items = mutableListOf<T>()
 
     for (item in this) {
-        set.add(item)
+        items.add(item)
     }
 
     for (item in other) {
-        val match = set.firstOrNull {
+        val match = items.firstOrNull {
             when (it) {
                 is List<*> -> it.unOrderEquals(item as List<*>)
                 else -> it == item
             }
         }
-        if (!set.contains(match)) return false
+        if (!items.contains(match)) return false
         if (match == null) return false
-        set.remove(match)
+        items.remove(match)
     }
 
-    return set.isEmpty()
+    return items.isEmpty()
 }
