@@ -22,18 +22,20 @@ class LongestSubstringWithoutRepeatingCharacters : Problem<String, Int>() {
     }
 
     private fun lengthOfLongestSubstring(s: String): Int {
+        val set = hashSetOf<Char>()
+
         var length = 0
         var i = 0
         var j = 0
-        val set = hashSetOf<Char>()
+
         while (i < s.length && j < s.length) {
-            if (set.contains(s[j])) {
-                set.remove(s[i++])
-            } else {
-                set.add(s[j++])
+            when {
+                set.contains(s[j]) -> set.remove(s[i++])
+                else -> set.add(s[j++])
             }
             length = max(length, j - i)
         }
+
         return length
     }
 }
