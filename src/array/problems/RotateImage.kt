@@ -2,6 +2,7 @@ package src.array.problems
 
 import src.core.Problem
 import src.core.TestCase
+import src.utils.createClone
 
 class RotateImage : Problem<Array<IntArray>, Array<IntArray>>() {
 
@@ -40,7 +41,7 @@ class RotateImage : Problem<Array<IntArray>, Array<IntArray>>() {
     )
 
     override fun solve(testCaseInput: Array<IntArray>): Array<IntArray> {
-        val clone = Array(testCaseInput.size) { testCaseInput[it].clone() }
+        val clone = testCaseInput.createClone()
         rotate(clone)
         return clone
     }

@@ -97,10 +97,25 @@ abstract class Problem<I, O> {
     private fun <T> isTestPassedInternal(actual: T?, expected: T?): Boolean {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
+        if (actual is Array<*> && expected is Array<*>) return actual.matches(expected)
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
         if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
+    }
+
+    private fun isTestPassedGiven(actual: Any?, expected: Any?): Boolean {
+        if (actual == null && expected == null) return true
+        if (actual == null || expected == null) return false
+        if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
+        if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
+        if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
+        return actual == expected
+    }
+
+    private fun Array<*>.matches(other: Array<*>): Boolean {
+        if (size != other.size) return false
+        return zip(other).all { isTestPassedGiven(it.first, it.second) }
     }
 
     protected fun buildDisplayStringFromList(list: List<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = list, pretty = pretty, map = { it.toString() })
@@ -124,7 +139,7 @@ private fun <T> buildDisplayStringFromIterable(
     // remove last appended chars
     deleteAt(length - 1)
     deleteAt(length - 1)
-    deleteAt(length - 1)
+    if (pretty) deleteAt(length - 1)
     append("\n")
     append("]")
 }
