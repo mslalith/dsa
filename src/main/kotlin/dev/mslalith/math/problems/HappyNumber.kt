@@ -1,13 +1,13 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class HappyNumber : Problem<Int, Boolean>() {
+class HappyNumber : TestCaseProblem<Int, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = HappyNumber().run()
+        fun main(args: Array<String>) = HappyNumber().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(

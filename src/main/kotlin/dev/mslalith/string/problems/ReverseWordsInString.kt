@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ReverseWordsInString : Problem<String, String>() {
+class ReverseWordsInString : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseWordsInString().run()
+        fun main(args: Array<String>) = ReverseWordsInString().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

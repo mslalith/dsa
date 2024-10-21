@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class DailyTemperatures : Problem<IntArray, IntArray>() {
+class DailyTemperatures : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DailyTemperatures().run()
+        fun main(args: Array<String>) = DailyTemperatures().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

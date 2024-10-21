@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class IsomorphicStrings : Problem<IsomorphicStringsParams, Boolean>() {
+class IsomorphicStrings : TestCaseProblem<IsomorphicStringsParams, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsomorphicStrings().run()
+        fun main(args: Array<String>) = IsomorphicStrings().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IsomorphicStringsParams, Boolean>> = arrayOf(

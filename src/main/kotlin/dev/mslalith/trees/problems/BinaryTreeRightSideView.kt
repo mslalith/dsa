@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class BinaryTreeRightSideView : Problem<TreeNode?, List<Int>>() {
+class BinaryTreeRightSideView : TestCaseProblem<TreeNode?, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinaryTreeRightSideView().run()
+        fun main(args: Array<String>) = BinaryTreeRightSideView().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, List<Int>>> = arrayOf(

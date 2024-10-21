@@ -1,13 +1,13 @@
 package dev.mslalith.bits.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class MinimumFlipsToMakeAorBEqualToC : Problem<MinimumFlipsToMakeAorBEqualToCParams, Int>() {
+class MinimumFlipsToMakeAorBEqualToC : TestCaseProblem<MinimumFlipsToMakeAorBEqualToCParams, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumFlipsToMakeAorBEqualToC().run()
+        fun main(args: Array<String>) = MinimumFlipsToMakeAorBEqualToC().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<MinimumFlipsToMakeAorBEqualToCParams, Int>> = arrayOf(

@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ValidSudoku : Problem<Array<CharArray>, Boolean>() {
+class ValidSudoku : TestCaseProblem<Array<CharArray>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidSudoku().run()
+        fun main(args: Array<String>) = ValidSudoku().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<CharArray>, Boolean>> = arrayOf(

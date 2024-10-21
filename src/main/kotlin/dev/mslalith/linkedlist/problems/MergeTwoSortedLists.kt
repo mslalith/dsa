@@ -1,15 +1,15 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 
-class MergeTwoSortedLists : Problem<Pair<ListNode?, ListNode?>, ListNode?>() {
+class MergeTwoSortedLists : TestCaseProblem<Pair<ListNode?, ListNode?>, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeTwoSortedLists().run()
+        fun main(args: Array<String>) = MergeTwoSortedLists().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<ListNode?, ListNode?>, ListNode?>> = arrayOf(

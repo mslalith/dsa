@@ -1,14 +1,14 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class LongestRepeatingCharacterReplacement : Problem<LongestRepeatingCharacterReplacementParams, Int>() {
+class LongestRepeatingCharacterReplacement : TestCaseProblem<LongestRepeatingCharacterReplacementParams, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestRepeatingCharacterReplacement().run()
+        fun main(args: Array<String>) = LongestRepeatingCharacterReplacement().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<LongestRepeatingCharacterReplacementParams, Int>> = arrayOf(

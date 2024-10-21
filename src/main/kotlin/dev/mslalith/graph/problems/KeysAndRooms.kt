@@ -1,13 +1,13 @@
 package dev.mslalith.graph.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class KeysAndRooms : Problem<List<List<Int>>, Boolean>() {
+class KeysAndRooms : TestCaseProblem<List<List<Int>>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KeysAndRooms().run()
+        fun main(args: Array<String>) = KeysAndRooms().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<List<List<Int>>, Boolean>> = arrayOf(

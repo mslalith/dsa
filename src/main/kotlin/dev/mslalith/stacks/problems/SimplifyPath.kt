@@ -1,14 +1,14 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class SimplifyPath : Problem<String, String>() {
+class SimplifyPath : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SimplifyPath().run()
+        fun main(args: Array<String>) = SimplifyPath().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

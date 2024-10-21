@@ -1,15 +1,15 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.min
 
 
-class MinimumSizeSubarraySum : Problem<Pair<Int, IntArray>, Int>() {
+class MinimumSizeSubarraySum : TestCaseProblem<Pair<Int, IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumSizeSubarraySum().run()
+        fun main(args: Array<String>) = MinimumSizeSubarraySum().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, IntArray>, Int>> = arrayOf(

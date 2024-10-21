@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class MaximumAverageSubarrayI : Problem<Pair<IntArray, Int>, Double>() {
+class MaximumAverageSubarrayI : TestCaseProblem<Pair<IntArray, Int>, Double>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumAverageSubarrayI().run()
+        fun main(args: Array<String>) = MaximumAverageSubarrayI().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Double>> = arrayOf(

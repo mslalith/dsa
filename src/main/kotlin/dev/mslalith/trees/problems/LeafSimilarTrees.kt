@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class LeafSimilarTrees : Problem<Pair<TreeNode?, TreeNode?>, Boolean>() {
+class LeafSimilarTrees : TestCaseProblem<Pair<TreeNode?, TreeNode?>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LeafSimilarTrees().run()
+        fun main(args: Array<String>) = LeafSimilarTrees().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, TreeNode?>, Boolean>> = arrayOf(

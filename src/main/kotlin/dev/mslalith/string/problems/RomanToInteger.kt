@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class RomanToInteger : Problem<String, Int>() {
+class RomanToInteger : TestCaseProblem<String, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RomanToInteger().run()
+        fun main(args: Array<String>) = RomanToInteger().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(

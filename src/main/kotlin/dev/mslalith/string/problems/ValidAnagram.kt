@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ValidAnagram : Problem<Pair<String, String>, Boolean>() {
+class ValidAnagram : TestCaseProblem<Pair<String, String>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidAnagram().run()
+        fun main(args: Array<String>) = ValidAnagram().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Boolean>> = arrayOf(

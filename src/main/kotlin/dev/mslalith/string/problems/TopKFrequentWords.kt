@@ -1,15 +1,15 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 import java.util.*
 
-class TopKFrequentWords : Problem<TopKFrequentWordsParams, List<String>>() {
+class TopKFrequentWords : TestCaseProblem<TopKFrequentWordsParams, List<String>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TopKFrequentWords().run()
+        fun main(args: Array<String>) = TopKFrequentWords().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TopKFrequentWordsParams, List<String>>> = arrayOf(

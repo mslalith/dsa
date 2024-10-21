@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class UniqueNumberOfOccurrences : Problem<IntArray, Boolean>() {
+class UniqueNumberOfOccurrences : TestCaseProblem<IntArray, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = UniqueNumberOfOccurrences().run()
+        fun main(args: Array<String>) = UniqueNumberOfOccurrences().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Boolean>> = arrayOf(

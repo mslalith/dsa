@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class RemoveDuplicatesFromSortedArray : Problem<IntArray, Int>() {
+class RemoveDuplicatesFromSortedArray : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveDuplicatesFromSortedArray().run()
+        fun main(args: Array<String>) = RemoveDuplicatesFromSortedArray().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

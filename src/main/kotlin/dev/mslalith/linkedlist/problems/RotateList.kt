@@ -1,15 +1,15 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 
-class RotateList : Problem<Pair<ListNode?, Int>, ListNode?>() {
+class RotateList : TestCaseProblem<Pair<ListNode?, Int>, ListNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RotateList().run()
+        fun main(args: Array<String>) = RotateList().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<ListNode?, Int>, ListNode?>> = arrayOf(

@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class TextJustification : Problem<Pair<Array<String>, Int>, List<String>>() {
+class TextJustification : TestCaseProblem<Pair<Array<String>, Int>, List<String>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TextJustification().run()
+        fun main(args: Array<String>) = TextJustification().runAll()
     }
 
     override fun displayOutput(output: List<String>): String = buildDisplayStringFromList(output.map { "|$it|" }, true)

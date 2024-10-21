@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class AddBinary : Problem<Pair<String, String>, String>() {
+class AddBinary : TestCaseProblem<Pair<String, String>, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AddBinary().run()
+        fun main(args: Array<String>) = AddBinary().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, String>> = arrayOf(

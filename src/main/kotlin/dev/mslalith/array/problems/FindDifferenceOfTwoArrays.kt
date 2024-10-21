@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class FindDifferenceOfTwoArrays : Problem<Pair<IntArray, IntArray>, List<List<Int>>>() {
+class FindDifferenceOfTwoArrays : TestCaseProblem<Pair<IntArray, IntArray>, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindDifferenceOfTwoArrays().run()
+        fun main(args: Array<String>) = FindDifferenceOfTwoArrays().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, IntArray>, List<List<Int>>>> = arrayOf(

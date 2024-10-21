@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class PathSum : Problem<PathSumParams, Boolean>() {
+class PathSum : TestCaseProblem<PathSumParams, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PathSum().run()
+        fun main(args: Array<String>) = PathSum().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<PathSumParams, Boolean>> = arrayOf(

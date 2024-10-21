@@ -1,14 +1,14 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class JumpGame : Problem<IntArray, Boolean>() {
+class JumpGame : TestCaseProblem<IntArray, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = JumpGame().run()
+        fun main(args: Array<String>) = JumpGame().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Boolean>> = arrayOf(

@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.unOrderEquals
 
-class ThreeSum : Problem<IntArray, List<List<Int>>>() {
+class ThreeSum : TestCaseProblem<IntArray, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ThreeSum().run()
+        fun main(args: Array<String>) = ThreeSum().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, List<List<Int>>>> = arrayOf(

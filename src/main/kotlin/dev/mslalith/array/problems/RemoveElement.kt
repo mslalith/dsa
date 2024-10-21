@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 
-class RemoveElement : Problem<RemoveElementParams, RemoveElementOutput>() {
+class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveElement().run()
+        fun main(args: Array<String>) = RemoveElement().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<RemoveElementParams, RemoveElementOutput>> = arrayOf(

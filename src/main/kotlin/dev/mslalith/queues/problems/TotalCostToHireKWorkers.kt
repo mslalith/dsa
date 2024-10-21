@@ -1,16 +1,16 @@
 package dev.mslalith.queues.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 import java.util.*
 import kotlin.math.min
 
-class TotalCostToHireKWorkers : Problem<TotalCostToHireKWorkersParams, Long>() {
+class TotalCostToHireKWorkers : TestCaseProblem<TotalCostToHireKWorkersParams, Long>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TotalCostToHireKWorkers().run()
+        fun main(args: Array<String>) = TotalCostToHireKWorkers().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TotalCostToHireKWorkersParams, Long>> = arrayOf(

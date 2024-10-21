@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class DeleteNodeInBST : Problem<Pair<TreeNode?, Int>, TreeNode?>() {
+class DeleteNodeInBST : TestCaseProblem<Pair<TreeNode?, Int>, TreeNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DeleteNodeInBST().run()
+        fun main(args: Array<String>) = DeleteNodeInBST().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, TreeNode?>> = arrayOf(

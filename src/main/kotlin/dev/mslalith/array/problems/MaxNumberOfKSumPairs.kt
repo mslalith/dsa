@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class MaxNumberOfKSumPairs : Problem<Pair<IntArray, Int>, Int>() {
+class MaxNumberOfKSumPairs : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaxNumberOfKSumPairs().run()
+        fun main(args: Array<String>) = MaxNumberOfKSumPairs().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

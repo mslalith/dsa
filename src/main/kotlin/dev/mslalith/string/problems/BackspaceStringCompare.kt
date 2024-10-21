@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class BackspaceStringCompare : Problem<BackspaceStringCompareParams, Boolean>() {
+class BackspaceStringCompare : TestCaseProblem<BackspaceStringCompareParams, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BackspaceStringCompare().run()
+        fun main(args: Array<String>) = BackspaceStringCompare().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<BackspaceStringCompareParams, Boolean>> = arrayOf(

@@ -1,13 +1,13 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class DominoAndTrominoTiling : Problem<Int, Int>() {
+class DominoAndTrominoTiling : TestCaseProblem<Int, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DominoAndTrominoTiling().run()
+        fun main(args: Array<String>) = DominoAndTrominoTiling().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

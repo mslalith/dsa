@@ -1,14 +1,14 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class LongestSubstringWithoutRepeatingCharacters : Problem<String, Int>() {
+class LongestSubstringWithoutRepeatingCharacters : TestCaseProblem<String, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestSubstringWithoutRepeatingCharacters().run()
+        fun main(args: Array<String>) = LongestSubstringWithoutRepeatingCharacters().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(

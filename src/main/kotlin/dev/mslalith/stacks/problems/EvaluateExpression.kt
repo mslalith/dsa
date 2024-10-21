@@ -1,15 +1,15 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.buildArray
 import java.util.*
 
-class EvaluateExpression : Problem<Array<String>, Int>() {
+class EvaluateExpression : TestCaseProblem<Array<String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateExpression().run()
+        fun main(args: Array<String>) = EvaluateExpression().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(

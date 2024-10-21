@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class LowestCommonAncestorOfBinaryTree : Problem<LowestCommonAncestorOfBinaryTreeParams, TreeNode?>() {
+class LowestCommonAncestorOfBinaryTree : TestCaseProblem<LowestCommonAncestorOfBinaryTreeParams, TreeNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LowestCommonAncestorOfBinaryTree().run()
+        fun main(args: Array<String>) = LowestCommonAncestorOfBinaryTree().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<LowestCommonAncestorOfBinaryTreeParams, TreeNode?>> = arrayOf(

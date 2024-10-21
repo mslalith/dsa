@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 import dev.mslalith.utils.displayStringFromListNode
 
-class RemoveNthNodeFromListEnd : Problem<RemoveNthNodeFromListEndParams, ListNode?>() {
+class RemoveNthNodeFromListEnd : TestCaseProblem<RemoveNthNodeFromListEndParams, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveNthNodeFromListEnd().run()
+        fun main(args: Array<String>) = RemoveNthNodeFromListEnd().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<RemoveNthNodeFromListEndParams, ListNode?>> = arrayOf(

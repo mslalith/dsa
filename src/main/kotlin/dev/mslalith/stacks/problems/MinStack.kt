@@ -1,6 +1,6 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.stacks.problems.MinStackInputType.GetMin
 import dev.mslalith.stacks.problems.MinStackInputType.Pop
@@ -8,11 +8,11 @@ import dev.mslalith.stacks.problems.MinStackInputType.Push
 import dev.mslalith.stacks.problems.MinStackInputType.Top
 import kotlin.math.min
 
-class MinStack : Problem<List<MinStackInputType>, List<Int?>>() {
+class MinStack : TestCaseProblem<List<MinStackInputType>, List<Int?>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinStack().run()
+        fun main(args: Array<String>) = MinStack().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<List<MinStackInputType>, List<Int?>>> = arrayOf(

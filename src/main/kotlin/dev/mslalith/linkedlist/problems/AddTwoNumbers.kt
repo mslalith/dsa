@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 import dev.mslalith.utils.stringFromListNode
 
-class AddTwoNumbers : Problem<AddTwoNumbersParams, ListNode?>() {
+class AddTwoNumbers : TestCaseProblem<AddTwoNumbersParams, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AddTwoNumbers().run()
+        fun main(args: Array<String>) = AddTwoNumbers().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<AddTwoNumbersParams, ListNode?>> = arrayOf(

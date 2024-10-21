@@ -1,14 +1,14 @@
 package dev.mslalith.queues.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class SmallestNumberInInfiniteSet : Problem<Array<Int?>, List<Int>>() {
+class SmallestNumberInInfiniteSet : TestCaseProblem<Array<Int?>, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SmallestNumberInInfiniteSet().run()
+        fun main(args: Array<String>) = SmallestNumberInInfiniteSet().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<Int?>, List<Int>>> = arrayOf(

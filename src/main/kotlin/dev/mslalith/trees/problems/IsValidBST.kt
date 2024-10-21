@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class IsValidBST : Problem<String, Boolean>() {
+class IsValidBST : TestCaseProblem<String, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsValidBST().run()
+        fun main(args: Array<String>) = IsValidBST().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, Boolean>> = arrayOf(

@@ -1,14 +1,14 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class EvaluateReversePolishNotation : Problem<Array<String>, Int>() {
+class EvaluateReversePolishNotation : TestCaseProblem<Array<String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateReversePolishNotation().run()
+        fun main(args: Array<String>) = EvaluateReversePolishNotation().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(

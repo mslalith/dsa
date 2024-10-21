@@ -1,14 +1,14 @@
 package dev.mslalith.trie.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trie.Trie
 
-class SearchSuggestionsSystem : Problem<Pair<Array<String>, String>, List<List<String>>>() {
+class SearchSuggestionsSystem : TestCaseProblem<Pair<Array<String>, String>, List<List<String>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SearchSuggestionsSystem().run()
+        fun main(args: Array<String>) = SearchSuggestionsSystem().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<String>, String>, List<List<String>>>> = arrayOf(

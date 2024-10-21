@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.linkedlist.utils.reverseLinkedList
 import dev.mslalith.utils.buildLinkedList
 
-class ReverseLinkedList : Problem<ListNode?, ListNode?>() {
+class ReverseLinkedList : TestCaseProblem<ListNode?, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseLinkedList().run()
+        fun main(args: Array<String>) = ReverseLinkedList().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

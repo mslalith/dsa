@@ -1,14 +1,14 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 
-class LinkedListCycleII : Problem<ListNode?, Int?>() {
+class LinkedListCycleII : TestCaseProblem<ListNode?, Int?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LinkedListCycleII().run()
+        fun main(args: Array<String>) = LinkedListCycleII().runAll()
     }
 
     override val skipIO: Boolean get() = true

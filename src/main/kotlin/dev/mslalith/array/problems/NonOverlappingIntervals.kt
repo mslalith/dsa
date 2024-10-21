@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class NonOverlappingIntervals : Problem<Array<IntArray>, Int>() {
+class NonOverlappingIntervals : TestCaseProblem<Array<IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NonOverlappingIntervals().run()
+        fun main(args: Array<String>) = NonOverlappingIntervals().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

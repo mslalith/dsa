@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class TwoSum : Problem<Pair<IntArray, Int>, IntArray>() {
+class TwoSum : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TwoSum().run()
+        fun main(args: Array<String>) = TwoSum().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> = arrayOf(

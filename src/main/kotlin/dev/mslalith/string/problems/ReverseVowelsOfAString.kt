@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ReverseVowelsOfAString : Problem<String, String>() {
+class ReverseVowelsOfAString : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseVowelsOfAString().run()
+        fun main(args: Array<String>) = ReverseVowelsOfAString().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

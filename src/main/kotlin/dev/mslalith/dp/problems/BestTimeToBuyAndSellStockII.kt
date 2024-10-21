@@ -1,14 +1,14 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class BestTimeToBuyAndSellStockII : Problem<IntArray, Int>() {
+class BestTimeToBuyAndSellStockII : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BestTimeToBuyAndSellStockII().run()
+        fun main(args: Array<String>) = BestTimeToBuyAndSellStockII().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

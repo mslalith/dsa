@@ -1,14 +1,14 @@
 package dev.mslalith.graph.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 
-class EvaluateDivision : Problem<EvaluateDivisionParams, DoubleArray>() {
+class EvaluateDivision : TestCaseProblem<EvaluateDivisionParams, DoubleArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateDivision().run()
+        fun main(args: Array<String>) = EvaluateDivision().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<EvaluateDivisionParams, DoubleArray>> = arrayOf(

@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class PlusOne : Problem<IntArray, IntArray>() {
+class PlusOne : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PlusOne().run()
+        fun main(args: Array<String>) = PlusOne().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

@@ -1,15 +1,15 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 import kotlin.math.absoluteValue
 
-class AsteroidCollision : Problem<IntArray, IntArray>() {
+class AsteroidCollision : TestCaseProblem<IntArray, IntArray>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AsteroidCollision().run()
+        fun main(args: Array<String>) = AsteroidCollision().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

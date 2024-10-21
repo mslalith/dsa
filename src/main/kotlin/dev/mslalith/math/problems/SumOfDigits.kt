@@ -1,13 +1,13 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class SumOfDigits : Problem<Int, Int>() {
+class SumOfDigits : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SumOfDigits().run()
+        fun main(args: Array<String>) = SumOfDigits().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

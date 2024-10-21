@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
 
-class CombinationSumIII : Problem<Pair<Int, Int>, List<List<Int>>>() {
+class CombinationSumIII : TestCaseProblem<Pair<Int, Int>, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CombinationSumIII().run()
+        fun main(args: Array<String>) = CombinationSumIII().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, Int>, List<List<Int>>>> = arrayOf(

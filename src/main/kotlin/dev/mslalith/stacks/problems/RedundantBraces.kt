@@ -1,14 +1,14 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class RedundantBraces : Problem<String, Int>() {
+class RedundantBraces : TestCaseProblem<String, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RedundantBraces().run()
+        fun main(args: Array<String>) = RedundantBraces().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(

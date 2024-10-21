@@ -1,13 +1,13 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class UniquePaths : Problem<UniquePathsParams, Int>() {
+class UniquePaths : TestCaseProblem<UniquePathsParams, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = UniquePaths().run()
+        fun main(args: Array<String>) = UniquePaths().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<UniquePathsParams, Int>> = arrayOf(

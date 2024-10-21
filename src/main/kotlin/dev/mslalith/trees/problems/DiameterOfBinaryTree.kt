@@ -1,16 +1,16 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 import kotlin.math.max
 
-class DiameterOfBinaryTree : Problem<TreeNode?, Int>() {
+class DiameterOfBinaryTree : TestCaseProblem<TreeNode?, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DiameterOfBinaryTree().run()
+        fun main(args: Array<String>) = DiameterOfBinaryTree().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

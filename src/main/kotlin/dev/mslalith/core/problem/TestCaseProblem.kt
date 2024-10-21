@@ -1,12 +1,14 @@
-package dev.mslalith.core
+package dev.mslalith.core.problem
 
+import dev.mslalith.core.TestCase
+import dev.mslalith.core.TestResult
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.areListNodesEqual
 import dev.mslalith.utils.displayStringFromListNode
 import dev.mslalith.utils.stringFromArray
 import kotlin.time.measureTimedValue
 
-abstract class Problem<I, O> {
+abstract class TestCaseProblem<I, O> : Problem {
 
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
     protected abstract fun solve(testCaseInput: I): O
@@ -31,7 +33,8 @@ abstract class Problem<I, O> {
         )
     }
 
-    fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
+    override fun run(): Boolean = getTestCases().all { runSingle(testCase = it, silent = false) }
+    fun runAll() { run() }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
         val (output, timeTaken) = measureTimedValue { solve(testCase.input) }

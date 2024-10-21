@@ -1,14 +1,14 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class NearestSmallerElement : Problem<IntArray, IntArray>() {
+class NearestSmallerElement : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NearestSmallerElement().run()
+        fun main(args: Array<String>) = NearestSmallerElement().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

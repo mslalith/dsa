@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class SpiralMatrix : Problem<Array<IntArray>, List<Int>>() {
+class SpiralMatrix : TestCaseProblem<Array<IntArray>, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SpiralMatrix().run()
+        fun main(args: Array<String>) = SpiralMatrix().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, List<Int>>> = arrayOf(

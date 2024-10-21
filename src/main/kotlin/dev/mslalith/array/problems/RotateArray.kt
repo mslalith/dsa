@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class RotateArray : Problem<Pair<IntArray, Int>, IntArray>() {
+class RotateArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RotateArray().run()
+        fun main(args: Array<String>) = RotateArray().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> = arrayOf(

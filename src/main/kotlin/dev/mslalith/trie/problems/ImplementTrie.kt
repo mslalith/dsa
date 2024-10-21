@@ -1,15 +1,18 @@
 package dev.mslalith.trie.problems
 
+import dev.mslalith.core.problem.SimpleProblem
 import dev.mslalith.trie.Trie
 
-class ImplementTrie {
+class ImplementTrie : SimpleProblem() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ImplementTrie().run()
+        fun main(args: Array<String>) {
+            ImplementTrie().runAll()
+        }
     }
 
-    private fun run() {
+    override fun runAll(): Boolean = kotlin.runCatching {
         val trie = Trie()
         trie.insert("apple")
         check(trie.search("apple")) // return True
@@ -17,5 +20,5 @@ class ImplementTrie {
         check(trie.startsWith("app")) // return True
         trie.insert("app")
         check(trie.search("app")) // return True
-    }
+    }.isSuccess
 }

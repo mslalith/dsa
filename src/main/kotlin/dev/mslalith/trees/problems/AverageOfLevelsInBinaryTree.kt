@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class AverageOfLevelsInBinaryTree : Problem<TreeNode?, DoubleArray>() {
+class AverageOfLevelsInBinaryTree : TestCaseProblem<TreeNode?, DoubleArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AverageOfLevelsInBinaryTree().run()
+        fun main(args: Array<String>) = AverageOfLevelsInBinaryTree().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, DoubleArray>> = arrayOf(

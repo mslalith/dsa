@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.ceil
 
-class KokoEatingBananas : Problem<Pair<IntArray, Int>, Int>() {
+class KokoEatingBananas : TestCaseProblem<Pair<IntArray, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KokoEatingBananas().run()
+        fun main(args: Array<String>) = KokoEatingBananas().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

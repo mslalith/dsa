@@ -1,13 +1,13 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class IsPrime : Problem<Int, Boolean>() {
+class IsPrime : TestCaseProblem<Int, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsPrime().run()
+        fun main(args: Array<String>) = IsPrime().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(

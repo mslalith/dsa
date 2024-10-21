@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ValidPalindrome : Problem<String, Boolean>() {
+class ValidPalindrome : TestCaseProblem<String, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidPalindrome().run()
+        fun main(args: Array<String>) = ValidPalindrome().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<String, Boolean>> = arrayOf(

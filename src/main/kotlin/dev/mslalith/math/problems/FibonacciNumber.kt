@@ -1,13 +1,13 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class FibonacciNumber : Problem<Int, Int>() {
+class FibonacciNumber : TestCaseProblem<Int, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FibonacciNumber().run()
+        fun main(args: Array<String>) = FibonacciNumber().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

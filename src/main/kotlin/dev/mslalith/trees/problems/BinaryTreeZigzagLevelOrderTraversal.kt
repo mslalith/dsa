@@ -1,15 +1,15 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 
-class BinaryTreeZigzagLevelOrderTraversal : Problem<TreeNode?, List<List<Int>>>() {
+class BinaryTreeZigzagLevelOrderTraversal : TestCaseProblem<TreeNode?, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinaryTreeZigzagLevelOrderTraversal().run()
+        fun main(args: Array<String>) = BinaryTreeZigzagLevelOrderTraversal().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, List<List<Int>>>> = arrayOf(

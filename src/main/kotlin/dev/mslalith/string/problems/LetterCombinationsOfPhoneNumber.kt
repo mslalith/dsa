@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class LetterCombinationsOfPhoneNumber : Problem<String, List<String>>() {
+class LetterCombinationsOfPhoneNumber : TestCaseProblem<String, List<String>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LetterCombinationsOfPhoneNumber().run()
+        fun main(args: Array<String>) = LetterCombinationsOfPhoneNumber().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, List<String>>> = arrayOf(

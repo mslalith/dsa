@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class IsSubsequence: Problem<IsSubsequenceParams, Boolean>() {
+class IsSubsequence: TestCaseProblem<IsSubsequenceParams, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsSubsequence().run()
+        fun main(args: Array<String>) = IsSubsequence().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IsSubsequenceParams, Boolean>> = arrayOf(

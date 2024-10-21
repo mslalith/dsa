@@ -1,14 +1,14 @@
 package dev.mslalith.graph.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.absoluteValue
 
-class ReorderRoutesToMakeAllPathsLeadToCityZero : Problem<Pair<Int, Array<IntArray>>, Int>() {
+class ReorderRoutesToMakeAllPathsLeadToCityZero : TestCaseProblem<Pair<Int, Array<IntArray>>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReorderRoutesToMakeAllPathsLeadToCityZero().run()
+        fun main(args: Array<String>) = ReorderRoutesToMakeAllPathsLeadToCityZero().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, Array<IntArray>>, Int>> = arrayOf(

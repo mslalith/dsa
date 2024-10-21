@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class FindAllAnagramsInAString : Problem<FindAllAnagramsInAStringParams, List<Int>>() {
+class FindAllAnagramsInAString : TestCaseProblem<FindAllAnagramsInAStringParams, List<Int>>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindAllAnagramsInAString().run()
+        fun main(args: Array<String>) = FindAllAnagramsInAString().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<FindAllAnagramsInAStringParams, List<Int>>> = arrayOf(

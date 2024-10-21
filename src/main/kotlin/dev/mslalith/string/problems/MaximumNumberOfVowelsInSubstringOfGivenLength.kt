@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class MaximumNumberOfVowelsInSubstringOfGivenLength : Problem<Pair<String, Int>, Int>() {
+class MaximumNumberOfVowelsInSubstringOfGivenLength : TestCaseProblem<Pair<String, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumNumberOfVowelsInSubstringOfGivenLength().run()
+        fun main(args: Array<String>) = MaximumNumberOfVowelsInSubstringOfGivenLength().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, Int>, Int>> = arrayOf(

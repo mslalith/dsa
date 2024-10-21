@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class MinimumNumberOfArrowsToBurstBalloons : Problem<Array<IntArray>, Int>() {
+class MinimumNumberOfArrowsToBurstBalloons : TestCaseProblem<Array<IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumNumberOfArrowsToBurstBalloons().run()
+        fun main(args: Array<String>) = MinimumNumberOfArrowsToBurstBalloons().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

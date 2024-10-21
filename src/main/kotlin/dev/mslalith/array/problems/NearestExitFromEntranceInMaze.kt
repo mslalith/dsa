@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class NearestExitFromEntranceInMaze : Problem<Pair<Array<CharArray>, IntArray>, Int>() {
+class NearestExitFromEntranceInMaze : TestCaseProblem<Pair<Array<CharArray>, IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NearestExitFromEntranceInMaze().run()
+        fun main(args: Array<String>) = NearestExitFromEntranceInMaze().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<CharArray>, IntArray>, Int>> = arrayOf(

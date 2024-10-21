@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class RemoveOutermostParentheses : Problem<String, String>() {
+class RemoveOutermostParentheses : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveOutermostParentheses().run()
+        fun main(args: Array<String>) = RemoveOutermostParentheses().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

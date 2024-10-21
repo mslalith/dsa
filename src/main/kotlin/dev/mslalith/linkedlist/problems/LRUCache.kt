@@ -1,13 +1,13 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class LRUCache : Problem<Pair<Int, List<List<Int>>>, List<Int?>>() {
+class LRUCache : TestCaseProblem<Pair<Int, List<List<Int>>>, List<Int?>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LRUCache().run()
+        fun main(args: Array<String>) = LRUCache().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, List<List<Int>>>, List<Int?>>> = arrayOf(

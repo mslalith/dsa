@@ -1,15 +1,15 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.unOrderEquals
 import java.util.*
 
-class GroupAnagrams : Problem<Array<String>, List<List<String>>>() {
+class GroupAnagrams : TestCaseProblem<Array<String>, List<List<String>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GroupAnagrams().run()
+        fun main(args: Array<String>) = GroupAnagrams().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, List<List<String>>>> = arrayOf(

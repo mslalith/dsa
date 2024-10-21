@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class KthLargestElementInArray : Problem<Pair<IntArray, Int>, Int>() {
+class KthLargestElementInArray : TestCaseProblem<Pair<IntArray, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KthLargestElementInArray().run()
+        fun main(args: Array<String>) = KthLargestElementInArray().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

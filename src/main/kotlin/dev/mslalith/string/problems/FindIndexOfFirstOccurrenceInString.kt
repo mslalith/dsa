@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class FindIndexOfFirstOccurrenceInString : Problem<Pair<String, String>, Int>() {
+class FindIndexOfFirstOccurrenceInString : TestCaseProblem<Pair<String, String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindIndexOfFirstOccurrenceInString().run()
+        fun main(args: Array<String>) = FindIndexOfFirstOccurrenceInString().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Int>> = arrayOf(

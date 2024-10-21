@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 
-class MergeSortedArray : Problem<MergeSortedArrayParams, IntArray>() {
+class MergeSortedArray : TestCaseProblem<MergeSortedArrayParams, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeSortedArray().run()
+        fun main(args: Array<String>) = MergeSortedArray().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<MergeSortedArrayParams, IntArray>> = arrayOf(

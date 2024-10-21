@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.linkedlist.utils.reverseLinkedList
 import dev.mslalith.utils.buildLinkedList
 
-class PalindromeLinkedList : Problem<ListNode?, Boolean>() {
+class PalindromeLinkedList : TestCaseProblem<ListNode?, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PalindromeLinkedList().run()
+        fun main(args: Array<String>) = PalindromeLinkedList().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, Boolean>> = arrayOf(

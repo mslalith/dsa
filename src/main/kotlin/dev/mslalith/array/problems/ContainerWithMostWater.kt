@@ -1,15 +1,15 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 import kotlin.math.min
 
-class ContainerWithMostWater : Problem<IntArray, Int>() {
+class ContainerWithMostWater : TestCaseProblem<IntArray, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ContainerWithMostWater().run()
+        fun main(args: Array<String>) = ContainerWithMostWater().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

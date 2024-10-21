@@ -1,14 +1,14 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class ClimbingStairs : Problem<Int, Int>() {
+class ClimbingStairs : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ClimbingStairs().run()
+        fun main(args: Array<String>) = ClimbingStairs().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

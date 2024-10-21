@@ -1,14 +1,14 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.min
 
-class ReverseStringII : Problem<ReverseStringIIParams, String>() {
+class ReverseStringII : TestCaseProblem<ReverseStringIIParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseStringII().run()
+        fun main(args: Array<String>) = ReverseStringII().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<ReverseStringIIParams, String>> = arrayOf(

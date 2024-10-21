@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 import dev.mslalith.utils.stringFromListNode
 
-class PartitionList : Problem<PartitionListParams, String>() {
+class PartitionList : TestCaseProblem<PartitionListParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PartitionList().run()
+        fun main(args: Array<String>) = PartitionList().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<PartitionListParams, String>> = arrayOf(

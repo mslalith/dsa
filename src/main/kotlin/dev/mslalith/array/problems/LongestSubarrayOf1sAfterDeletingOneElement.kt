@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class LongestSubarrayOf1sAfterDeletingOneElement : Problem<IntArray, Int>() {
+class LongestSubarrayOf1sAfterDeletingOneElement : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestSubarrayOf1sAfterDeletingOneElement().run()
+        fun main(args: Array<String>) = LongestSubarrayOf1sAfterDeletingOneElement().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

@@ -1,14 +1,14 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.min
 
-class CoinChange : Problem<Pair<IntArray, Int>, Int>() {
+class CoinChange : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CoinChange().run()
+        fun main(args: Array<String>) = CoinChange().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

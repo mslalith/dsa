@@ -1,14 +1,14 @@
 package dev.mslalith.stacks.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import java.util.*
 
-class ValidParentheses : Problem<String, Boolean>() {
+class ValidParentheses : TestCaseProblem<String, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidParentheses().run()
+        fun main(args: Array<String>) = ValidParentheses().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<String, Boolean>> = arrayOf(

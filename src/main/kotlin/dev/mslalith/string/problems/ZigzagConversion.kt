@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class ZigzagConversion : Problem<ZigzagConversionParams, String>() {
+class ZigzagConversion : TestCaseProblem<ZigzagConversionParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ZigzagConversion().run()
+        fun main(args: Array<String>) = ZigzagConversion().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<ZigzagConversionParams, String>> = arrayOf(

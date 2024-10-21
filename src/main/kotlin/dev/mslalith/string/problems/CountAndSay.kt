@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class CountAndSay : Problem<Int, String>() {
+class CountAndSay : TestCaseProblem<Int, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountAndSay().run()
+        fun main(args: Array<String>) = CountAndSay().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, String>> = arrayOf(

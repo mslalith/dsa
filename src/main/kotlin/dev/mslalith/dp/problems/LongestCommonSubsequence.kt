@@ -1,14 +1,14 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import kotlin.math.max
 
-class LongestCommonSubsequence : Problem<Pair<String, String>, Int>() {
+class LongestCommonSubsequence : TestCaseProblem<Pair<String, String>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestCommonSubsequence().run()
+        fun main(args: Array<String>) = LongestCommonSubsequence().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Int>> = arrayOf(

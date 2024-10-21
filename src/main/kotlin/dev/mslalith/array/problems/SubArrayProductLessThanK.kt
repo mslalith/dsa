@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 
-class SubArrayProductLessThanK : Problem<SubArrayProductLessThanKParams, Int>() {
+class SubArrayProductLessThanK : TestCaseProblem<SubArrayProductLessThanKParams, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SubArrayProductLessThanK().run()
+        fun main(args: Array<String>) = SubArrayProductLessThanK().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<SubArrayProductLessThanKParams, Int>> = arrayOf(

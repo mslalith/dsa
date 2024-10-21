@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class FindPeakElement : Problem<IntArray, Int>() {
+class FindPeakElement : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindPeakElement().run()
+        fun main(args: Array<String>) = FindPeakElement().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

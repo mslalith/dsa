@@ -1,13 +1,13 @@
 package dev.mslalith.bits.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class CountingBits : Problem<Int, IntArray>() {
+class CountingBits : TestCaseProblem<Int, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountingBits().run()
+        fun main(args: Array<String>) = CountingBits().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, IntArray>> = arrayOf(

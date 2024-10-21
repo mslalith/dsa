@@ -1,14 +1,14 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 
-class SuccessfulPairsOfSpellsAndPotions : Problem<SuccessfulPairsOfSpellsAndPotionsParams, IntArray>() {
+class SuccessfulPairsOfSpellsAndPotions : TestCaseProblem<SuccessfulPairsOfSpellsAndPotionsParams, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SuccessfulPairsOfSpellsAndPotions().run()
+        fun main(args: Array<String>) = SuccessfulPairsOfSpellsAndPotions().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<SuccessfulPairsOfSpellsAndPotionsParams, IntArray>> = arrayOf(

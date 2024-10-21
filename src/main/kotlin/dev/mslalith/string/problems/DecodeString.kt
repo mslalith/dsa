@@ -1,13 +1,13 @@
 package dev.mslalith.string.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class DecodeString : Problem<String, String>() {
+class DecodeString : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DecodeString().run()
+        fun main(args: Array<String>) = DecodeString().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

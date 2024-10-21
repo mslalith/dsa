@@ -1,10 +1,12 @@
 package dev.mslalith.core
 
-class RunningProblem : Problem<Int, Boolean>() {
+import dev.mslalith.core.problem.TestCaseProblem
+
+class RunningProblem : TestCaseProblem<Int, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RunningProblem().run()
+        fun main(args: Array<String>) = RunningProblem().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf()

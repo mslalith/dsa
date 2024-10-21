@@ -1,13 +1,13 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class CanPlaceFlowers : Problem<Pair<IntArray, Int>, Boolean>() {
+class CanPlaceFlowers : TestCaseProblem<Pair<IntArray, Int>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CanPlaceFlowers().run()
+        fun main(args: Array<String>) = CanPlaceFlowers().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Boolean>> = arrayOf(

@@ -1,15 +1,15 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 
-class RemoveDuplicatesFromSortedList : Problem<ListNode?, ListNode?>() {
+class RemoveDuplicatesFromSortedList : TestCaseProblem<ListNode?, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveDuplicatesFromSortedList().run()
+        fun main(args: Array<String>) = RemoveDuplicatesFromSortedList().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

@@ -1,17 +1,17 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.utils.stringFromArray
 import java.util.*
 import kotlin.math.max
 
 
-class MaximumSubsequenceScore : Problem<MaximumSubsequenceScoreParams, Long>() {
+class MaximumSubsequenceScore : TestCaseProblem<MaximumSubsequenceScoreParams, Long>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumSubsequenceScore().run()
+        fun main(args: Array<String>) = MaximumSubsequenceScore().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<MaximumSubsequenceScoreParams, Long>> = arrayOf(

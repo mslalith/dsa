@@ -1,13 +1,13 @@
 package dev.mslalith.graph.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class NumberOfProvinces : Problem<Array<IntArray>, Int>() {
+class NumberOfProvinces : TestCaseProblem<Array<IntArray>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NumberOfProvinces().run()
+        fun main(args: Array<String>) = NumberOfProvinces().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

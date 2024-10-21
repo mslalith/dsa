@@ -1,16 +1,16 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.linkedlist.utils.reverseLinkedList
 import dev.mslalith.utils.buildLinkedList
 
-class MaximumTwinSumOfLinkedList : Problem<ListNode?, Int>() {
+class MaximumTwinSumOfLinkedList : TestCaseProblem<ListNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumTwinSumOfLinkedList().run()
+        fun main(args: Array<String>) = MaximumTwinSumOfLinkedList().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<ListNode?, Int>> = arrayOf(

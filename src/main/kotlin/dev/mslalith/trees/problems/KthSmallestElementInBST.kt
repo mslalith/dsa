@@ -1,16 +1,16 @@
 package dev.mslalith.trees.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
 import java.util.*
 
-class KthSmallestElementInBST : Problem<Pair<TreeNode?, Int>, Int>() {
+class KthSmallestElementInBST : TestCaseProblem<Pair<TreeNode?, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KthSmallestElementInBST().run()
+        fun main(args: Array<String>) = KthSmallestElementInBST().runAll()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, Int>> = arrayOf(

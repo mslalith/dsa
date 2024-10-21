@@ -1,13 +1,13 @@
 package dev.mslalith.queues.problems
 
-import dev.mslalith.core.Problem
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
-class Dota2Senate : Problem<String, String>() {
+class Dota2Senate : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = Dota2Senate().run()
+        fun main(args: Array<String>) = Dota2Senate().runAll()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(
