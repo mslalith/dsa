@@ -6,6 +6,24 @@ import dev.mslalith.utils.displayStringFromListNode
 import dev.mslalith.utils.stringFromArray
 import kotlin.time.measureTimedValue
 
+abstract class DirectProblem : Problem<Unit, Unit>() {
+
+    abstract fun runProblem()
+
+    override fun getTestCases(): Array<TestCase<Unit, Unit>> = throw UnsupportedOperationException()
+    override fun solve(testCaseInput: Unit) = throw UnsupportedOperationException()
+    override fun run() = runProblem()
+
+    override fun runSilent(): TestResult {
+        val result = kotlin.runCatching { run() }
+        return TestResult(
+            allTests = if (result.isSuccess) 1 else 0,
+            passed = if (result.isSuccess) 1 else 0,
+            failed = if (result.isFailure) 1 else 0
+        )
+    }
+}
+
 abstract class Problem<I, O> {
 
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
@@ -19,7 +37,7 @@ abstract class Problem<I, O> {
     open fun displayOutput(output: O): String = stringFromType(output)
     open fun displayExpected(expected: O): String = stringFromType(expected)
 
-    fun runSilent(): TestResult {
+    open fun runSilent(): TestResult {
         val testCases = getTestCases()
         val passed = testCases.count { runSingle(testCase = it, silent = true) }
         val failed = testCases.size - passed
@@ -31,7 +49,7 @@ abstract class Problem<I, O> {
         )
     }
 
-    fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
+    open fun run() = getTestCases().forEach { runSingle(testCase = it, silent = false) }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
         val (output, timeTaken) = measureTimedValue { solve(testCase.input) }

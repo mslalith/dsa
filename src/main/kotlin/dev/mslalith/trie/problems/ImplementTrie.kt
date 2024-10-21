@@ -1,15 +1,16 @@
 package dev.mslalith.trie.problems
 
+import dev.mslalith.core.DirectProblem
 import dev.mslalith.trie.Trie
 
-class ImplementTrie {
+class ImplementTrie : DirectProblem() {
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) = ImplementTrie().run()
     }
 
-    private fun run() {
+    override fun runProblem() {
         val trie = Trie()
         trie.insert("apple")
         check(trie.search("apple")) // return True

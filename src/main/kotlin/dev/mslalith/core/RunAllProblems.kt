@@ -7,33 +7,26 @@ object RunAllProblems {
     @JvmStatic
     fun main(args: Array<String>) {
         println()
-        getProblemFileTypes().forEach { problemType ->
+        getProblemBasedOnTopics().forEach { (topic, files) ->
             println("==========================================")
-            println("======= Running ${getProblemTypeName(problemType)} problems =======")
+            println("======= Running ${topic.displayName} problems =======")
             println("==========================================")
             println()
-            getProblemFilesForType(problemType).forEach { problemFile ->
+            files.forEach { problemFile ->
                 runProblemFile(problemFile)
             }
         }
         println()
     }
 
-    private fun getProblemFileTypes(): List<File> {
-        val srcDirectory = File("./src").canonicalFile
-        return srcDirectory.listFiles()?.mapNotNull { file ->
-            file.listFiles()?.firstOrNull { it.path.endsWith("problems") }
-        } ?: emptyList()
-    }
-
-    private fun getProblemFilesForType(file: File): List<File> {
-        return file.listFiles()?.filterNotNull() ?: emptyList()
-    }
-
-    private fun getProblemTypeName(file: File): String {
-        val typeName = file.path.split("src/").last().split("/").first()
-        return typeName.split("_").joinToString(separator = " ") {
-            it.first().uppercaseChar() + it.substring(1)
+    private fun getProblemBasedOnTopics(): List<Pair<Topic, List<File>>> {
+        val basePath = "./src/main/kotlin/dev/mslalith/"
+        return Topic.entries.map { topic ->
+            val files = File(basePath + topic.dirName + "/problems")
+                .listFiles()
+                ?.filterNotNull()
+                ?: emptyList()
+            topic to files
         }
     }
 
@@ -46,7 +39,7 @@ object RunAllProblems {
     }
 
     private fun classFromFile(file: File): Class<*>? = try {
-        val packageName = "src" + file.parentFile.path.split("src")[1].replace("/", ".")
+        val packageName = file.parentFile.path.split("src")[1].replace("/", ".").replace(".main.kotlin.", "")
         Class.forName("$packageName.${file.nameWithoutExtension}")
     } catch (e: ClassNotFoundException) {
         println("⚠️ Skipping file: $file (not found)")
