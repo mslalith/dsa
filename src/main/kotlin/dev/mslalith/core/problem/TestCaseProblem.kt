@@ -33,8 +33,12 @@ abstract class TestCaseProblem<I, O> : Problem {
         )
     }
 
-    override fun run(): Boolean = getTestCases().all { runSingle(testCase = it, silent = false) }
     fun runAll() { run() }
+
+    override fun run(): Boolean {
+        val testCases = getTestCases()
+        return testCases.count { runSingle(testCase = it, silent = false) } == testCases.size
+    }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
         val (output, timeTaken) = measureTimedValue { solve(testCase.input) }
