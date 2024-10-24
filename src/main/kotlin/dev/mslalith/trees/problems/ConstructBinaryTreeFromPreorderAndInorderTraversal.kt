@@ -16,6 +16,10 @@ class ConstructBinaryTreeFromPreorderAndInorderTraversal : TestCaseProblem<Pair<
         TestCase(
             input = intArrayOf(3, 9, 20, 15, 7) to intArrayOf(9, 3, 15, 20, 7),
             output = buildTreeNode(input = "3,9,20,null,null,15,7")
+        ),
+        TestCase(
+            input = intArrayOf(-1) to intArrayOf(-1),
+            output = buildTreeNode(input = "-1")
         )
     )
 
