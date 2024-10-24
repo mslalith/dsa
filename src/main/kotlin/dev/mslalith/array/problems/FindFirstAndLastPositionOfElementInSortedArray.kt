@@ -1,83 +1,65 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
-import dev.mslalith.utils.buildIntArray
+import dev.mslalith.core.problem.TestCaseProblem
 import java.util.*
 
-class FindFirstAndLastPositionOfElementInSortedArray : TestCaseProblem<FindFirstAndLastPositionOfElementInSortedArrayParams, IntArray>() {
+class FindFirstAndLastPositionOfElementInSortedArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) = FindFirstAndLastPositionOfElementInSortedArray().runAll()
     }
 
-    override fun getTestCases(): Array<TestCase<FindFirstAndLastPositionOfElementInSortedArrayParams, IntArray>> {
+    override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> {
         return arrayOf(
             TestCase(
-                input = FindFirstAndLastPositionOfElementInSortedArrayParams(
-                    nums = "5,7,7,8,8,10",
-                    target = 8
-                ),
+                input = intArrayOf(5, 7, 7, 8, 8, 10) to 8,
                 output = intArrayOf(3, 4)
             ),
             TestCase(
-                input = FindFirstAndLastPositionOfElementInSortedArrayParams(
-                    nums = "5,7,7,8,8,10",
-                    target = 6
-                ),
+                input = intArrayOf(5, 7, 7, 8, 8, 10) to 6,
                 output = intArrayOf(-1, -1)
             ),
             TestCase(
-                input = FindFirstAndLastPositionOfElementInSortedArrayParams(
-                    nums = "",
-                    target = 0
-                ),
+                input = intArrayOf() to 0,
                 output = intArrayOf(-1, -1)
             ),
             TestCase(
-                input = FindFirstAndLastPositionOfElementInSortedArrayParams(
-                    nums = "1",
-                    target = 1
-                ),
+                input = intArrayOf(1) to 1,
                 output = intArrayOf(0, 0)
             )
         )
     }
 
-    override fun solve(testCaseInput: FindFirstAndLastPositionOfElementInSortedArrayParams): IntArray {
-        return searchRange(
-            nums = buildIntArray(input = testCaseInput.nums),
-            target = testCaseInput.target
-        )
+    override fun solve(testCaseInput: Pair<IntArray, Int>): IntArray {
+        return searchRange(testCaseInput.first, testCaseInput.second)
     }
 
     private fun searchRange(nums: IntArray, target: Int): IntArray {
-        if (nums.isEmpty()) return intArrayOf(-1, -1)
-
-        val index = Arrays.binarySearch(nums, target)
-        if (index < 0) return intArrayOf(-1, -1)
-
-        var left = index
-        var right = index
-
-        while (left > 0 && nums[left - 1] == target) left--
-
-        while (right < nums.lastIndex && nums[right + 1] == target) right++
-
-        return intArrayOf(left, right)
+        return intArrayOf(
+            binarySearch(nums, target, true),
+            binarySearch(nums, target, false)
+        )
     }
-}
 
-data class FindFirstAndLastPositionOfElementInSortedArrayParams(
-    val nums: String,
-    val target: Int
-) {
-    override fun toString(): String {
-        return """
-            
-            nums: $nums
-            target: $target
-        """.trimIndent()
+    private fun binarySearch(nums: IntArray, target: Int, isSearchingLeft: Boolean): Int {
+        var left = 0
+        var right = nums.size - 1
+        var index = -1
+
+        while (left <= right) {
+            val mid = left + (right - left) / 2
+            when {
+                target < nums[mid] -> right = mid - 1
+                nums[mid] < target -> left = mid + 1
+                else -> {
+                    index = mid
+                    if (isSearchingLeft) right = mid - 1 else left = mid + 1
+                }
+            }
+        }
+
+        return index
     }
 }
