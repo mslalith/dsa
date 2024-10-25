@@ -37,41 +37,34 @@ class NumberOfIslands : TestCaseProblem<Array<CharArray>, Int>() {
 
     private fun numIslands(grid: Array<CharArray>): Int {
         val m = grid.size
-        val n = grid.first().size
-        val visited = Array(m) { Array(n) { false } }
-        return numIslands(grid, visited, m, n)
-    }
+        val n = grid[0].size
 
-    private fun numIslands(grid: Array<CharArray>, visited: Array<Array<Boolean>>, m: Int, n: Int): Int {
         var islandCount = 0
+
+        fun markVisited(
+            row: Int,
+            column: Int
+        ) {
+            if (row < 0 || row >= m) return
+            if (column < 0 || column >= n) return
+            if (grid[row][column] == '0') return
+
+            grid[row][column] = '0'
+            markVisited(row + 1, column)
+            markVisited(row - 1, column)
+            markVisited(row, column + 1)
+            markVisited(row, column - 1)
+        }
+
         for (i in 0 until m) {
             for (j in 0 until n) {
-                if (!visited[i][j] && grid[i][j] != '0') {
+                if (grid[i][j] != '0') {
                     islandCount++
-                    markVisited(grid, visited, m, n, i, j)
+                    markVisited(i, j)
                 }
             }
         }
+
         return islandCount
-    }
-
-    private fun markVisited(
-        grid: Array<CharArray>,
-        visited: Array<Array<Boolean>>,
-        m: Int,
-        n: Int,
-        row: Int,
-        column: Int
-    ) {
-        if (row < 0 || row >= m) return
-        if (column < 0 || column >= n) return
-        if (visited[row][column]) return
-        if (grid[row][column] == '0') return
-
-        visited[row][column] = true
-        markVisited(grid, visited, m, n, row + 1, column)
-        markVisited(grid, visited, m, n, row - 1, column)
-        markVisited(grid, visited, m, n, row, column + 1)
-        markVisited(grid, visited, m, n, row, column - 1)
     }
 }
