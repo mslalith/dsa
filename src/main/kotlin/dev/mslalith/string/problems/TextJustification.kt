@@ -10,8 +10,8 @@ class TextJustification : TestCaseProblem<Pair<Array<String>, Int>, List<String>
         fun main(args: Array<String>) = TextJustification().runAll()
     }
 
-    override fun displayOutput(output: List<String>): String = buildDisplayStringFromList(output.map { "|$it|" }, true)
-    override fun displayExpected(expected: List<String>): String = buildDisplayStringFromList(expected.map { "|$it|" }, true)
+    override fun displayOutput(output: List<String>): String = displayStringFromList(output.map { "|$it|" }, true)
+    override fun displayExpected(expected: List<String>): String = displayStringFromList(expected.map { "|$it|" }, true)
 
     override fun getTestCases(): Array<TestCase<Pair<Array<String>, Int>, List<String>>> = arrayOf(
         TestCase(

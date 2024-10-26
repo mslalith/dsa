@@ -54,7 +54,6 @@ class ReorderRoutesToMakeAllPathsLeadToCityZero : TestCaseProblem<Pair<Int, Arra
             adjList[to].add(-from)
         }
 
-        println(adjList)
         val visit = BooleanArray(n) { false }
 
         fun visitCities(from: Int): Int {

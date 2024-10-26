@@ -70,8 +70,9 @@ abstract class TestCaseProblem<I, O> : Problem {
         return isTestPassed
     }
 
-    private fun stringFromType(input: Any?): String = when (input) {
-        is Array<*> -> displayStringFromArray(input)
+    protected fun stringFromType(input: Any?, pretty: Boolean = false): String = when (input) {
+        is List<*> -> displayStringFromList(input, pretty)
+        is Array<*> -> displayStringFromArray(input, pretty)
         is IntArray -> stringFromArray(input)
         is DoubleArray -> stringFromArray(input)
         is CharArray -> stringFromArray(input)
@@ -113,6 +114,7 @@ abstract class TestCaseProblem<I, O> : Problem {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
+        if (actual is CharArray && expected is CharArray) return actual.contentEquals(expected)
         if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
         return actual == expected
@@ -123,7 +125,7 @@ abstract class TestCaseProblem<I, O> : Problem {
         return zip(other).all { isTestPassedGiven(it.first, it.second) }
     }
 
-    protected fun buildDisplayStringFromList(list: List<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = list, pretty = pretty, map = { it.toString() })
+    protected fun displayStringFromList(list: List<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = list, pretty = pretty, map = { it.toString() })
 }
 
 private fun buildDisplayStringFromArray(array: Array<*>, pretty: Boolean): String = buildDisplayStringFromIterable(iterable = array.asIterable(), pretty = pretty, map = { it.toString() })

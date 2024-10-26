@@ -10,8 +10,9 @@ fun <T : Any> T.createClone(): T = when (this) {
     else -> throw UnsupportedOperationException("Type not handled")
 }
 
-private fun Array<*>.createClone(): Array<*> = when (first()) {
+private fun Array<*>.createClone(): Array<*> = if (isEmpty()) this else when (first()) {
     is IntArray -> Array(size) { (get(it) as IntArray).clone() }
+    is CharArray -> Array(size) { (get(it) as CharArray).clone() }
     else -> throw UnsupportedOperationException("Not handled for ${firstOrNull()?.javaClass?.simpleName} type")
 }
 
