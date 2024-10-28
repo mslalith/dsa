@@ -3,8 +3,7 @@ package dev.mslalith.trie
 class Trie {
 
     companion object {
-        private const val ROOT_SYMBOL = ' '
-        private const val END_SYMBOL = ' '
+        private const val ROOT_SYMBOL = '.'
     }
 
     private val root = TrieNode(value = ROOT_SYMBOL)
@@ -13,16 +12,16 @@ class Trie {
         if (word.isEmpty()) return
 
         var currentNode = root
-        for (ch in word) {
+        for (i in word.indices) {
+            val ch = word[i]
             if (currentNode.children.contains(ch)) {
                 currentNode = currentNode.children.getValue(ch)
             } else {
-                val newNode = TrieNode(value = ch)
+                val newNode = TrieNode(value = ch, isEnd = i == word.lastIndex)
                 currentNode.children[ch] = newNode
                 currentNode = newNode
             }
         }
-        currentNode.children[END_SYMBOL] = TrieNode(value = END_SYMBOL)
     }
 
     fun search(word: String): Boolean {
@@ -30,7 +29,7 @@ class Trie {
         for (ch in word) {
             currentNode = currentNode.children[ch] ?: return false
         }
-        return currentNode.children[END_SYMBOL] != null
+        return currentNode.isEnd
     }
 
     fun startsWith(prefix: String): Boolean {
@@ -63,13 +62,9 @@ class Trie {
     }
 
     private fun findCompleteWordsFromInternal(node: TrieNode<Char>, outList: ArrayList<String>, sb: StringBuilder) {
-        if (node.value == END_SYMBOL) {
-            outList.add(sb.toString())
-            return
-        }
-
         sb.append(node.value)
+        if (node.isEnd) outList.add(sb.toString())
         node.children.forEach { (_, childNode) -> findCompleteWordsFromInternal(childNode, outList, sb) }
-        sb.deleteAt(sb.length - 1)
+        sb.deleteAt(sb.lastIndex)
     }
 }

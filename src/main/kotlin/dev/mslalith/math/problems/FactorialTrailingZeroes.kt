@@ -26,10 +26,12 @@ class FactorialTrailingZeroes : TestCaseProblem<Int, Int>() {
 
         var count = 0
         var i = 5
+
         while (i <= n) {
             count += n / i
             i *= 5
         }
+
         return count
     }
 }
