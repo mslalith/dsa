@@ -8,7 +8,7 @@ class GameOfLife : TestCaseProblem<Array<IntArray>, Array<IntArray>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GameOfLife().runAll()
+        fun main(args: Array<String>) = GameOfLife().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Array<IntArray>>> = arrayOf(

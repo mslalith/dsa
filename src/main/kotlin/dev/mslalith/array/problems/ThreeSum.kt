@@ -8,7 +8,7 @@ class ThreeSum : TestCaseProblem<IntArray, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ThreeSum().runAll()
+        fun main(args: Array<String>) = ThreeSum().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, List<List<Int>>>> = arrayOf(

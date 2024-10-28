@@ -11,7 +11,7 @@ class ReverseLinkedListII : TestCaseProblem<ReverseLinkedListIIParams, ListNode?
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseLinkedListII().runAll()
+        fun main(args: Array<String>) = ReverseLinkedListII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ReverseLinkedListIIParams, ListNode?>> = arrayOf(

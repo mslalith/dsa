@@ -9,7 +9,7 @@ class DeleteNodeInBST : TestCaseProblem<Pair<TreeNode?, Int>, TreeNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DeleteNodeInBST().runAll()
+        fun main(args: Array<String>) = DeleteNodeInBST().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, TreeNode?>> = arrayOf(

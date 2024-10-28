@@ -8,7 +8,7 @@ class KthLargestElementInArray : TestCaseProblem<Pair<IntArray, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KthLargestElementInArray().runAll()
+        fun main(args: Array<String>) = KthLargestElementInArray().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

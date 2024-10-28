@@ -7,7 +7,7 @@ class FindDifferenceOfTwoArrays : TestCaseProblem<Pair<IntArray, IntArray>, List
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindDifferenceOfTwoArrays().runAll()
+        fun main(args: Array<String>) = FindDifferenceOfTwoArrays().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, IntArray>, List<List<Int>>>> = arrayOf(

@@ -10,7 +10,7 @@ class LongestZigZagPathInBinaryTree : TestCaseProblem<TreeNode?, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestZigZagPathInBinaryTree().runAll()
+        fun main(args: Array<String>) = LongestZigZagPathInBinaryTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

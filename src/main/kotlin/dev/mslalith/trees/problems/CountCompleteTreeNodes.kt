@@ -9,7 +9,7 @@ class CountCompleteTreeNodes : TestCaseProblem<TreeNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountCompleteTreeNodes().runAll()
+        fun main(args: Array<String>) = CountCompleteTreeNodes().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

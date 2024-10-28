@@ -10,7 +10,7 @@ class CountGoodNodesInBinaryTree : TestCaseProblem<TreeNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountGoodNodesInBinaryTree().runAll()
+        fun main(args: Array<String>) = CountGoodNodesInBinaryTree().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

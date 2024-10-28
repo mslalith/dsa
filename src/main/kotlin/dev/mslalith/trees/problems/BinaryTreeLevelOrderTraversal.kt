@@ -10,7 +10,7 @@ class BinaryTreeLevelOrderTraversal : TestCaseProblem<TreeNode?, List<List<Int>>
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinaryTreeLevelOrderTraversal().runAll()
+        fun main(args: Array<String>) = BinaryTreeLevelOrderTraversal().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, List<List<Int>>>> = arrayOf(

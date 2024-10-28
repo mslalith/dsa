@@ -9,7 +9,7 @@ class GroupAnagrams : TestCaseProblem<Array<String>, List<List<String>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GroupAnagrams().runAll()
+        fun main(args: Array<String>) = GroupAnagrams().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, List<List<String>>>> = arrayOf(

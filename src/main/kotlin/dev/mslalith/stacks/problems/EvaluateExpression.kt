@@ -9,7 +9,7 @@ class EvaluateExpression : TestCaseProblem<Array<String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateExpression().runAll()
+        fun main(args: Array<String>) = EvaluateExpression().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(

@@ -9,7 +9,7 @@ class ConstructBinaryTreeFromInorderAndPostorderTraversal : TestCaseProblem<Pair
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ConstructBinaryTreeFromInorderAndPostorderTraversal().runAll()
+        fun main(args: Array<String>) = ConstructBinaryTreeFromInorderAndPostorderTraversal().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, IntArray>, TreeNode?>> = arrayOf(

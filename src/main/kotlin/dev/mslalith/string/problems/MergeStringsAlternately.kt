@@ -7,7 +7,7 @@ class MergeStringsAlternately : TestCaseProblem<Pair<String, String>, String>() 
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeStringsAlternately().runAll()
+        fun main(args: Array<String>) = MergeStringsAlternately().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, String>> = arrayOf(

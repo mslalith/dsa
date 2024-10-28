@@ -10,7 +10,7 @@ class AddTwoNumbers : TestCaseProblem<AddTwoNumbersParams, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AddTwoNumbers().runAll()
+        fun main(args: Array<String>) = AddTwoNumbers().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<AddTwoNumbersParams, ListNode?>> = arrayOf(

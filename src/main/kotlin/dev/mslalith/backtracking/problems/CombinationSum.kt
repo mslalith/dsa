@@ -9,7 +9,7 @@ class CombinationSum : TestCaseProblem<Pair<IntArray, Int>, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CombinationSum().runAll()
+        fun main(args: Array<String>) = CombinationSum().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, List<List<Int>>>> = arrayOf(

@@ -7,7 +7,7 @@ class SingleNumber : TestCaseProblem<IntArray, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SingleNumber().runAll()
+        fun main(args: Array<String>) = SingleNumber().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

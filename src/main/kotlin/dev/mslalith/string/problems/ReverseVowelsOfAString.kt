@@ -7,7 +7,7 @@ class ReverseVowelsOfAString : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseVowelsOfAString().runAll()
+        fun main(args: Array<String>) = ReverseVowelsOfAString().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

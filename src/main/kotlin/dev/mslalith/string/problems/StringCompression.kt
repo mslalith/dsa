@@ -8,7 +8,7 @@ class StringCompression : TestCaseProblem<CharArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = StringCompression().runAll()
+        fun main(args: Array<String>) = StringCompression().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<CharArray, Int>> = arrayOf(

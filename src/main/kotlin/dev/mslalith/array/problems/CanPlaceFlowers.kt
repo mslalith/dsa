@@ -7,7 +7,7 @@ class CanPlaceFlowers : TestCaseProblem<Pair<IntArray, Int>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CanPlaceFlowers().runAll()
+        fun main(args: Array<String>) = CanPlaceFlowers().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Boolean>> = arrayOf(

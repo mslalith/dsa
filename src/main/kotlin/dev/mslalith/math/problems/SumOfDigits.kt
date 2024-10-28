@@ -7,7 +7,7 @@ class SumOfDigits : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SumOfDigits().runAll()
+        fun main(args: Array<String>) = SumOfDigits().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

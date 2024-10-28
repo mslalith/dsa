@@ -6,7 +6,7 @@ class RunningProblem : TestCaseProblem<Int, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RunningProblem().runAll()
+        fun main(args: Array<String>) = RunningProblem().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf()

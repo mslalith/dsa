@@ -7,7 +7,7 @@ class LRUCache : TestCaseProblem<Pair<Int, List<List<Int>>>, List<Int?>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LRUCache().runAll()
+        fun main(args: Array<String>) = LRUCache().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, List<List<Int>>>, List<Int?>>> = arrayOf(

@@ -7,7 +7,7 @@ class LetterCombinationsOfPhoneNumber : TestCaseProblem<String, List<String>>() 
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LetterCombinationsOfPhoneNumber().runAll()
+        fun main(args: Array<String>) = LetterCombinationsOfPhoneNumber().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, List<String>>> = arrayOf(

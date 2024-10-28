@@ -2,13 +2,12 @@ package dev.mslalith.array.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
-import java.util.*
 
 class FindFirstAndLastPositionOfElementInSortedArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindFirstAndLastPositionOfElementInSortedArray().runAll()
+        fun main(args: Array<String>) = FindFirstAndLastPositionOfElementInSortedArray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> {

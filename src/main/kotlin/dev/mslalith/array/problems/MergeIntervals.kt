@@ -10,7 +10,7 @@ class MergeIntervals : TestCaseProblem<Array<IntArray>, Array<IntArray>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeIntervals().runAll()
+        fun main(args: Array<String>) = MergeIntervals().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Array<IntArray>>> = arrayOf(

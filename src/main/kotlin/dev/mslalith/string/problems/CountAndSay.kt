@@ -7,7 +7,7 @@ class CountAndSay : TestCaseProblem<Int, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountAndSay().runAll()
+        fun main(args: Array<String>) = CountAndSay().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, String>> = arrayOf(

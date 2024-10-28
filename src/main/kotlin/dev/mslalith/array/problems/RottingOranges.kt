@@ -7,7 +7,7 @@ class RottingOranges : TestCaseProblem<Array<IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RottingOranges().runAll()
+        fun main(args: Array<String>) = RottingOranges().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

@@ -7,7 +7,7 @@ class IntegerToRoman : TestCaseProblem<Int, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IntegerToRoman().runAll()
+        fun main(args: Array<String>) = IntegerToRoman().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, String>> = arrayOf(

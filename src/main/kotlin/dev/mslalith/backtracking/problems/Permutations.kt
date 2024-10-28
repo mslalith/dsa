@@ -7,7 +7,7 @@ class Permutations : TestCaseProblem<IntArray, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = Permutations().runAll()
+        fun main(args: Array<String>) = Permutations().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, List<List<Int>>>> = arrayOf(

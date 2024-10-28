@@ -7,7 +7,7 @@ class GasStation : TestCaseProblem<Pair<IntArray, IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GasStation().runAll()
+        fun main(args: Array<String>) = GasStation().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, IntArray>, Int>> = arrayOf(

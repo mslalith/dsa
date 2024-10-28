@@ -11,7 +11,7 @@ class BinarySearchTreeIterator : TestCaseProblem<BinarySearchTreeIteratorParams,
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinarySearchTreeIterator().runAll()
+        fun main(args: Array<String>) = BinarySearchTreeIterator().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<BinarySearchTreeIteratorParams, List<Any>>> = arrayOf(

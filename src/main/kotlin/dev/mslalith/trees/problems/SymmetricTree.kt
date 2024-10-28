@@ -9,7 +9,7 @@ class SymmetricTree : TestCaseProblem<TreeNode?, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SymmetricTree().runAll()
+        fun main(args: Array<String>) = SymmetricTree().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Boolean>> = arrayOf(

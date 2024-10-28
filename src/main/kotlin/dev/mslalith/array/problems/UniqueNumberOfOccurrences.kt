@@ -7,7 +7,7 @@ class UniqueNumberOfOccurrences : TestCaseProblem<IntArray, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = UniqueNumberOfOccurrences().runAll()
+        fun main(args: Array<String>) = UniqueNumberOfOccurrences().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Boolean>> = arrayOf(

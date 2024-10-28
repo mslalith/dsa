@@ -9,7 +9,7 @@ class SearchInBST : TestCaseProblem<Pair<TreeNode?, Int>, TreeNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SearchInBST().runAll()
+        fun main(args: Array<String>) = SearchInBST().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, TreeNode?>> = arrayOf(

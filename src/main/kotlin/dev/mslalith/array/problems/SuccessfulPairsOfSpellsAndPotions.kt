@@ -8,7 +8,7 @@ class SuccessfulPairsOfSpellsAndPotions : TestCaseProblem<SuccessfulPairsOfSpell
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SuccessfulPairsOfSpellsAndPotions().runAll()
+        fun main(args: Array<String>) = SuccessfulPairsOfSpellsAndPotions().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<SuccessfulPairsOfSpellsAndPotionsParams, IntArray>> = arrayOf(

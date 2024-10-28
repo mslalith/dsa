@@ -9,7 +9,7 @@ class InvertBinaryTree : TestCaseProblem<TreeNode?, TreeNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = InvertBinaryTree().runAll()
+        fun main(args: Array<String>) = InvertBinaryTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, TreeNode?>> = arrayOf(

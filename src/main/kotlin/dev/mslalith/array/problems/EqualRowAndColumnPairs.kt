@@ -7,7 +7,7 @@ class EqualRowAndColumnPairs : TestCaseProblem<Array<IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EqualRowAndColumnPairs().runAll()
+        fun main(args: Array<String>) = EqualRowAndColumnPairs().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

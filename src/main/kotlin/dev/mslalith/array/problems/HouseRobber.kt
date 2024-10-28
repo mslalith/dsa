@@ -8,7 +8,7 @@ class HouseRobber : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = HouseRobber().runAll()
+        fun main(args: Array<String>) = HouseRobber().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

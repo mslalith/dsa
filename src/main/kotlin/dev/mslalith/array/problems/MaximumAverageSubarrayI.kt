@@ -8,7 +8,7 @@ class MaximumAverageSubarrayI : TestCaseProblem<Pair<IntArray, Int>, Double>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumAverageSubarrayI().runAll()
+        fun main(args: Array<String>) = MaximumAverageSubarrayI().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Double>> = arrayOf(

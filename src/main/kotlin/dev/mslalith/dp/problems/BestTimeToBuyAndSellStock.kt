@@ -8,7 +8,7 @@ class BestTimeToBuyAndSellStock : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BestTimeToBuyAndSellStock().runAll()
+        fun main(args: Array<String>) = BestTimeToBuyAndSellStock().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

@@ -8,7 +8,7 @@ class GenerateAllParentheses : TestCaseProblem<String, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GenerateAllParentheses().runAll()
+        fun main(args: Array<String>) = GenerateAllParentheses().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(

@@ -10,7 +10,7 @@ class TotalCostToHireKWorkers : TestCaseProblem<TotalCostToHireKWorkersParams, L
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TotalCostToHireKWorkers().runAll()
+        fun main(args: Array<String>) = TotalCostToHireKWorkers().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TotalCostToHireKWorkersParams, Long>> = arrayOf(

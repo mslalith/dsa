@@ -7,7 +7,7 @@ class FindPeakElement : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindPeakElement().runAll()
+        fun main(args: Array<String>) = FindPeakElement().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

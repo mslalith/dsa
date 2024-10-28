@@ -9,7 +9,7 @@ class TopKFrequentWords : TestCaseProblem<TopKFrequentWordsParams, List<String>>
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TopKFrequentWords().runAll()
+        fun main(args: Array<String>) = TopKFrequentWords().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TopKFrequentWordsParams, List<String>>> = arrayOf(

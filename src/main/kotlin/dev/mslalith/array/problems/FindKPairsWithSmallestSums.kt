@@ -9,7 +9,7 @@ class FindKPairsWithSmallestSums : TestCaseProblem<FindKPairsWithSmallestSumsPar
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindKPairsWithSmallestSums().runAll()
+        fun main(args: Array<String>) = FindKPairsWithSmallestSums().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<FindKPairsWithSmallestSumsParams, List<List<Int>>>> = arrayOf(

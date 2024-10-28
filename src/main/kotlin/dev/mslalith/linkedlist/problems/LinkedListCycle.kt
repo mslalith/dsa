@@ -8,7 +8,7 @@ class LinkedListCycle : TestCaseProblem<Pair<ListNode?, String>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LinkedListCycle().runAll()
+        fun main(args: Array<String>) = LinkedListCycle().runForConsole()
     }
 
     override fun displayInput(input: Pair<ListNode?, String>): String = input.second

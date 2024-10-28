@@ -8,7 +8,7 @@ class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>(
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveElement().runAll()
+        fun main(args: Array<String>) = RemoveElement().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<RemoveElementParams, RemoveElementOutput>> = arrayOf(

@@ -13,7 +13,6 @@ abstract class TestCaseProblem<I, O> : Problem {
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
     protected abstract fun solve(testCaseInput: I): O
 
-    open val trackTime: Boolean get() = true
     open val skipIO: Boolean get() = false
 
     open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
@@ -33,11 +32,14 @@ abstract class TestCaseProblem<I, O> : Problem {
         )
     }
 
-    fun runAll() { run() }
+    override fun runForConsole() {
+        val testCases = getTestCases()
+        testCases.forEach { runSingle(testCase = it, silent = false) }
+    }
 
     override fun run(): Boolean {
         val testCases = getTestCases()
-        return testCases.count { runSingle(testCase = it, silent = false) } == testCases.size
+        return testCases.count { runSingle(testCase = it, silent = true) } == testCases.size
     }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {

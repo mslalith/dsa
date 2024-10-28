@@ -7,7 +7,7 @@ class ValidateIPAddress : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidateIPAddress().runAll()
+        fun main(args: Array<String>) = ValidateIPAddress().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

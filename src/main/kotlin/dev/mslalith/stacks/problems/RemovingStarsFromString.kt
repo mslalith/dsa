@@ -8,7 +8,7 @@ class RemovingStarsFromString : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemovingStarsFromString().runAll()
+        fun main(args: Array<String>) = RemovingStarsFromString().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

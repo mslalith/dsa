@@ -8,7 +8,7 @@ class LongestCommonSubsequence : TestCaseProblem<Pair<String, String>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestCommonSubsequence().runAll()
+        fun main(args: Array<String>) = LongestCommonSubsequence().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Int>> = arrayOf(

@@ -9,7 +9,7 @@ class MergeTwoSortedLists : TestCaseProblem<Pair<ListNode?, ListNode?>, ListNode
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeTwoSortedLists().runAll()
+        fun main(args: Array<String>) = MergeTwoSortedLists().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<ListNode?, ListNode?>, ListNode?>> = arrayOf(

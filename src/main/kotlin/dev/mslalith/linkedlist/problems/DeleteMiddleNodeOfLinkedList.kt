@@ -9,7 +9,7 @@ class DeleteMiddleNodeOfLinkedList : TestCaseProblem<ListNode?, ListNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DeleteMiddleNodeOfLinkedList().runAll()
+        fun main(args: Array<String>) = DeleteMiddleNodeOfLinkedList().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

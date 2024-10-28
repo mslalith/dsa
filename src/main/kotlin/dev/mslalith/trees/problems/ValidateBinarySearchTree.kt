@@ -9,7 +9,7 @@ class ValidateBinarySearchTree : TestCaseProblem<TreeNode?, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidateBinarySearchTree().runAll()
+        fun main(args: Array<String>) = ValidateBinarySearchTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, Boolean>> = arrayOf(

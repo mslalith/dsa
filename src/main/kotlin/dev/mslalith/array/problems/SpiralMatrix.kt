@@ -7,7 +7,7 @@ class SpiralMatrix : TestCaseProblem<Array<IntArray>, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SpiralMatrix().runAll()
+        fun main(args: Array<String>) = SpiralMatrix().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, List<Int>>> = arrayOf(

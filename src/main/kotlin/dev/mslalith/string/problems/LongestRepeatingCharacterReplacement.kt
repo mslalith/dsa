@@ -8,7 +8,7 @@ class LongestRepeatingCharacterReplacement : TestCaseProblem<LongestRepeatingCha
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestRepeatingCharacterReplacement().runAll()
+        fun main(args: Array<String>) = LongestRepeatingCharacterReplacement().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<LongestRepeatingCharacterReplacementParams, Int>> = arrayOf(

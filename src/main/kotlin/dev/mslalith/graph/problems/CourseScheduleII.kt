@@ -8,7 +8,7 @@ class CourseScheduleII : TestCaseProblem<Pair<Int, Array<IntArray>>, IntArray>()
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CourseScheduleII().runAll()
+        fun main(args: Array<String>) = CourseScheduleII().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<Int, Array<IntArray>>, IntArray>> = arrayOf(

@@ -10,7 +10,7 @@ class RemoveNthNodeFromListEnd : TestCaseProblem<RemoveNthNodeFromListEndParams,
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveNthNodeFromListEnd().runAll()
+        fun main(args: Array<String>) = RemoveNthNodeFromListEnd().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<RemoveNthNodeFromListEndParams, ListNode?>> = arrayOf(

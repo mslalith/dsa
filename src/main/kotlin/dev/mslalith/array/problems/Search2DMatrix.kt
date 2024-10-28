@@ -9,7 +9,7 @@ class Search2DMatrix : TestCaseProblem<Pair<Array<IntArray>, Int>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = Search2DMatrix().runAll()
+        fun main(args: Array<String>) = Search2DMatrix().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<IntArray>, Int>, Boolean>> = arrayOf(

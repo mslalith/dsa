@@ -3,14 +3,12 @@ package dev.mslalith.math.problems
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.utils.precision
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 class PowOfXToN : TestCaseProblem<Pair<Double, Int>, Double>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PowOfXToN().runAll()
+        fun main(args: Array<String>) = PowOfXToN().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Double, Int>, Double>> = arrayOf(

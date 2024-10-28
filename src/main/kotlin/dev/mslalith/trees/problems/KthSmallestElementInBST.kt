@@ -10,7 +10,7 @@ class KthSmallestElementInBST : TestCaseProblem<Pair<TreeNode?, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KthSmallestElementInBST().runAll()
+        fun main(args: Array<String>) = KthSmallestElementInBST().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, Int>> = arrayOf(

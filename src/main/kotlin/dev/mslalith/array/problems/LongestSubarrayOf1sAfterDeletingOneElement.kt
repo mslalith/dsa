@@ -8,7 +8,7 @@ class LongestSubarrayOf1sAfterDeletingOneElement : TestCaseProblem<IntArray, Int
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestSubarrayOf1sAfterDeletingOneElement().runAll()
+        fun main(args: Array<String>) = LongestSubarrayOf1sAfterDeletingOneElement().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

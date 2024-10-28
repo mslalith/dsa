@@ -7,7 +7,7 @@ class CourseSchedule : TestCaseProblem<Pair<Int, Array<IntArray>>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CourseSchedule().runAll()
+        fun main(args: Array<String>) = CourseSchedule().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<Int, Array<IntArray>>, Boolean>> = arrayOf(

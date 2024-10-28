@@ -10,7 +10,7 @@ class InsertInterval : TestCaseProblem<Pair<Array<IntArray>, IntArray>, Array<In
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = InsertInterval().runAll()
+        fun main(args: Array<String>) = InsertInterval().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<IntArray>, IntArray>, Array<IntArray>>> = arrayOf(

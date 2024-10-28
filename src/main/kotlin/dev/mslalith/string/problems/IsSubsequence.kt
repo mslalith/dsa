@@ -7,7 +7,7 @@ class IsSubsequence: TestCaseProblem<IsSubsequenceParams, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsSubsequence().runAll()
+        fun main(args: Array<String>) = IsSubsequence().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IsSubsequenceParams, Boolean>> = arrayOf(

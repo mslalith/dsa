@@ -7,7 +7,7 @@ class FindPivotIndex : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindPivotIndex().runAll()
+        fun main(args: Array<String>) = FindPivotIndex().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

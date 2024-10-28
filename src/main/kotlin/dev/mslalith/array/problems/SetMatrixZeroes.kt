@@ -8,7 +8,7 @@ class SetMatrixZeroes : TestCaseProblem<Array<IntArray>, Array<IntArray>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SetMatrixZeroes().runAll()
+        fun main(args: Array<String>) = SetMatrixZeroes().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Array<IntArray>>> = arrayOf(

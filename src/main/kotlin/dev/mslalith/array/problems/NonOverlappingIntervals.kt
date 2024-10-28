@@ -7,7 +7,7 @@ class NonOverlappingIntervals : TestCaseProblem<Array<IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NonOverlappingIntervals().runAll()
+        fun main(args: Array<String>) = NonOverlappingIntervals().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

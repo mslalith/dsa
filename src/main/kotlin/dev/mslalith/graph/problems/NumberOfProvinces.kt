@@ -7,7 +7,7 @@ class NumberOfProvinces : TestCaseProblem<Array<IntArray>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NumberOfProvinces().runAll()
+        fun main(args: Array<String>) = NumberOfProvinces().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

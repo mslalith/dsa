@@ -7,7 +7,7 @@ class SortColors : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SortColors().runAll()
+        fun main(args: Array<String>) = SortColors().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

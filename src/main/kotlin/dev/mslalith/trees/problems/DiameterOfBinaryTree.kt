@@ -10,7 +10,7 @@ class DiameterOfBinaryTree : TestCaseProblem<TreeNode?, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DiameterOfBinaryTree().runAll()
+        fun main(args: Array<String>) = DiameterOfBinaryTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

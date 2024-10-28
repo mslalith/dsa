@@ -7,7 +7,7 @@ class KidsWithGreatestNumberOfCandies : TestCaseProblem<Pair<IntArray, Int>, Lis
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KidsWithGreatestNumberOfCandies().runAll()
+        fun main(args: Array<String>) = KidsWithGreatestNumberOfCandies().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, List<Boolean>>> = arrayOf(

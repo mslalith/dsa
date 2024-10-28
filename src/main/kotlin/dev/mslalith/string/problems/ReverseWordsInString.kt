@@ -7,7 +7,7 @@ class ReverseWordsInString : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseWordsInString().runAll()
+        fun main(args: Array<String>) = ReverseWordsInString().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

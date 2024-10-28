@@ -7,7 +7,7 @@ class TwoSum : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TwoSum().runAll()
+        fun main(args: Array<String>) = TwoSum().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> = arrayOf(

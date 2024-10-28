@@ -7,7 +7,7 @@ class Combinations : TestCaseProblem<Pair<Int, Int>, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = Combinations().runAll()
+        fun main(args: Array<String>) = Combinations().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, Int>, List<List<Int>>>> = arrayOf(

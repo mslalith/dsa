@@ -7,7 +7,7 @@ class IncreasingTripletSubsequence : TestCaseProblem<IntArray, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IncreasingTripletSubsequence().runAll()
+        fun main(args: Array<String>) = IncreasingTripletSubsequence().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Boolean>> = arrayOf(

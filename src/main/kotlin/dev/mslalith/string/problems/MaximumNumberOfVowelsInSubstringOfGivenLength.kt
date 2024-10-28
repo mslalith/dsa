@@ -7,7 +7,7 @@ class MaximumNumberOfVowelsInSubstringOfGivenLength : TestCaseProblem<Pair<Strin
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumNumberOfVowelsInSubstringOfGivenLength().runAll()
+        fun main(args: Array<String>) = MaximumNumberOfVowelsInSubstringOfGivenLength().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, Int>, Int>> = arrayOf(

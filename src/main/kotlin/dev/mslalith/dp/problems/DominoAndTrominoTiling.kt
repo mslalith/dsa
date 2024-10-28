@@ -7,7 +7,7 @@ class DominoAndTrominoTiling : TestCaseProblem<Int, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DominoAndTrominoTiling().runAll()
+        fun main(args: Array<String>) = DominoAndTrominoTiling().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

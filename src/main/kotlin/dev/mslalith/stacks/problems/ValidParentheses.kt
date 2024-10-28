@@ -8,7 +8,7 @@ class ValidParentheses : TestCaseProblem<String, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidParentheses().runAll()
+        fun main(args: Array<String>) = ValidParentheses().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<String, Boolean>> = arrayOf(

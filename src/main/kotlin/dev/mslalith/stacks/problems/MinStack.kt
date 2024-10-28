@@ -12,7 +12,7 @@ class MinStack : TestCaseProblem<List<MinStackInputType>, List<Int?>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinStack().runAll()
+        fun main(args: Array<String>) = MinStack().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<List<MinStackInputType>, List<Int?>>> = arrayOf(

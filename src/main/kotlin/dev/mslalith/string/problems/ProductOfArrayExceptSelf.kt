@@ -7,7 +7,7 @@ class ProductOfArrayExceptSelf : TestCaseProblem<IntArray, IntArray>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ProductOfArrayExceptSelf().runAll()
+        fun main(args: Array<String>) = ProductOfArrayExceptSelf().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

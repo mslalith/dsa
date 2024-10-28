@@ -7,7 +7,7 @@ class WordSearch : TestCaseProblem<Pair<Array<CharArray>, String>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = WordSearch().runAll()
+        fun main(args: Array<String>) = WordSearch().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<CharArray>, String>, Boolean>> = arrayOf(

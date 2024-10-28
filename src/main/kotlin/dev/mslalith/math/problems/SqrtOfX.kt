@@ -7,7 +7,7 @@ class SqrtOfX : TestCaseProblem<Int, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SqrtOfX().runAll()
+        fun main(args: Array<String>) = SqrtOfX().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

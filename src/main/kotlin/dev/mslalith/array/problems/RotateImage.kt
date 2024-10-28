@@ -8,7 +8,7 @@ class RotateImage : TestCaseProblem<Array<IntArray>, Array<IntArray>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RotateImage().runAll()
+        fun main(args: Array<String>) = RotateImage().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Array<IntArray>>> = arrayOf(

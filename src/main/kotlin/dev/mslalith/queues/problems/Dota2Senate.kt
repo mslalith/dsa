@@ -7,7 +7,7 @@ class Dota2Senate : TestCaseProblem<String, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = Dota2Senate().runAll()
+        fun main(args: Array<String>) = Dota2Senate().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

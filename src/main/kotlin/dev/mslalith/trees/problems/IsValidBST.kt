@@ -9,7 +9,7 @@ class IsValidBST : TestCaseProblem<String, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsValidBST().runAll()
+        fun main(args: Array<String>) = IsValidBST().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, Boolean>> = arrayOf(

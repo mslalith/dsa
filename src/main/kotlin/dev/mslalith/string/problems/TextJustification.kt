@@ -7,7 +7,7 @@ class TextJustification : TestCaseProblem<Pair<Array<String>, Int>, List<String>
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = TextJustification().runAll()
+        fun main(args: Array<String>) = TextJustification().runForConsole()
     }
 
     override fun displayOutput(output: List<String>): String = displayStringFromList(output.map { "|$it|" }, true)

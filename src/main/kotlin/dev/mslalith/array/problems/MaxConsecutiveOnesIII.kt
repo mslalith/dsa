@@ -8,7 +8,7 @@ class MaxConsecutiveOnesIII : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaxConsecutiveOnesIII().runAll()
+        fun main(args: Array<String>) = MaxConsecutiveOnesIII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

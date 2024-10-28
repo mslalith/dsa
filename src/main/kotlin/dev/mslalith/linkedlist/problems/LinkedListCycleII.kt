@@ -8,7 +8,7 @@ class LinkedListCycleII : TestCaseProblem<ListNode?, Int?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LinkedListCycleII().runAll()
+        fun main(args: Array<String>) = LinkedListCycleII().runForConsole()
     }
 
     override val skipIO: Boolean get() = true

@@ -8,7 +8,7 @@ class FindMinimumInRotatedSortedArray : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindMinimumInRotatedSortedArray().runAll()
+        fun main(args: Array<String>) = FindMinimumInRotatedSortedArray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

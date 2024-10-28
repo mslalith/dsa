@@ -10,7 +10,7 @@ class PartitionList : TestCaseProblem<PartitionListParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PartitionList().runAll()
+        fun main(args: Array<String>) = PartitionList().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<PartitionListParams, String>> = arrayOf(

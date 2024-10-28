@@ -9,7 +9,7 @@ class MaximumSumCircularSubarray : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumSumCircularSubarray().runAll()
+        fun main(args: Array<String>) = MaximumSumCircularSubarray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

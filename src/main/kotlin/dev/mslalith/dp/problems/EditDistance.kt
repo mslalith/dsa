@@ -7,7 +7,7 @@ class EditDistance : TestCaseProblem<Pair<String, String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EditDistance().runAll()
+        fun main(args: Array<String>) = EditDistance().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Int>> = arrayOf(

@@ -8,7 +8,7 @@ class HIndex : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = HIndex().runAll()
+        fun main(args: Array<String>) = HIndex().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

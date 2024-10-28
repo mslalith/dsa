@@ -8,7 +8,7 @@ class MaximumSubarray : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumSubarray().runAll()
+        fun main(args: Array<String>) = MaximumSubarray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

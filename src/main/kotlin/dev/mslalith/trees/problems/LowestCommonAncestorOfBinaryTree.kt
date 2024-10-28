@@ -9,7 +9,7 @@ class LowestCommonAncestorOfBinaryTree : TestCaseProblem<LowestCommonAncestorOfB
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LowestCommonAncestorOfBinaryTree().runAll()
+        fun main(args: Array<String>) = LowestCommonAncestorOfBinaryTree().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<LowestCommonAncestorOfBinaryTreeParams, TreeNode?>> = arrayOf(

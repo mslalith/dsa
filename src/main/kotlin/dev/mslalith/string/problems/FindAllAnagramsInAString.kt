@@ -7,7 +7,7 @@ class FindAllAnagramsInAString : TestCaseProblem<FindAllAnagramsInAStringParams,
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindAllAnagramsInAString().runAll()
+        fun main(args: Array<String>) = FindAllAnagramsInAString().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<FindAllAnagramsInAStringParams, List<Int>>> = arrayOf(

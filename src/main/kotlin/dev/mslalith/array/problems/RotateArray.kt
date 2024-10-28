@@ -7,7 +7,7 @@ class RotateArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RotateArray().runAll()
+        fun main(args: Array<String>) = RotateArray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, IntArray>> = arrayOf(

@@ -7,7 +7,7 @@ class FactorialTrailingZeroes : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FactorialTrailingZeroes().runAll()
+        fun main(args: Array<String>) = FactorialTrailingZeroes().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

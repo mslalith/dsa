@@ -9,7 +9,7 @@ class AsteroidCollision : TestCaseProblem<IntArray, IntArray>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AsteroidCollision().runAll()
+        fun main(args: Array<String>) = AsteroidCollision().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

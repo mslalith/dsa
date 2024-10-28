@@ -8,7 +8,7 @@ class EvaluateReversePolishNotation : TestCaseProblem<Array<String>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateReversePolishNotation().runAll()
+        fun main(args: Array<String>) = EvaluateReversePolishNotation().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, Int>> = arrayOf(

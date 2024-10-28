@@ -10,7 +10,7 @@ class FlattenBinaryTreeToLinkedList : TestCaseProblem<TreeNode?, TreeNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FlattenBinaryTreeToLinkedList().runAll()
+        fun main(args: Array<String>) = FlattenBinaryTreeToLinkedList().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, TreeNode?>> = arrayOf(

@@ -8,7 +8,7 @@ class ClimbingStairs : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ClimbingStairs().runAll()
+        fun main(args: Array<String>) = ClimbingStairs().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

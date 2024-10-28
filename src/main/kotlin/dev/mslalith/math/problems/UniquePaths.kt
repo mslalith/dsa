@@ -7,7 +7,7 @@ class UniquePaths : TestCaseProblem<UniquePathsParams, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = UniquePaths().runAll()
+        fun main(args: Array<String>) = UniquePaths().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<UniquePathsParams, Int>> = arrayOf(

@@ -8,7 +8,7 @@ class ReverseStringII : TestCaseProblem<ReverseStringIIParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseStringII().runAll()
+        fun main(args: Array<String>) = ReverseStringII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ReverseStringIIParams, String>> = arrayOf(

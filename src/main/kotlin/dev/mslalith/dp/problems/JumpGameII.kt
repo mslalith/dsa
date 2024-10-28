@@ -9,7 +9,7 @@ class JumpGameII : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = JumpGameII().runAll()
+        fun main(args: Array<String>) = JumpGameII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

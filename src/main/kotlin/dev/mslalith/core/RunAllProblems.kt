@@ -28,7 +28,7 @@ object RunAllProblems {
             val problemName = file.path.split("/").last()
             val clazz = classFromFile(file)
             val isSuccess = when (val problem = clazz?.constructors?.firstOrNull()?.newInstance() as? Problem) {
-                is SimpleProblem -> problem.run()
+                is SimpleProblem<*> -> problem.run()
                 is TestCaseProblem<*, *> -> problem.runSilent().hasAllTestsPassed()
                 null -> {
                     println("⚠️ Skipping $problemName (not a Problem)")

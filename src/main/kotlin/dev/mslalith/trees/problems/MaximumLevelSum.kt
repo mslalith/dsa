@@ -9,7 +9,7 @@ class MaximumLevelSum : TestCaseProblem<TreeNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumLevelSum().runAll()
+        fun main(args: Array<String>) = MaximumLevelSum().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

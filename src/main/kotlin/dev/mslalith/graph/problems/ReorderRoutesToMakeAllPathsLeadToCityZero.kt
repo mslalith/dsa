@@ -8,7 +8,7 @@ class ReorderRoutesToMakeAllPathsLeadToCityZero : TestCaseProblem<Pair<Int, Arra
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReorderRoutesToMakeAllPathsLeadToCityZero().runAll()
+        fun main(args: Array<String>) = ReorderRoutesToMakeAllPathsLeadToCityZero().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, Array<IntArray>>, Int>> = arrayOf(

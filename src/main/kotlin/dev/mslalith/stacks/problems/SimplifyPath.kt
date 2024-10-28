@@ -8,7 +8,7 @@ class SimplifyPath : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SimplifyPath().runAll()
+        fun main(args: Array<String>) = SimplifyPath().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

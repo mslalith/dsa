@@ -8,7 +8,7 @@ class CoinChange : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CoinChange().runAll()
+        fun main(args: Array<String>) = CoinChange().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

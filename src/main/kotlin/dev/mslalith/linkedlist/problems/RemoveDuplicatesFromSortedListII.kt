@@ -9,7 +9,7 @@ class RemoveDuplicatesFromSortedListII : TestCaseProblem<ListNode?, ListNode?>()
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveDuplicatesFromSortedListII().runAll()
+        fun main(args: Array<String>) = RemoveDuplicatesFromSortedListII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

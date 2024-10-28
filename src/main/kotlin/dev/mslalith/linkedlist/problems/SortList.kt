@@ -9,7 +9,7 @@ class SortList : TestCaseProblem<ListNode?, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SortList().runAll()
+        fun main(args: Array<String>) = SortList().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

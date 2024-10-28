@@ -8,7 +8,7 @@ class LongestCommonPrefix : TestCaseProblem<Array<String>, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestCommonPrefix().runAll()
+        fun main(args: Array<String>) = LongestCommonPrefix().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<String>, String>> = arrayOf(

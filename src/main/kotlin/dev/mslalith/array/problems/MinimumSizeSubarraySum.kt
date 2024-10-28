@@ -9,7 +9,7 @@ class MinimumSizeSubarraySum : TestCaseProblem<Pair<Int, IntArray>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumSizeSubarraySum().runAll()
+        fun main(args: Array<String>) = MinimumSizeSubarraySum().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Int, IntArray>, Int>> = arrayOf(

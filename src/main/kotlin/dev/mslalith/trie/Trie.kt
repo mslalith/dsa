@@ -12,31 +12,37 @@ class Trie {
         if (word.isEmpty()) return
 
         var currentNode = root
-        for (i in word.indices) {
-            val ch = word[i]
+
+        for (ch in word) {
             if (currentNode.children.contains(ch)) {
                 currentNode = currentNode.children.getValue(ch)
             } else {
-                val newNode = TrieNode(value = ch, isEnd = i == word.lastIndex)
+                val newNode = TrieNode(value = ch)
                 currentNode.children[ch] = newNode
                 currentNode = newNode
             }
         }
+
+        currentNode.isEnd = true
     }
 
     fun search(word: String): Boolean {
         var currentNode = root
+
         for (ch in word) {
             currentNode = currentNode.children[ch] ?: return false
         }
+
         return currentNode.isEnd
     }
 
     fun startsWith(prefix: String): Boolean {
         var currentNode = root
+
         for (ch in prefix) {
             currentNode = currentNode.children[ch] ?: return false
         }
+
         return true
     }
 
@@ -45,6 +51,7 @@ class Trie {
 
         var i = 0
         var node = root
+
         while (i < word.length) {
             node = node.children[word[i]] ?: return emptyList()
             i++

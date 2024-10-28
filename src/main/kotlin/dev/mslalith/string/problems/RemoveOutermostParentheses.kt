@@ -7,7 +7,7 @@ class RemoveOutermostParentheses : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RemoveOutermostParentheses().runAll()
+        fun main(args: Array<String>) = RemoveOutermostParentheses().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

@@ -7,7 +7,7 @@ class SearchInRotatedSortedArray : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SearchInRotatedSortedArray().runAll()
+        fun main(args: Array<String>) = SearchInRotatedSortedArray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

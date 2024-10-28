@@ -7,7 +7,7 @@ class FindHighestAltitude : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindHighestAltitude().runAll()
+        fun main(args: Array<String>) = FindHighestAltitude().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

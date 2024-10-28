@@ -8,7 +8,7 @@ class SubArrayProductLessThanK : TestCaseProblem<SubArrayProductLessThanKParams,
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SubArrayProductLessThanK().runAll()
+        fun main(args: Array<String>) = SubArrayProductLessThanK().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<SubArrayProductLessThanKParams, Int>> = arrayOf(

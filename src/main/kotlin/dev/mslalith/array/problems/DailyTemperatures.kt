@@ -8,7 +8,7 @@ class DailyTemperatures : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DailyTemperatures().runAll()
+        fun main(args: Array<String>) = DailyTemperatures().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

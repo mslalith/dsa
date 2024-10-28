@@ -11,7 +11,7 @@ class MaximumSubsequenceScore : TestCaseProblem<MaximumSubsequenceScoreParams, L
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumSubsequenceScore().runAll()
+        fun main(args: Array<String>) = MaximumSubsequenceScore().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<MaximumSubsequenceScoreParams, Long>> = arrayOf(

@@ -7,7 +7,7 @@ class RansomNote : TestCaseProblem<Pair<String, String>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RansomNote().runAll()
+        fun main(args: Array<String>) = RansomNote().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Boolean>> = arrayOf(

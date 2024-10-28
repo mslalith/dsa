@@ -7,7 +7,7 @@ class SummaryRanges : TestCaseProblem<IntArray, List<String>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SummaryRanges().runAll()
+        fun main(args: Array<String>) = SummaryRanges().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, List<String>>> = arrayOf(

@@ -8,7 +8,7 @@ class LastStoneWeight : TestCaseProblem<IntArray, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LastStoneWeight().runAll()
+        fun main(args: Array<String>) = LastStoneWeight().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

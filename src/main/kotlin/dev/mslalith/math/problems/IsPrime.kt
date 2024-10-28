@@ -7,7 +7,7 @@ class IsPrime : TestCaseProblem<Int, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsPrime().runAll()
+        fun main(args: Array<String>) = IsPrime().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(

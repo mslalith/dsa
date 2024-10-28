@@ -11,7 +11,7 @@ class ReorderList : TestCaseProblem<ListNode?, ListNode?>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReorderList().runAll()
+        fun main(args: Array<String>) = ReorderList().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, ListNode?>> = arrayOf(

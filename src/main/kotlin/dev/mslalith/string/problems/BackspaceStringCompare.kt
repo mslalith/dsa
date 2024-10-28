@@ -7,7 +7,7 @@ class BackspaceStringCompare : TestCaseProblem<BackspaceStringCompareParams, Boo
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BackspaceStringCompare().runAll()
+        fun main(args: Array<String>) = BackspaceStringCompare().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<BackspaceStringCompareParams, Boolean>> = arrayOf(

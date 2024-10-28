@@ -7,7 +7,7 @@ class KeysAndRooms : TestCaseProblem<List<List<Int>>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KeysAndRooms().runAll()
+        fun main(args: Array<String>) = KeysAndRooms().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<List<List<Int>>, Boolean>> = arrayOf(

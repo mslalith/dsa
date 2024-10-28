@@ -7,7 +7,7 @@ class ZigzagConversion : TestCaseProblem<ZigzagConversionParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ZigzagConversion().runAll()
+        fun main(args: Array<String>) = ZigzagConversion().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ZigzagConversionParams, String>> = arrayOf(

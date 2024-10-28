@@ -8,7 +8,7 @@ class SurroundedRegions : TestCaseProblem<Array<CharArray>, Array<CharArray>>() 
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SurroundedRegions().runAll()
+        fun main(args: Array<String>) = SurroundedRegions().runForConsole()
     }
 
     override fun displayInput(input: Array<CharArray>): String = stringFromType(input, true)

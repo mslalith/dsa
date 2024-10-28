@@ -7,7 +7,7 @@ class AddBinary : TestCaseProblem<Pair<String, String>, String>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AddBinary().runAll()
+        fun main(args: Array<String>) = AddBinary().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, String>> = arrayOf(

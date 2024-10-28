@@ -8,7 +8,7 @@ class MergeSortedArray : TestCaseProblem<MergeSortedArrayParams, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MergeSortedArray().runAll()
+        fun main(args: Array<String>) = MergeSortedArray().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<MergeSortedArrayParams, IntArray>> = arrayOf(

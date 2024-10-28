@@ -8,7 +8,7 @@ class JumpGame : TestCaseProblem<IntArray, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = JumpGame().runAll()
+        fun main(args: Array<String>) = JumpGame().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Boolean>> = arrayOf(

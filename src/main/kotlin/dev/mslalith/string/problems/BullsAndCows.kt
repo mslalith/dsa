@@ -7,7 +7,7 @@ class BullsAndCows : TestCaseProblem<BullsAndCowsParams, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BullsAndCows().runAll()
+        fun main(args: Array<String>) = BullsAndCows().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<BullsAndCowsParams, String>> = arrayOf(

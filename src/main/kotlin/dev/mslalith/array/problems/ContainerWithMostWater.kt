@@ -9,7 +9,7 @@ class ContainerWithMostWater : TestCaseProblem<IntArray, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ContainerWithMostWater().runAll()
+        fun main(args: Array<String>) = ContainerWithMostWater().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(

@@ -10,7 +10,7 @@ class MinimumAbsoluteDifferenceInBST : TestCaseProblem<TreeNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumAbsoluteDifferenceInBST().runAll()
+        fun main(args: Array<String>) = MinimumAbsoluteDifferenceInBST().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

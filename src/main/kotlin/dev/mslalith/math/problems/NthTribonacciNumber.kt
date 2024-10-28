@@ -7,7 +7,7 @@ class NthTribonacciNumber : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NthTribonacciNumber().runAll()
+        fun main(args: Array<String>) = NthTribonacciNumber().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

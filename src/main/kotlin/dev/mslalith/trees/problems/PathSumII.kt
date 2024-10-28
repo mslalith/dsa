@@ -9,7 +9,7 @@ class PathSumII : TestCaseProblem<Pair<TreeNode?, Int>, List<List<Int>>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PathSumII().runAll()
+        fun main(args: Array<String>) = PathSumII().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, Int>, List<List<Int>>>> = arrayOf(

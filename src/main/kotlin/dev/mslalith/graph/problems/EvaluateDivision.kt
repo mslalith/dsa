@@ -8,7 +8,7 @@ class EvaluateDivision : TestCaseProblem<EvaluateDivisionParams, DoubleArray>() 
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = EvaluateDivision().runAll()
+        fun main(args: Array<String>) = EvaluateDivision().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<EvaluateDivisionParams, DoubleArray>> = arrayOf(

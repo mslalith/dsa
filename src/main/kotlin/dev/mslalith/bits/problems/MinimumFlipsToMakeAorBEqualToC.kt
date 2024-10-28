@@ -7,7 +7,7 @@ class MinimumFlipsToMakeAorBEqualToC : TestCaseProblem<MinimumFlipsToMakeAorBEqu
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumFlipsToMakeAorBEqualToC().runAll()
+        fun main(args: Array<String>) = MinimumFlipsToMakeAorBEqualToC().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<MinimumFlipsToMakeAorBEqualToCParams, Int>> = arrayOf(

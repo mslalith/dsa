@@ -7,7 +7,7 @@ class DetermineIfTwoStringsAreClose : TestCaseProblem<Pair<String, String>, Bool
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DetermineIfTwoStringsAreClose().runAll()
+        fun main(args: Array<String>) = DetermineIfTwoStringsAreClose().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Boolean>> = arrayOf(

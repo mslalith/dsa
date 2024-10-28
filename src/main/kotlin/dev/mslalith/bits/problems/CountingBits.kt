@@ -7,7 +7,7 @@ class CountingBits : TestCaseProblem<Int, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = CountingBits().runAll()
+        fun main(args: Array<String>) = CountingBits().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, IntArray>> = arrayOf(

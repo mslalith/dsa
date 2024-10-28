@@ -9,7 +9,7 @@ class SumRootToLeafNumbers : TestCaseProblem<TreeNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SumRootToLeafNumbers().runAll()
+        fun main(args: Array<String>) = SumRootToLeafNumbers().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<TreeNode?, Int>> = arrayOf(

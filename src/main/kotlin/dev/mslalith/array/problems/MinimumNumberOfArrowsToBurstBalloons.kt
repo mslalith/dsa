@@ -7,7 +7,7 @@ class MinimumNumberOfArrowsToBurstBalloons : TestCaseProblem<Array<IntArray>, In
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MinimumNumberOfArrowsToBurstBalloons().runAll()
+        fun main(args: Array<String>) = MinimumNumberOfArrowsToBurstBalloons().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<IntArray>, Int>> = arrayOf(

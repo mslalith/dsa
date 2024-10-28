@@ -7,7 +7,7 @@ class WordPattern : TestCaseProblem<Pair<String, String>, Boolean>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = WordPattern().runAll()
+        fun main(args: Array<String>) = WordPattern().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Boolean>> = arrayOf(

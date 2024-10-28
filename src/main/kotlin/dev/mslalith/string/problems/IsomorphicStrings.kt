@@ -7,7 +7,7 @@ class IsomorphicStrings : TestCaseProblem<IsomorphicStringsParams, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = IsomorphicStrings().runAll()
+        fun main(args: Array<String>) = IsomorphicStrings().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IsomorphicStringsParams, Boolean>> = arrayOf(

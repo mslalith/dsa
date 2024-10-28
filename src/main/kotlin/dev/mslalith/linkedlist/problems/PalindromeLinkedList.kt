@@ -10,7 +10,7 @@ class PalindromeLinkedList : TestCaseProblem<ListNode?, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PalindromeLinkedList().runAll()
+        fun main(args: Array<String>) = PalindromeLinkedList().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<ListNode?, Boolean>> = arrayOf(

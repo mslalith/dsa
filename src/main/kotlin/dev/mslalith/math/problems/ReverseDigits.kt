@@ -7,7 +7,7 @@ class ReverseDigits : TestCaseProblem<Int, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ReverseDigits().runAll()
+        fun main(args: Array<String>) = ReverseDigits().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

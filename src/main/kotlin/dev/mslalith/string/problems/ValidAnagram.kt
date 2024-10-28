@@ -7,7 +7,7 @@ class ValidAnagram : TestCaseProblem<Pair<String, String>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidAnagram().runAll()
+        fun main(args: Array<String>) = ValidAnagram().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Boolean>> = arrayOf(

@@ -8,7 +8,7 @@ class SmallestNumberInInfiniteSet : TestCaseProblem<Array<Int?>, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SmallestNumberInInfiniteSet().runAll()
+        fun main(args: Array<String>) = SmallestNumberInInfiniteSet().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<Int?>, List<Int>>> = arrayOf(

@@ -7,7 +7,7 @@ class FibonacciNumber : TestCaseProblem<Int, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FibonacciNumber().runAll()
+        fun main(args: Array<String>) = FibonacciNumber().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(

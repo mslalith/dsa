@@ -8,7 +8,7 @@ class LongestSubstringWithoutRepeatingCharacters : TestCaseProblem<String, Int>(
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LongestSubstringWithoutRepeatingCharacters().runAll()
+        fun main(args: Array<String>) = LongestSubstringWithoutRepeatingCharacters().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(

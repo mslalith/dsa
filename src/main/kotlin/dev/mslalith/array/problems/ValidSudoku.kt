@@ -7,7 +7,7 @@ class ValidSudoku : TestCaseProblem<Array<CharArray>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ValidSudoku().runAll()
+        fun main(args: Array<String>) = ValidSudoku().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Array<CharArray>, Boolean>> = arrayOf(

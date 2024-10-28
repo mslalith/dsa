@@ -7,7 +7,7 @@ class DecodeString : TestCaseProblem<String, String>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = DecodeString().runAll()
+        fun main(args: Array<String>) = DecodeString().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, String>> = arrayOf(

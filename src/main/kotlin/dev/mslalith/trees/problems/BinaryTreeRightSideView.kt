@@ -9,7 +9,7 @@ class BinaryTreeRightSideView : TestCaseProblem<TreeNode?, List<Int>>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinaryTreeRightSideView().runAll()
+        fun main(args: Array<String>) = BinaryTreeRightSideView().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, List<Int>>> = arrayOf(

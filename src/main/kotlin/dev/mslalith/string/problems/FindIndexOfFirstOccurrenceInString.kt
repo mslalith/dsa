@@ -7,7 +7,7 @@ class FindIndexOfFirstOccurrenceInString : TestCaseProblem<Pair<String, String>,
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FindIndexOfFirstOccurrenceInString().runAll()
+        fun main(args: Array<String>) = FindIndexOfFirstOccurrenceInString().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<String, String>, Int>> = arrayOf(

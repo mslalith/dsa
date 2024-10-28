@@ -8,7 +8,7 @@ class KokoEatingBananas : TestCaseProblem<Pair<IntArray, Int>, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = KokoEatingBananas().runAll()
+        fun main(args: Array<String>) = KokoEatingBananas().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

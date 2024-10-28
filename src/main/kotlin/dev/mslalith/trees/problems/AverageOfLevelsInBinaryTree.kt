@@ -9,7 +9,7 @@ class AverageOfLevelsInBinaryTree : TestCaseProblem<TreeNode?, DoubleArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = AverageOfLevelsInBinaryTree().runAll()
+        fun main(args: Array<String>) = AverageOfLevelsInBinaryTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, DoubleArray>> = arrayOf(

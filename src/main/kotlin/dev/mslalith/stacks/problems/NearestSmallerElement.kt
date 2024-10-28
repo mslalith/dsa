@@ -8,7 +8,7 @@ class NearestSmallerElement : TestCaseProblem<IntArray, IntArray>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NearestSmallerElement().runAll()
+        fun main(args: Array<String>) = NearestSmallerElement().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, IntArray>> = arrayOf(

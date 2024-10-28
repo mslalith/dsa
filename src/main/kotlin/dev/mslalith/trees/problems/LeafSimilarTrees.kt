@@ -9,7 +9,7 @@ class LeafSimilarTrees : TestCaseProblem<Pair<TreeNode?, TreeNode?>, Boolean>() 
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = LeafSimilarTrees().runAll()
+        fun main(args: Array<String>) = LeafSimilarTrees().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, TreeNode?>, Boolean>> = arrayOf(

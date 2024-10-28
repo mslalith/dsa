@@ -7,7 +7,7 @@ class MaxNumberOfKSumPairs : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaxNumberOfKSumPairs().runAll()
+        fun main(args: Array<String>) = MaxNumberOfKSumPairs().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, Int>, Int>> = arrayOf(

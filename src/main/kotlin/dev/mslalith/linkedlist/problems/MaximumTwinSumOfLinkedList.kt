@@ -10,7 +10,7 @@ class MaximumTwinSumOfLinkedList : TestCaseProblem<ListNode?, Int>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = MaximumTwinSumOfLinkedList().runAll()
+        fun main(args: Array<String>) = MaximumTwinSumOfLinkedList().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<ListNode?, Int>> = arrayOf(

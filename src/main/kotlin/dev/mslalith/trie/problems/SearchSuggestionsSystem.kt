@@ -8,7 +8,7 @@ class SearchSuggestionsSystem : TestCaseProblem<Pair<Array<String>, String>, Lis
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SearchSuggestionsSystem().runAll()
+        fun main(args: Array<String>) = SearchSuggestionsSystem().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<String>, String>, List<List<String>>>> = arrayOf(

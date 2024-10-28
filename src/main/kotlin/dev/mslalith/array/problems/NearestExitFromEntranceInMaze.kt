@@ -7,7 +7,7 @@ class NearestExitFromEntranceInMaze : TestCaseProblem<Pair<Array<CharArray>, Int
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = NearestExitFromEntranceInMaze().runAll()
+        fun main(args: Array<String>) = NearestExitFromEntranceInMaze().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<Array<CharArray>, IntArray>, Int>> = arrayOf(

@@ -9,7 +9,7 @@ class RotateList : TestCaseProblem<Pair<ListNode?, Int>, ListNode?>() {
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RotateList().runAll()
+        fun main(args: Array<String>) = RotateList().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<ListNode?, Int>, ListNode?>> = arrayOf(

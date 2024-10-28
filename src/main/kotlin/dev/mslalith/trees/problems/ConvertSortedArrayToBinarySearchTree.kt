@@ -10,7 +10,7 @@ class ConvertSortedArrayToBinarySearchTree : TestCaseProblem<IntArray, TreeNode?
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = ConvertSortedArrayToBinarySearchTree().runAll()
+        fun main(args: Array<String>) = ConvertSortedArrayToBinarySearchTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<IntArray, TreeNode?>> = arrayOf(

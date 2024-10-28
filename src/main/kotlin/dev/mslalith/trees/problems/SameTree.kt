@@ -9,7 +9,7 @@ class SameTree : TestCaseProblem<Pair<TreeNode?, TreeNode?>, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = SameTree().runAll()
+        fun main(args: Array<String>) = SameTree().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Pair<TreeNode?, TreeNode?>, Boolean>> = arrayOf(

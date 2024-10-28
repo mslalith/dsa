@@ -7,7 +7,7 @@ class PalindromeNumber : TestCaseProblem<Int, Boolean>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = PalindromeNumber().runAll()
+        fun main(args: Array<String>) = PalindromeNumber().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(

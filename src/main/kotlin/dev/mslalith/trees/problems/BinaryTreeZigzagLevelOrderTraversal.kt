@@ -9,7 +9,7 @@ class BinaryTreeZigzagLevelOrderTraversal : TestCaseProblem<TreeNode?, List<List
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = BinaryTreeZigzagLevelOrderTraversal().runAll()
+        fun main(args: Array<String>) = BinaryTreeZigzagLevelOrderTraversal().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<TreeNode?, List<List<Int>>>> = arrayOf(

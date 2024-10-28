@@ -8,7 +8,7 @@ class FloodFill : TestCaseProblem<FloodFillParams, FloodFillOutput>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = FloodFill().runAll()
+        fun main(args: Array<String>) = FloodFill().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<FloodFillParams, FloodFillOutput>> = arrayOf(

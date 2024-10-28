@@ -7,7 +7,7 @@ class GreatestCommonDivisorOfStrings : TestCaseProblem<Pair<String, String>, Str
     
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = GreatestCommonDivisorOfStrings().runAll()
+        fun main(args: Array<String>) = GreatestCommonDivisorOfStrings().runForConsole()
     }
     
     override fun getTestCases(): Array<TestCase<Pair<String, String>, String>> = arrayOf(

@@ -8,7 +8,7 @@ class RedundantBraces : TestCaseProblem<String, Int>() {
 
     companion object {
         @JvmStatic
-        fun main(args: Array<String>) = RedundantBraces().runAll()
+        fun main(args: Array<String>) = RedundantBraces().runForConsole()
     }
 
     override fun getTestCases(): Array<TestCase<String, Int>> = arrayOf(
