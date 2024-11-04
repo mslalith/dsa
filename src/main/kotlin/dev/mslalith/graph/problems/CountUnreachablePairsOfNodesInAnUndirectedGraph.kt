@@ -50,15 +50,15 @@ class CountUnreachablePairsOfNodesInAnUndirectedGraph : TestCaseProblem<Pair<Int
         var sum = 0L
         var squareSum = 0L
 
-        val stronglyConnectedComponentsSizeList = mutableListOf<Long>()
+        val connectedComponentsSizeList = mutableListOf<Long>()
         for (u in 0 until n) {
             if (u !in visited) {
-                stronglyConnectedComponentsSizeList.add(dfs(u, visited, adjList))
+                connectedComponentsSizeList.add(dfs(u, visited, adjList))
             }
         }
 
-        for (i in stronglyConnectedComponentsSizeList.indices) {
-            val x = stronglyConnectedComponentsSizeList[i]
+        for (i in connectedComponentsSizeList.indices) {
+            val x = connectedComponentsSizeList[i]
             sum += x
             squareSum += x * x
         }

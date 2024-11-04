@@ -57,10 +57,6 @@ class DirectedGraph private constructor(
         )
     }
 
-    fun stronglyConnectedComponentsOf(node: Int): List<Int> {
-        return emptyList()
-    }
-
     fun topologicalSort(): List<Int> {
         val n = adjMap.keys.size
         val visited = hashSetOf<Int>()
