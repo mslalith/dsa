@@ -9,3 +9,5 @@ fun Double.precision(n: Int): Double {
     df.roundingMode = RoundingMode.FLOOR
     return df.format(this).toDouble()
 }
+
+infix fun <A, B, C> Pair<A, B>.toTriple(other: C) = Triple(first, second, other)
