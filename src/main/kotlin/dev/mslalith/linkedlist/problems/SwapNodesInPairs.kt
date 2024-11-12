@@ -47,10 +47,10 @@ class SwapNodesInPairs : TestCaseProblem<ListNode?, ListNode?>() {
         var next = curr.next
 
         while (next != null) {
-            val later = next?.next
+            val later = next.next
             prev?.next = next
             curr?.next = later
-            next?.next = curr
+            next.next = curr
 
             prev = curr
             curr = prev?.next
