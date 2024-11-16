@@ -60,6 +60,27 @@ class MinimumPathSum : TestCaseProblem<Array<IntArray>, Int>() {
         val m = grid.size
         val n = grid[0].size
 
+        val curr = IntArray(n)
+        var prev = IntArray(n)
+        prev[0] = grid[0][0]
+
+        for (i in 1 until n) prev[i] = grid[0][i] + prev[i - 1]
+
+        for (i in 1 until m) {
+            curr[0] = grid[i][0] + prev[0]
+            for (j in 1 until n) {
+                curr[j] = grid[i][j] + min(prev[j], curr[j - 1])
+            }
+            prev = curr
+        }
+
+        return prev[n - 1]
+    }
+
+    private fun minPathSumDp(grid: Array<IntArray>): Int {
+        val m = grid.size
+        val n = grid[0].size
+
         val dp = Array(m) { IntArray(n) }
         dp[0][0] = grid[0][0]
 
@@ -68,17 +89,18 @@ class MinimumPathSum : TestCaseProblem<Array<IntArray>, Int>() {
 
         for (i in 1 until m) {
             for (j in 1 until n) {
-                dp[i][j] = grid[i][j] + min(dp[i - 1][j], dp[i][j - 1])
+                val top = grid[i][j] + dp[i - 1][j]
+                val left = grid[i][j] + dp[i][j - 1]
+                dp[i][j] = min(top, left)
             }
         }
 
         return dp[m - 1][n - 1]
     }
 
-    private fun minPathSumNaive(grid: Array<IntArray>): Int {
+    private fun minPathSumRecursive(grid: Array<IntArray>): Int {
         val m = grid.size
         val n = grid[0].size
-        if (m == 1) return grid[0].sum()
 
         fun findMinPathSum(x: Int, y: Int): Int {
             if (x < 0 || x >= m || y < 0 || y >= n) return Int.MAX_VALUE
