@@ -40,30 +40,78 @@ class UniquePathsII : TestCaseProblem<Array<IntArray>, Int>() {
     }
 
     private fun uniquePathsWithObstacles(obstacleGrid: Array<IntArray>): Int {
-        val m = obstacleGrid.size - 1
-        val n = obstacleGrid[0].size - 1
+        val m = obstacleGrid.size
+        val n = obstacleGrid[0].size
 
-        if (obstacleGrid[m][n] == 1) return 0
+        if (obstacleGrid[m - 1][n - 1] == 1) return 0
 
-        val cache = hashMapOf<String, Int>()
+        var prev = IntArray(n)
+        val curr = IntArray(n)
 
-        fun uniquePaths(x: Int, y: Int): Int {
-            if (x == m && y == n) return 1
-            if (x > m || y > n) return 0
-            if (obstacleGrid[x][y] == 1) return 0
-
-            val rightKey = "${x + 1}-$y"
-            val downKey = "$x-${y + 1}"
-
-            val right = if (cache.containsKey(rightKey)) cache.getValue(rightKey) else {
-                uniquePaths(x + 1, y).also { cache[rightKey] = it }
+        for (i in 0 until m) {
+            for (j in 0 until n) {
+                when {
+                    obstacleGrid[i][j] == 1 -> curr[j] = 0
+                    i == 0 && j == 0 -> curr[j] = 1
+                    else -> {
+                        val top = if (i > 0) prev[j] else 0
+                        val left = if (j > 0) curr[j - 1] else 0
+                        curr[j] = top + left
+                    }
+                }
             }
-            val down = if (cache.containsKey(downKey)) cache.getValue(downKey) else {
-                uniquePaths(x, y + 1).also { cache[downKey] = it }
-            }
-            return right + down
+            prev = curr
         }
 
-        return uniquePaths(0, 0)
+        return prev[n - 1]
+    }
+
+    private fun uniquePathsWithObstaclesDp(obstacleGrid: Array<IntArray>): Int {
+        val m = obstacleGrid.size
+        val n = obstacleGrid[0].size
+
+        if (obstacleGrid[m - 1][n - 1] == 1) return 0
+
+        val dp = Array(m) { IntArray(n) }
+
+        for (i in 0 until m) {
+            for (j in 0 until n) {
+                when {
+                    obstacleGrid[i][j] == 1 -> dp[i][j] = 0
+                    i == 0 && j == 0 -> dp[i][j] = 1
+                    else -> {
+                        val top = if (i > 0) dp[i - 1][j] else 0
+                        val left = if (j > 0) dp[i][j - 1] else 0
+                        dp[i][j] = top + left
+                    }
+                }
+            }
+        }
+
+        return dp[m - 1][n - 1]
+    }
+
+    private fun uniquePathsWithObstaclesRecursive(obstacleGrid: Array<IntArray>): Int {
+        val m = obstacleGrid.size
+        val n = obstacleGrid[0].size
+
+        if (obstacleGrid[m - 1][n - 1] == 1) return 0
+
+        val dp = Array(m) { IntArray(n) { -1 } }
+
+        fun findUniquePaths(i: Int, j: Int): Int {
+            if (i < 0 || j < 0) return 0
+            if (obstacleGrid[i][j] == 1) return 0
+            if (i == 0 && j == 0) return 1
+            if (dp[i][j] != -1) return dp[i][j]
+
+            val top = findUniquePaths(i, j - 1)
+            val left = findUniquePaths(i - 1, j)
+
+            dp[i][j] = top + left
+            return dp[i][j]
+        }
+
+        return findUniquePaths(m - 1, n - 1)
     }
 }
