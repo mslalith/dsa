@@ -28,35 +28,77 @@ class BestTimeToBuyAndSellStockWithTransactionFee : TestCaseProblem<Pair<IntArra
     }
 
     private fun maxProfit(prices: IntArray, fee: Int): Int {
-        var cash = 0
-        var hold = -prices[0]
+        val n = prices.size
+        val curr = IntArray(2)
+        var next = IntArray(2)
 
-        for (i in 1 until prices.size) {
-            cash = max(cash, hold + prices[i] - fee)
-            hold = max(hold, cash - prices[i])
+        for (day in n - 1 downTo 0) {
+            for (buy in 0..1) {
+                curr[buy] = if (buy == 1) {
+                    max(
+                        -prices[day] + next[0],
+                        0 + next[1]
+                    )
+                } else {
+                    max(
+                        prices[day] - fee + next[1],
+                        0 + next[0]
+                    )
+                }
+            }
+            next = curr
         }
 
-        return cash
+        return next[1]
     }
 
-    private fun maxProfitRecursive(prices: IntArray, fee: Int): Int {
+    private fun maxProfitDp(prices: IntArray, fee: Int): Int {
+        val n = prices.size
+        val dp = Array(n + 1) { IntArray(2) { -1 } }
+        dp[n][0] = 0
+        dp[n][1] = 0
 
-        fun takeACall(day: Int, buy: Boolean): Int {
-            if (day == prices.size) return 0
-
-            return if (buy) {
-                max(
-                    -prices[day] + takeACall(day + 1, false),
-                    0 + takeACall(day + 1, true)
-                )
-            } else {
-                max(
-                    prices[day] - fee + takeACall(day + 1, true),
-                    0 + takeACall(day + 1, false)
-                )
+        for (day in n - 1 downTo 0) {
+            for (buy in 0..1) {
+                dp[day][buy] = if (buy == 1) {
+                    max(
+                        -prices[day] + dp[day + 1][0],
+                        0 + dp[day + 1][1]
+                    )
+                } else {
+                    max(
+                        prices[day] - fee + dp[day + 1][1],
+                        0 + dp[day + 1][0]
+                    )
+                }
             }
         }
 
-        return takeACall(0, true)
+        return dp[0][1]
+    }
+
+    private fun maxProfitRecursive(prices: IntArray, fee: Int): Int {
+        val n = prices.size
+        val dp = Array(n) { IntArray(2) { -1 } }
+
+        fun findMaxProfit(day: Int, buy: Int): Int {
+            if (day == prices.size) return 0
+            if (dp[day][buy] != -1) return dp[day][buy]
+
+            dp[day][buy] = if (buy == 1) {
+                max(
+                    -prices[day] + findMaxProfit(day + 1, 0),
+                    0 + findMaxProfit(day + 1, 1)
+                )
+            } else {
+                max(
+                    prices[day] - fee + findMaxProfit(day + 1, 1),
+                    0 + findMaxProfit(day + 1, 0)
+                )
+            }
+            return dp[day][buy]
+        }
+
+        return findMaxProfit(0, 1)
     }
 }
