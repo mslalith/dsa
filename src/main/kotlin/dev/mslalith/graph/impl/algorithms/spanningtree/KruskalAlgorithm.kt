@@ -16,7 +16,7 @@ object KruskalAlgorithm : MinimumSpanningTree {
         // (weight, src, dst)
         val edges = buildList {
             adjList.forEachIndexed { node, edges ->
-                edges.forEach { add(it.weight to node toTriple  it.dst) }
+                edges.forEach { add(it.weight to node toTriple it.dst) }
             }
         }.sortedBy { it.first }
 

@@ -7,6 +7,7 @@ class DisjointSetByRank(n: Int): DisjointSet {
 
     override fun findParent(u: Int): Int {
         if (parent[u] == u) return u
+        // path compression
         parent[u] = findParent(parent[u])
         return parent[u]
     }
@@ -19,7 +20,7 @@ class DisjointSetByRank(n: Int): DisjointSet {
         if (uPar == vPar) return false
 
         // since smaller is being attached to bigger
-        // rank is bigger is kept the same
+        // bigger rank is kept the same
         if (rank[uPar] < rank[vPar]) {
             // u is smaller, attach u to v
             parent[uPar] = vPar
