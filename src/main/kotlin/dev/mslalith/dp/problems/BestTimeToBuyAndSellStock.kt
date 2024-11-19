@@ -36,11 +36,11 @@ class BestTimeToBuyAndSellStock : TestCaseProblem<IntArray, Int>() {
 
         for (i in 1 until n) {
             when {
-                prices[i] >= min -> max = max(prices[i], max)
-                else -> {
+                prices[i] < min -> {
                     min = prices[i]
                     max = min
                 }
+                else -> max = max(prices[i], max)
             }
             profit = max(profit, max - min)
         }
