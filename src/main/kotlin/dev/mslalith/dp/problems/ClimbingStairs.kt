@@ -39,20 +39,42 @@ class ClimbingStairs : TestCaseProblem<Int, Int>() {
     }
 
     private fun climbStairs(n: Int): Int {
-        if (n <= 2) return n
-
         var lastLast = 1
-        var last = 2
+        var last = 1
 
-        var count = 0
-
-        for (i in 2 until n) {
+        for (i in 2..n) {
             val curr = last + lastLast
-            count = max(curr, count)
             lastLast = last
             last = curr
         }
 
         return last
+    }
+
+    private fun climbStairsDp(n: Int): Int {
+        val dp = IntArray(n + 1)
+        dp[0] = 1
+        dp[1] = 1
+
+        for (i in 2..n) {
+            dp[i] = dp[i - 1] + dp[i - 2]
+        }
+
+        return dp[n]
+    }
+
+    private fun climbStairsRecursive(n: Int): Int {
+        val dp = IntArray(n + 1) { -1 }
+
+        fun findClimbStairs(i: Int): Int {
+            if (i == 0) return 1
+            if (i == 1) return 1
+            if (dp[i] != -1) return dp[i]
+
+            dp[i] = climbStairsRecursive(i - 1) + climbStairsRecursive(i - 2)
+            return dp[i]
+        }
+
+        return findClimbStairs(n)
     }
 }
