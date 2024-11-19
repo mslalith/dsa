@@ -4,12 +4,12 @@ import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
 
 class DominoAndTrominoTiling : TestCaseProblem<Int, Int>() {
-    
+
     companion object {
         @JvmStatic
         fun main(args: Array<String>) = DominoAndTrominoTiling().runForConsole()
     }
-    
+
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(
         TestCase(
             input = 1,
@@ -36,50 +36,67 @@ class DominoAndTrominoTiling : TestCaseProblem<Int, Int>() {
             output = 312342182
         )
     )
-    
+
     override fun solve(testCaseInput: Int): Int {
         return numTilings(testCaseInput)
     }
 
     private fun numTilings(n: Int): Int {
-        return when (n) {
-            1 -> 1
-            2 -> 2
-            3 -> 5
-            else -> {
-                val mod = 1000000007
-                val cache = Array(n + 1) { 0 }
-                cache[0] = 0
-                cache[1] = 1
-                cache[2] = 2
-                cache[3] = 5
-                for (i in 4..n) {
-                    val one = (cache[i - 1] * 2) % mod
-                    val three = (cache[i - 3]) % mod
-                    cache[i] = (one + three) % mod
-                }
-                cache[n]
-            }
+        if (n <= 2) return n
+        if (n == 3) return 5
+
+        val mod = 1000000007
+        var last3 = 1
+        var last2 = 2
+        var last1 = 5
+
+        for (i in 4..n) {
+            val one = (last1 * 2) % mod
+            val three = last3 % mod
+            val ways = one + three
+            val curr = ways % mod
+            last3 = last2
+            last2 = last1
+            last1 = curr
         }
+
+        return last1
+    }
+
+    private fun numTilingsDp(n: Int): Int {
+        val mod = 1000000007
+        val dp = IntArray(n + 1)
+        if (n >= 1) dp[1] = 1
+        if (n >= 2) dp[2] = 2
+        if (n >= 3) dp[3] = 5
+
+        for (i in 4..n) {
+            val one = (dp[i - 1] * 2) % mod
+            val three = dp[i - 3] % mod
+            val ways = one + three
+            dp[i] = ways % mod
+        }
+
+        return dp[n]
     }
 
     private fun numTilingsRecursive(n: Int): Int {
-        val cache = hashMapOf(
-            1 to 1,
-            2 to 2,
-            3 to 5
-        )
+        val mod = 1000000007
+        val dp = IntArray(n + 1) { -1 }
 
-        fun numTilings(n: Int, cache: HashMap<Int, Int>): Int {
-            if (n == 1 || n == 2) return cache.getValue(n)
+        fun numTilings(i: Int): Int {
+            if (i == 1) return 1
+            if (i == 2) return 2
+            if (i == 3) return 5
+            if (dp[i] != -1) return dp[i]
 
-            val mod = 1000000007
-            return cache.getOrPut(n) {
-                val ways = (numTilings(n - 1, cache) * 2) % mod + numTilings(n - 3, cache) % mod
-                ways % mod
-            }
+            val one = (numTilings(i - 1) * 2) % mod
+            val three = numTilings(i - 3) % mod
+            val ways = one + three
+            dp[i] = ways % mod
+            return dp[i]
         }
 
-        return numTilings(n, cache)
+        return numTilings(n)
     }
 }
