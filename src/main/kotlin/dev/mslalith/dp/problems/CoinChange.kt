@@ -1,8 +1,9 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import kotlin.math.min
+
 
 class CoinChange : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
@@ -35,19 +36,74 @@ class CoinChange : TestCaseProblem<Pair<IntArray, Int>, Int>() {
     }
 
     private fun coinChange(coins: IntArray, amount: Int): Int {
-        if (amount == 0) return 0
+        val inf = Int.MAX_VALUE / 2
+        val n = coins.size
+        val curr = IntArray(amount + 1)
+        var next = IntArray(amount + 1)
+        for (amt in 1..amount) next[amt] = inf
 
-        val dp = IntArray(amount + 1) { 0 }
+        for (i in n - 1 downTo  0) {
+            curr[0] = 0
+            for (amt in 1..amount) {
+                curr[amt] = if (coins[i] <= amt) {
+                    val notTake = next[amt]
+                    val take = 1 + curr[amt - coins[i]]
+                    min(notTake, take)
+                } else {
+                    next[amt]
+                }
+            }
+            next = curr
+        }
 
-        for (am in 1..amount) {
-            dp[am] = Int.MAX_VALUE
-            for (coin in coins) {
-                if (coin <= am && dp[am - coin] != Int.MAX_VALUE) {
-                    dp[am] = min(dp[am], 1 + dp[am - coin])
+        val result = next[amount]
+        return if (result == Int.MAX_VALUE / 2) -1 else result
+    }
+
+    private fun coinChangeDp(coins: IntArray, amount: Int): Int {
+        val inf = Int.MAX_VALUE / 2
+        val n = coins.size
+        val dp = Array(n + 1) { IntArray(amount + 1) }
+        for (i in 0..n) dp[i][0] = 0
+        for (amt in 1..amount) dp[n][amt] = inf
+
+        for (i in n - 1 downTo  0) {
+            for (amt in 1..amount) {
+                dp[i][amt] = if (coins[i] <= amt) {
+                    val notTake = dp[i + 1][amt]
+                    val take = 1 + dp[i][amt - coins[i]]
+                    min(notTake, take)
+                } else {
+                    dp[i + 1][amt]
                 }
             }
         }
 
-        return if (dp[amount] == Int.MAX_VALUE) -1 else dp[amount]
+        val result = dp[0][amount]
+        return if (result == Int.MAX_VALUE / 2) -1 else result
+    }
+
+    private fun coinChangeRecursive(coins: IntArray, amount: Int): Int {
+        val n = coins.size
+        val dp = Array(n + 1) { IntArray(amount + 1) { -1 } }
+
+        fun findCoinChange(i: Int, remaining: Int): Int {
+            if (remaining == 0) return 0
+            if (i >= n) return Int.MAX_VALUE / 2
+            if (dp[i][remaining] != -1) return dp[i][remaining]
+
+            dp[i][remaining] = if (coins[i] <= remaining) {
+                val notTake = findCoinChange(i + 1, remaining)
+                val take = 1 + findCoinChange(i, remaining - coins[i])
+                min(notTake, take)
+            } else {
+                findCoinChange(i + 1, remaining)
+            }
+
+            return dp[i][remaining]
+        }
+
+        val result = findCoinChange(0, amount)
+        return if (result == Int.MAX_VALUE / 2) -1 else result
     }
 }
