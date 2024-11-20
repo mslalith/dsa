@@ -31,6 +31,10 @@ class LongestCommonSubsequence : TestCaseProblem<Pair<String, String>, Int>() {
         TestCase(
             input = "ezupkr" to "ubmrapg",
             output = 2
+        ),
+        TestCase(
+            input = "abcba" to "abcbcba",
+            output = 5
         )
     )
     
@@ -39,23 +43,67 @@ class LongestCommonSubsequence : TestCaseProblem<Pair<String, String>, Int>() {
     }
 
     private fun longestCommonSubsequence(text1: String, text2: String): Int {
-        val n = text1.length
-        val m = text2.length
+        if (text1 == text2) return text1.length
 
-        val dp = Array(n + 1) {
-            IntArray(m + 1) { 0 }
+        val m = text1.length
+        val n = text2.length
+        val curr = IntArray(n + 1)
+        var next = IntArray(n + 1)
+
+        for (i in (m - 1) downTo 0) {
+            for (j in (n - 1) downTo 0) {
+                curr[j] = if (text1[i] == text2[j]) {
+                    1 + next[j + 1]
+                } else {
+                    max(next[j], curr[j + 1])
+                }
+            }
+            next = curr.clone()
         }
 
-        for (i in 1..n) {
-            for (j in 1..m) {
-                if (text1[i - 1] == text2[j - 1]) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1]
+        return next[0]
+    }
+
+    private fun longestCommonSubsequenceDp(text1: String, text2: String): Int {
+        if (text1 == text2) return text1.length
+
+        val m = text1.length
+        val n = text2.length
+        val dp = Array(m + 1) { IntArray(n + 1) }
+
+        for (i in (m - 1) downTo 0) {
+            for (j in (n - 1) downTo 0) {
+                dp[i][j] = if (text1[i] == text2[j]) {
+                    1 + dp[i + 1][j + 1]
                 } else {
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+                    max(dp[i + 1][j], dp[i][j + 1])
                 }
             }
         }
 
-        return dp.last().last()
+        return dp[0][0]
+    }
+
+    private fun longestCommonSubsequenceRecursive(text1: String, text2: String): Int {
+        if (text1 == text2) return text1.length
+
+        val m = text1.length
+        val n = text2.length
+        val dp = Array(m) { IntArray(n) { -1 } }
+
+        fun findLongestCommonSubsequence(i: Int, j: Int): Int {
+            if (i == m || j == n) return 0
+            if (dp[i][j] != -1) return dp[i][j]
+
+            dp[i][j] = if (text1[i] == text2[j]) {
+                1 + findLongestCommonSubsequence(i + 1, j + 1)
+            } else {
+                max(findLongestCommonSubsequence(i + 1, j), findLongestCommonSubsequence(i, j + 1))
+            }
+
+            return dp[i][j]
+        }
+
+        return findLongestCommonSubsequence(0, 0)
     }
 }
