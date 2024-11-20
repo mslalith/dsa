@@ -3,6 +3,7 @@ package dev.mslalith.dp.problems
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
 import kotlin.math.max
+import kotlin.math.min
 
 
 class JumpGameII : TestCaseProblem<IntArray, Int>() {
@@ -48,15 +49,53 @@ class JumpGameII : TestCaseProblem<IntArray, Int>() {
         var jumps = 0
 
         while (right < n - 1) {
-            var maxNum = 0
+            var maxJump = 0
             for (i in left..right) {
-                maxNum = max(maxNum, i + nums[i])
+                maxJump = max(maxJump, i + nums[i])
             }
             left = right + 1
-            right = maxNum
+            right = maxJump
             jumps++
         }
 
         return jumps
+    }
+
+    private fun jumpDp(nums: IntArray): Int {
+        val n = nums.size
+        val dp = IntArray(n)
+
+        for (i in (n - 2) downTo 0) {
+            var mini = n + 1
+            for (j in nums[i] downTo 1) {
+                val jump = if (i + j >= n - 1) 1 else 1 + dp[i + j]
+                mini = min(mini, jump)
+            }
+
+            dp[i] = mini
+        }
+
+        return dp[0]
+    }
+
+    private fun jumpRecursive(nums: IntArray): Int {
+        val n = nums.size
+        val dp = IntArray(n) { -1 }
+
+        fun findJump(i: Int): Int {
+            if (i >= n - 1) return 0
+            if (dp[i] != -1) return dp[i]
+
+            var mini = n + 1
+            for (j in nums[i] downTo 1) {
+                val jump = 1 + findJump(i + j)
+                mini = min(mini, jump)
+            }
+
+            dp[i] = mini
+            return dp[i]
+        }
+
+        return findJump(0)
     }
 }
