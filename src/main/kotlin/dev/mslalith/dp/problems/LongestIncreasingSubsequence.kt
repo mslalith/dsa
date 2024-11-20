@@ -35,12 +35,32 @@ class LongestIncreasingSubsequence : TestCaseProblem<IntArray, Int>() {
         val n = nums.size
         val dp = IntArray(n) { 1 }
 
-        for (j in 1 until n) {
-            for (i in 0 until j) {
-                if (nums[i] < nums[j]) dp[j] = max(dp[j], dp[i] + 1)
+        for (i in 1 until n) {
+            for (j in 0 until i) {
+                if (nums[j] < nums[i]) dp[i] = max(dp[i], dp[j] + 1)
             }
         }
 
         return dp.max()
+    }
+
+    private fun lengthOfLISRecursive(nums: IntArray): Int {
+        val n = nums.size
+        val dp = Array(n) { IntArray(n + 1) { -1 } }
+
+        fun findLengthOfLIS(i: Int, prevI: Int): Int {
+            if (i == n) return 0
+            if (dp[i][prevI + 1] != -1) return dp[i][prevI + 1]
+
+            val notTake = findLengthOfLIS(i + 1, prevI)
+            val take = if (prevI == -1 || nums[prevI] < nums[i]) {
+                1 + findLengthOfLIS(i + 1, i)
+            } else 0
+
+            dp[i][prevI + 1] = max(notTake, take)
+            return dp[i][prevI + 1]
+        }
+
+        return findLengthOfLIS(0, -1)
     }
 }
