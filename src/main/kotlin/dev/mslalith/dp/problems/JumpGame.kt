@@ -1,8 +1,9 @@
 package dev.mslalith.dp.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import kotlin.math.max
+import kotlin.math.min
 
 class JumpGame : TestCaseProblem<IntArray, Boolean>() {
     
@@ -43,6 +44,51 @@ class JumpGame : TestCaseProblem<IntArray, Boolean>() {
         }
 
         return true
+    }
+
+    private fun canJumpDp(nums: IntArray): Boolean {
+        val n = nums.size
+        val dp = IntArray(n)
+        dp[n - 1] = 1
+
+        for (i in (n - 2) downTo 0) {
+            val furthest = min(n, i + nums[i])
+            var canJump = 0
+            for (j in (i + 1)..furthest) {
+                if (dp[j] == 1) {
+                    canJump = 1
+                    break
+                }
+            }
+
+            dp[i] = canJump
+        }
+
+        return dp[0] == 1
+    }
+
+    private fun canJumpRecursive(nums: IntArray): Boolean {
+        val n = nums.size
+        val dp = IntArray(n) { -1 }
+
+        fun findCanJump(i: Int): Boolean {
+            if (i >= n - 1) return true
+            if (dp[i] != -1) return dp[i] == 1
+
+            val furthest = min(n, i + nums[i])
+            var canJump = 0
+            for (j in (i + 1)..furthest) {
+                if (findCanJump(j)) {
+                    canJump = 1
+                    break
+                }
+            }
+
+            dp[i] = canJump
+            return dp[i] == 1
+        }
+
+        return findCanJump(0)
     }
 
     private fun canJumpAttempt(nums: IntArray): Boolean {
