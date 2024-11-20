@@ -101,12 +101,17 @@ class MinimumPathSum : TestCaseProblem<Array<IntArray>, Int>() {
     private fun minPathSumRecursive(grid: Array<IntArray>): Int {
         val m = grid.size
         val n = grid[0].size
+        val dp = Array(m) { IntArray(n) { -1 } }
 
-        fun findMinPathSum(x: Int, y: Int): Int {
-            if (x < 0 || x >= m || y < 0 || y >= n) return Int.MAX_VALUE
-            if (x == m - 1 && y == n - 1) return grid[x][y]
+        fun findMinPathSum(i: Int, j: Int): Int {
+            if (i < 0 || i >= m || j < 0 || j >= n) return Int.MAX_VALUE
+            if (i == m - 1 && j == n - 1) return grid[i][j]
+            if (dp[i][j] != -1) return dp[i][j]
 
-            return grid[x][y] + min(findMinPathSum(x + 1, y), findMinPathSum(x, y + 1))
+            val bottom = findMinPathSum(i + 1, j)
+            val right = findMinPathSum(i, j + 1)
+            dp[i][j] = grid[i][j] + min(bottom, right)
+            return dp[i][j]
         }
 
         return findMinPathSum(0, 0)
