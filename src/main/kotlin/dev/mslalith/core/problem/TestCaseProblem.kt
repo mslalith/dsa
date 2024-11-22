@@ -11,7 +11,7 @@ import kotlin.time.measureTimedValue
 abstract class TestCaseProblem<I, O> : Problem {
 
     protected abstract fun getTestCases(): Array<TestCase<I, O>>
-    protected abstract fun solve(testCaseInput: I): O
+    abstract fun solve(testCaseInput: I): O
 
     open val skipIO: Boolean get() = false
 
@@ -106,6 +106,7 @@ abstract class TestCaseProblem<I, O> : Problem {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
         if (actual is Array<*> && expected is Array<*>) return actual.matches(expected)
+        if (actual is List<*> && expected is List<*>) return actual.matches(expected)
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
         if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
         if (actual is ListNode && expected is ListNode) return areListNodesEqual(actual, expected)
@@ -115,6 +116,7 @@ abstract class TestCaseProblem<I, O> : Problem {
     private fun isTestPassedGiven(actual: Any?, expected: Any?): Boolean {
         if (actual == null && expected == null) return true
         if (actual == null || expected == null) return false
+        if (actual is List<*> && expected is List<*>) return actual.matches(expected)
         if (actual is IntArray && expected is IntArray) return actual.contentEquals(expected)
         if (actual is CharArray && expected is CharArray) return actual.contentEquals(expected)
         if (actual is DoubleArray && expected is DoubleArray) return actual.contentEquals(expected)
@@ -123,6 +125,11 @@ abstract class TestCaseProblem<I, O> : Problem {
     }
 
     private fun Array<*>.matches(other: Array<*>): Boolean {
+        if (size != other.size) return false
+        return zip(other).all { isTestPassedGiven(it.first, it.second) }
+    }
+
+    private fun List<*>.matches(other: List<*>): Boolean {
         if (size != other.size) return false
         return zip(other).all { isTestPassedGiven(it.first, it.second) }
     }
