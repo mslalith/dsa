@@ -1,13 +1,8 @@
 package dev.mslalith.trie
 
-data class TrieNode<T : Comparable<T>> private constructor(
-    private val childrenMap: HashMap<T, TrieNode<T>>,
-    private var isEndInternal: Boolean
-) {
-    constructor() : this(
-        childrenMap = hashMapOf(),
-        isEndInternal = false
-    )
+class TrieNode<T : Comparable<T>> {
+    private val childrenMap: HashMap<T, TrieNode<T>> = hashMapOf()
+    private var isEndInternal: Boolean = false
 
     val children: List<Pair<T, TrieNode<T>>>
         get() = childrenMap.map { it.key to it.value }

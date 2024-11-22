@@ -10,13 +10,18 @@ object RunAllProblems {
     @JvmStatic
     fun main(args: Array<String>) {
         println()
+
+        var problemsCount = 0
         Topic.entries.forEach { topic ->
-            topic.runAllProblems()
+            problemsCount += topic.runAllProblems()
         }
+
+        println()
+        println("\uD83C\uDF89 Ran total of $problemsCount problems")
         println()
     }
 
-    private fun Topic.runAllProblems() {
+    private fun Topic.runAllProblems(): Int {
         val allProblems = allProblems()
         val totalCount = allProblems.size
 
@@ -59,6 +64,8 @@ object RunAllProblems {
                 deleteAt(lastIndex) // remove last new line
             }
         }.let(::println)
+
+        return totalCount
     }
 }
 
