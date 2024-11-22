@@ -75,7 +75,7 @@ sealed interface DesignAddAndSearchWordsDataStructureType {
 
 private class WordDictionary {
 
-    private val root = TrieNode('.')
+    private val root = TrieNode<Char>()
 
     fun addWord(word: String) {
         if (word.isEmpty()) return
@@ -83,16 +83,11 @@ private class WordDictionary {
         var currentNode = root
 
         for (ch in word) {
-            if (currentNode.children.contains(ch)) {
-                currentNode = currentNode.children.getValue(ch)
-            } else {
-                val newNode = TrieNode(value = ch)
-                currentNode.children[ch] = newNode
-                currentNode = newNode
-            }
+            if (ch !in currentNode) currentNode.add(ch)
+            currentNode = currentNode.getValue(ch)
         }
 
-        currentNode.isEnd = true
+        currentNode.markAsEnd()
     }
 
     fun search(word: String): Boolean {
@@ -104,8 +99,8 @@ private class WordDictionary {
 
         for (i in index until word.length) {
             when (val ch = word[i]) {
-                '.' -> return currentNode.children.values.any { searchFrom(it, word, i + 1) }
-                else -> currentNode = currentNode.children[ch] ?: return false
+                '.' -> return currentNode.children.any { (_, nextNode) -> searchFrom(nextNode, word, i + 1) }
+                else -> currentNode = currentNode[ch] ?: return false
             }
         }
 

@@ -2,11 +2,7 @@ package dev.mslalith.trie
 
 class Trie {
 
-    companion object {
-        private const val ROOT_SYMBOL = '.'
-    }
-
-    private val root = TrieNode(value = ROOT_SYMBOL)
+    private val root = TrieNode<Char>()
 
     fun insert(word: String) {
         if (word.isEmpty()) return
@@ -14,23 +10,18 @@ class Trie {
         var currentNode = root
 
         for (ch in word) {
-            if (currentNode.children.contains(ch)) {
-                currentNode = currentNode.children.getValue(ch)
-            } else {
-                val newNode = TrieNode(value = ch)
-                currentNode.children[ch] = newNode
-                currentNode = newNode
-            }
+            if (ch !in currentNode) currentNode.add(ch)
+            currentNode = currentNode.getValue(ch)
         }
 
-        currentNode.isEnd = true
+        currentNode.markAsEnd()
     }
 
     fun search(word: String): Boolean {
         var currentNode = root
 
         for (ch in word) {
-            currentNode = currentNode.children[ch] ?: return false
+            currentNode = currentNode[ch] ?: return false
         }
 
         return currentNode.isEnd
@@ -40,7 +31,7 @@ class Trie {
         var currentNode = root
 
         for (ch in prefix) {
-            currentNode = currentNode.children[ch] ?: return false
+            currentNode = currentNode[ch] ?: return false
         }
 
         return true
@@ -53,25 +44,25 @@ class Trie {
         var node = root
 
         while (i < word.length) {
-            node = node.children[word[i]] ?: return emptyList()
+            node = node[word[i]] ?: return emptyList()
             i++
         }
 
         val prefix = word.dropLast(n = 1)
-        return findCompleteWordsFrom(node)
+        return findCompleteWordsFrom(word[i - 1], node)
             .map { prefix + it }
     }
 
-    private fun findCompleteWordsFrom(node: TrieNode<Char>): List<String> {
+    private fun findCompleteWordsFrom(char: Char, node: TrieNode<Char>): List<String> {
         val list = arrayListOf<String>()
-        findCompleteWordsFromInternal(node, list, StringBuilder())
+        findCompleteWordsFromInternal(char, node, list, StringBuilder())
         return list
     }
 
-    private fun findCompleteWordsFromInternal(node: TrieNode<Char>, outList: ArrayList<String>, sb: StringBuilder) {
-        sb.append(node.value)
+    private fun findCompleteWordsFromInternal(char: Char, node: TrieNode<Char>, outList: ArrayList<String>, sb: StringBuilder) {
+        sb.append(char)
         if (node.isEnd) outList.add(sb.toString())
-        node.children.forEach { (_, childNode) -> findCompleteWordsFromInternal(childNode, outList, sb) }
+        node.children.forEach { (char, nextNode) -> findCompleteWordsFromInternal(char, nextNode, outList, sb) }
         sb.deleteAt(sb.lastIndex)
     }
 }
