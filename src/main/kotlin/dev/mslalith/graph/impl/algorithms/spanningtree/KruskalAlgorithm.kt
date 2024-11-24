@@ -9,7 +9,7 @@ import dev.mslalith.graph.impl.disjointset.DisjointSet
 /**
  * Finds the minimum spanning tree
  *
- * Time Complexity: O(E * logE)
+ * Time Complexity: O(E * logE) + O(E * 4α * 2)
  *
  */
 object KruskalAlgorithm : MinimumSpanningTree {
