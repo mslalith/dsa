@@ -9,7 +9,7 @@ object MinimumSpanningTreeDemo {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val graph = UndirectedGraph.fromAdjacencyArray(
+        val undirectedGraph = UndirectedGraph.fromAdjacencyArray(
             adjArray = arrayOf(
                 intArrayOf(0, 1, 2),
                 intArrayOf(0, 2, 1),
@@ -32,7 +32,7 @@ object MinimumSpanningTreeDemo {
             println("➡\uFE0F ${algorithm.javaClass.simpleName}")
             println()
 
-            val mstSum = algorithm.minimumSpanningTreeSum(adjList = graph.asAdjacencyList())
+            val mstSum = algorithm.minimumSpanningTreeSum(undirectedGraph = undirectedGraph)
 
             println("Sum: $mstSum")
             check(mstSum == expectedMstSum)

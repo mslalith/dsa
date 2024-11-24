@@ -1,6 +1,7 @@
 package dev.mslalith.graph.impl.algorithms.shortedpath
 
-import dev.mslalith.graph.impl.WeightedGraph
+import dev.mslalith.graph.impl.DirectedGraph
+import dev.mslalith.graph.impl.UndirectedGraph
 import kotlin.math.min
 
 /**
@@ -17,14 +18,18 @@ import kotlin.math.min
  */
 object FloydWarshall : ShortestPath {
 
-    override fun shortestPathFrom(graph: WeightedGraph, source: Int): IntArray {
-        val n = graph.vertices.size
+    override fun shortestPathFrom(undirectedGraph: UndirectedGraph, source: Int): IntArray {
+        return shortestPathFrom(directedGraph = undirectedGraph.asDirectedGraph(), source = source)
+    }
+
+    override fun shortestPathFrom(directedGraph: DirectedGraph, source: Int): IntArray {
+        val n = directedGraph.vertices.size
         val distance = Array(n) {
             IntArray(n) { Int.MAX_VALUE }
         }
 
-        for (node in graph.vertices) {
-            for ((adjNode, weight) in graph.neighboursFor(node)) {
+        for (node in directedGraph.vertices) {
+            for ((adjNode, weight) in directedGraph.neighboursFor(node)) {
                 distance[node][adjNode] = weight
             }
         }

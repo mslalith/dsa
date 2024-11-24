@@ -1,6 +1,7 @@
 package dev.mslalith.graph.impl.algorithms.shortedpath
 
-import dev.mslalith.graph.impl.WeightedGraph
+import dev.mslalith.graph.impl.DirectedGraph
+import dev.mslalith.graph.impl.UndirectedGraph
 
 /**
  * Finds the shortest path from single source to all nodes
@@ -16,16 +17,20 @@ import dev.mslalith.graph.impl.WeightedGraph
  */
 object BellmanFord : ShortestPath {
 
-    override fun shortestPathFrom(graph: WeightedGraph, source: Int): IntArray {
-        val n = graph.vertices.size
+    override fun shortestPathFrom(undirectedGraph: UndirectedGraph, source: Int): IntArray {
+        return shortestPathFrom(undirectedGraph.asDirectedGraph(), source)
+    }
+
+    override fun shortestPathFrom(directedGraph: DirectedGraph, source: Int): IntArray {
+        val n = directedGraph.vertices.size
         val distance = IntArray(n) { Int.MAX_VALUE }
         distance[source] = 0
 
         repeat(n - 1) {
-            for (node in graph.vertices) {
+            for (node in directedGraph.vertices) {
                 if (distance[node] == Int.MAX_VALUE) continue
 
-                for ((adjNode, weight) in graph.neighboursFor(node)) {
+                for ((adjNode, weight) in directedGraph.neighboursFor(node)) {
                     val d = distance[node] + weight
                     if (d < distance[adjNode]) distance[adjNode] = d
                 }
@@ -33,10 +38,10 @@ object BellmanFord : ShortestPath {
         }
 
         // Nth relaxation to check -ve cycle
-        for (node in graph.vertices) {
+        for (node in directedGraph.vertices) {
             if (distance[node] == Int.MAX_VALUE) continue
 
-            for ((adjNode, weight) in graph.neighboursFor(node)) {
+            for ((adjNode, weight) in directedGraph.neighboursFor(node)) {
                 val d = distance[node] + weight
                 if (d < distance[adjNode]) return intArrayOf(-1)
             }

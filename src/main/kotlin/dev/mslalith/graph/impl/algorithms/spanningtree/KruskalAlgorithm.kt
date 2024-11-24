@@ -1,9 +1,10 @@
 package dev.mslalith.graph.impl.algorithms.spanningtree
 
-import dev.mslalith.graph.impl.WeightedEdge
+import dev.mslalith.graph.impl.DirectedGraph
+import dev.mslalith.graph.impl.Edge
+import dev.mslalith.graph.impl.Graph
+import dev.mslalith.graph.impl.UndirectedGraph
 import dev.mslalith.graph.impl.disjointset.DisjointSet
-import dev.mslalith.utils.toTriple
-import java.util.*
 
 /**
  * Finds the minimum spanning tree
@@ -12,23 +13,27 @@ import java.util.*
  *
  */
 object KruskalAlgorithm : MinimumSpanningTree {
-    override fun minimumSpanningTree(adjList: Array<List<WeightedEdge>>): Array<List<WeightedEdge>> {
-        // (weight, src, dst)
-        val edges = buildList {
-            adjList.forEachIndexed { node, edges ->
-                edges.forEach { add(it.weight to node toTriple it.dst) }
-            }
-        }.sortedBy { it.first }
 
-        val ds = DisjointSet(adjList.size)
-        val minSpanningTree = Array(adjList.size) { mutableListOf<WeightedEdge>() }
+    override fun minimumSpanningTree(undirectedGraph: UndirectedGraph): List<Edge> {
+        return minimumSpanningTree(graph = undirectedGraph)
+    }
 
-        for ((weight, src, dst) in edges) {
+    override fun minimumSpanningTree(directedGraph: DirectedGraph): List<Edge> {
+        return minimumSpanningTree(graph = directedGraph)
+    }
+
+    private fun minimumSpanningTree(graph: Graph): List<Edge> {
+        val edges = graph.edges.sortedBy { it.weight }
+
+        val ds = DisjointSet(graph.vertices.size)
+        val minSpanningTree = mutableListOf<Edge>()
+
+        for ((src, dst, weight) in edges) {
             if (ds.findParent(src) == ds.findParent(dst)) continue
             ds.union(src, dst)
-            minSpanningTree[src].add(WeightedEdge(dst, weight))
+            minSpanningTree.add(Edge(src, dst, weight))
         }
 
-        return minSpanningTree.map { it.toList() }.toTypedArray()
+        return minSpanningTree
     }
 }

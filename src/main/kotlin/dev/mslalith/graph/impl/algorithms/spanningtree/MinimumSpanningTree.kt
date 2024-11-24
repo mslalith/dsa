@@ -1,6 +1,8 @@
 package dev.mslalith.graph.impl.algorithms.spanningtree
 
-import dev.mslalith.graph.impl.WeightedEdge
+import dev.mslalith.graph.impl.DirectedGraph
+import dev.mslalith.graph.impl.Edge
+import dev.mslalith.graph.impl.UndirectedGraph
 
 /**
  *
@@ -16,9 +18,9 @@ import dev.mslalith.graph.impl.WeightedEdge
  *
  */
 interface MinimumSpanningTree {
-    fun minimumSpanningTree(adjList: Array<List<WeightedEdge>>): Array<List<WeightedEdge>>
+    fun minimumSpanningTree(undirectedGraph: UndirectedGraph): List<Edge>
+    fun minimumSpanningTree(directedGraph: DirectedGraph): List<Edge>
 
-    fun minimumSpanningTreeSum(adjList: Array<List<WeightedEdge>>) = minimumSpanningTree(adjList).sumOf { edges ->
-        edges.sumOf { it.weight }
-    }
+    fun minimumSpanningTreeSum(directedGraph: DirectedGraph) = minimumSpanningTree(directedGraph = directedGraph).sumOf { it.weight }
+    fun minimumSpanningTreeSum(undirectedGraph: UndirectedGraph) = minimumSpanningTree(undirectedGraph = undirectedGraph).sumOf { it.weight }
 }

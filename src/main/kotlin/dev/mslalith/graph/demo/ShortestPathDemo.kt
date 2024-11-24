@@ -36,7 +36,7 @@ object ShortestPathDemo {
             println("➡\uFE0F ${algorithm.javaClass.simpleName}")
             println()
 
-            val shortedPath = algorithm.shortestPathFrom(graph = graph, source = 0)
+            val shortedPath = algorithm.shortestPathFrom(directedGraph = graph, source = 0)
             println(shortedPath.contentToString())
             check(shortedPath.contentEquals(expected))
 

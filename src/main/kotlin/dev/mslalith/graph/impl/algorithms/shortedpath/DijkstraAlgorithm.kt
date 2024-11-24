@@ -1,6 +1,8 @@
 package dev.mslalith.graph.impl.algorithms.shortedpath
 
-import dev.mslalith.graph.impl.WeightedGraph
+import dev.mslalith.graph.impl.DirectedGraph
+import dev.mslalith.graph.impl.Graph
+import dev.mslalith.graph.impl.UndirectedGraph
 import java.util.*
 
 /**
@@ -14,7 +16,15 @@ import java.util.*
  */
 object Dijkstra : ShortestPath {
 
-    override fun shortestPathFrom(graph: WeightedGraph, source: Int): IntArray {
+    override fun shortestPathFrom(undirectedGraph: UndirectedGraph, source: Int): IntArray {
+        return shortestPathFrom(graph = undirectedGraph, source = source)
+    }
+
+    override fun shortestPathFrom(directedGraph: DirectedGraph, source: Int): IntArray {
+        return shortestPathFrom(graph = directedGraph, source = source)
+    }
+
+    private fun shortestPathFrom(graph: Graph, source: Int): IntArray {
         val n = graph.vertices.size
         val distance = IntArray(n) { Int.MAX_VALUE }
         distance[source] = 0
