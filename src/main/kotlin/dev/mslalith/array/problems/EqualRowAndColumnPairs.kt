@@ -30,12 +30,19 @@ class EqualRowAndColumnPairs : TestCaseProblem<Array<IntArray>, Int>() {
         ),
         TestCase(
             input = arrayOf(
-                intArrayOf(3,1,2,2),
-                intArrayOf(1,4,4,4),
-                intArrayOf(2,4,2,2),
-                intArrayOf(2,5,2,2)
+                intArrayOf(3, 1, 2, 2),
+                intArrayOf(1, 4, 4, 4),
+                intArrayOf(2, 4, 2, 2),
+                intArrayOf(2, 5, 2, 2)
             ),
             output = 3
+        ),
+        TestCase(
+            input = arrayOf(
+                intArrayOf(11, 1),
+                intArrayOf(1, 11)
+            ),
+            output = 2
         )
     )
 
@@ -45,18 +52,35 @@ class EqualRowAndColumnPairs : TestCaseProblem<Array<IntArray>, Int>() {
 
     private fun equalPairs(grid: Array<IntArray>): Int {
         val n = grid.size
+        val map = linkedMapOf<String, Int>()
+        val transposedGrid = Array(n) { IntArray(n) }
+        val sb = StringBuilder()
+
+        for (x in 0 until n) {
+            sb.clear()
+            for (y in 0 until n) {
+                sb.append(grid[x][y])
+                sb.append("-")
+                transposedGrid[y][x] = grid[x][y]
+            }
+
+            val key = sb.toString()
+            map[key] = map.getOrDefault(key, 0) + 1
+        }
+
         var count = 0
 
-        val transposedGrid = Array(n) { IntArray(n) }
         for (x in 0 until n) {
-            for (y in 0 until n)
-                transposedGrid[y][x] = grid[x][y]
+            sb.clear()
+            for (y in 0 until n) {
+                sb.append(transposedGrid[x][y])
+                sb.append("-")
+            }
+
+            val key = sb.toString()
+            if (key in map) count += map.getValue(key)
         }
 
-        for (x in 0 until n) {
-            for (y in 0 until n)
-                if (grid[x] contentEquals transposedGrid[y]) count++
-        }
         return count
     }
 }
