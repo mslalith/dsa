@@ -1,10 +1,11 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.linkedlist.utils.reverseLinkedList
 import dev.mslalith.utils.buildLinkedList
+import dev.mslalith.utils.createClone
 
 class PalindromeLinkedList : TestCaseProblem<ListNode?, Boolean>() {
 
@@ -25,7 +26,7 @@ class PalindromeLinkedList : TestCaseProblem<ListNode?, Boolean>() {
     )
 
     override fun solve(testCaseInput: ListNode?): Boolean {
-        return isPalindrome(testCaseInput)
+        return isPalindrome(testCaseInput?.createClone())
     }
 
     private fun isPalindrome(head: ListNode?): Boolean {

@@ -1,7 +1,7 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
 
@@ -38,8 +38,7 @@ class RotateList : TestCaseProblem<Pair<ListNode?, Int>, ListNode?>() {
             output = buildLinkedList(input = "1,2,3,4,5")
         )
     )
-//        .let { arrayOf(it.last()) }
-    
+
     override fun solve(testCaseInput: Pair<ListNode?, Int>): ListNode? {
         return rotateRight(testCaseInput.first, testCaseInput.second)
     }
@@ -70,9 +69,6 @@ class RotateList : TestCaseProblem<Pair<ListNode?, Int>, ListNode?>() {
         }
 
         val next = slow?.next
-        var curr = next
-        while (curr?.next != null) curr = curr.next
-
         slow?.next = null
         start.next = next
         fast?.next = head

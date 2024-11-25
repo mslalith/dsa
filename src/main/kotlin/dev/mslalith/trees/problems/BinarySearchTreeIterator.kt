@@ -4,7 +4,8 @@ import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.trees.TreeNode
 import dev.mslalith.trees.buildTreeNode
-import dev.mslalith.trees.problems.BinarySearchTreeIteratorType.*
+import dev.mslalith.trees.problems.BinarySearchTreeIteratorType.HasNext
+import dev.mslalith.trees.problems.BinarySearchTreeIteratorType.Next
 import java.util.*
 
 class BinarySearchTreeIterator : TestCaseProblem<BinarySearchTreeIteratorParams, List<Any>>() {
@@ -30,7 +31,6 @@ class BinarySearchTreeIterator : TestCaseProblem<BinarySearchTreeIteratorParams,
             output = listOf(true, 1, true, 2, true, 3, true, 4, false)
         )
     )
-        .let { arrayOf(it.last() as TestCase<BinarySearchTreeIteratorParams, List<Any>>) }
 
     override fun solve(testCaseInput: BinarySearchTreeIteratorParams): List<Any> = buildList {
         val (root, types) = testCaseInput

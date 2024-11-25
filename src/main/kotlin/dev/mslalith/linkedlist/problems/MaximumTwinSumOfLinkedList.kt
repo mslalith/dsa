@@ -1,7 +1,7 @@
 package dev.mslalith.linkedlist.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.linkedlist.utils.reverseLinkedList
 import dev.mslalith.utils.buildLinkedList
@@ -49,9 +49,8 @@ class MaximumTwinSumOfLinkedList : TestCaseProblem<ListNode?, Int>() {
 
         // find max from all twins
         while (slow != null && fast != null) {
-            (slow.`val` + fast.`val`).let {
-                if (max < it) max = it
-            }
+            val sum = slow.`val` + fast.`val`
+            if (max < sum) max = sum
             slow = slow.next
             fast = fast.next
         }

@@ -50,7 +50,6 @@ class Combinations : TestCaseProblem<Pair<Int, Int>, List<List<Int>>>() {
             )
         )
     )
-        .let { arrayOf(it.last()) }
 
     override fun solve(testCaseInput: Pair<Int, Int>): List<List<Int>> {
         return combine(testCaseInput.first, testCaseInput.second)

@@ -33,7 +33,6 @@ class CombinationSum : TestCaseProblem<Pair<IntArray, Int>, List<List<Int>>>() {
             output = emptyList()
         )
     )
-        .let { arrayOf(it[1]) }
 
     override fun isTestPassed(actual: List<List<Int>>, expected: List<List<Int>>): Boolean {
         return actual.unOrderEquals(expected)

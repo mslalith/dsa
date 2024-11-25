@@ -1,7 +1,7 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class FactorialTrailingZeroes : TestCaseProblem<Int, Int>() {
 
@@ -11,10 +11,22 @@ class FactorialTrailingZeroes : TestCaseProblem<Int, Int>() {
     }
 
     override fun getTestCases(): Array<TestCase<Int, Int>> = arrayOf(
-        TestCase(input = 3, output = 0),
-        TestCase(input = 5, output = 1),
-        TestCase(input = 20, output = 4),
-        TestCase(input = 100, output = 24)
+        TestCase(
+            input = 3,
+            output = 0
+        ),
+        TestCase(
+            input = 5,
+            output = 1
+        ),
+        TestCase(
+            input = 20,
+            output = 4
+        ),
+        TestCase(
+            input = 100,
+            output = 24
+        )
     )
 
     override fun solve(testCaseInput: Int): Int {

@@ -4,6 +4,7 @@ import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.linkedlist.ListNode
 import dev.mslalith.utils.buildLinkedList
+import dev.mslalith.utils.createClone
 
 class SortList : TestCaseProblem<ListNode?, ListNode?>() {
 
@@ -32,7 +33,7 @@ class SortList : TestCaseProblem<ListNode?, ListNode?>() {
     )
 
     override fun solve(testCaseInput: ListNode?): ListNode? {
-        return sortList(testCaseInput)
+        return sortList(testCaseInput?.createClone())
     }
 
     private fun sortList(head: ListNode?): ListNode? {

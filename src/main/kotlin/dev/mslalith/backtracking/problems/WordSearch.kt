@@ -42,7 +42,6 @@ class WordSearch : TestCaseProblem<Pair<Array<CharArray>, String>, Boolean>() {
             output = false
         )
     )
-//        .let { arrayOf(it.last()) }
 
     override fun solve(testCaseInput: Pair<Array<CharArray>, String>): Boolean {
         return exist(testCaseInput.first, testCaseInput.second)

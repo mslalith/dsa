@@ -2,6 +2,7 @@ package dev.mslalith.math.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 
 class PlusOne : TestCaseProblem<IntArray, IntArray>() {
 
@@ -20,6 +21,10 @@ class PlusOne : TestCaseProblem<IntArray, IntArray>() {
             output = intArrayOf(4, 3, 2, 2)
         ),
         TestCase(
+            input = intArrayOf(4, 3, 2, 9),
+            output = intArrayOf(4, 3, 3, 0)
+        ),
+        TestCase(
             input = intArrayOf(9),
             output = intArrayOf(1, 0)
         ),
@@ -30,7 +35,7 @@ class PlusOne : TestCaseProblem<IntArray, IntArray>() {
     )
 
     override fun solve(testCaseInput: IntArray): IntArray {
-        return plusOne(testCaseInput)
+        return plusOne(testCaseInput.createClone())
     }
 
     private fun plusOne(digits: IntArray): IntArray {
