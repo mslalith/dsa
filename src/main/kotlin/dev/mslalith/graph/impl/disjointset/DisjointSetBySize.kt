@@ -31,4 +31,8 @@ class DisjointSetBySize(n: Int): DisjointSet {
     }
 
     override fun componentsCount(): Int = parent.indices.count { parent[it] == it }
+
+    fun uniqueParents(): List<Int> = parent.filterIndexed { index, value -> parent[value] == index }
+
+    fun nodesCountFor(node: Int) = size[parent[node]]
 }

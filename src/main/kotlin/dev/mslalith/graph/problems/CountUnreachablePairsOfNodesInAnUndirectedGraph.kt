@@ -2,6 +2,7 @@ package dev.mslalith.graph.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.graph.impl.disjointset.DisjointSetBySize
 
 class CountUnreachablePairsOfNodesInAnUndirectedGraph : TestCaseProblem<Pair<Int, Array<IntArray>>, Long>() {
 
@@ -40,6 +41,25 @@ class CountUnreachablePairsOfNodesInAnUndirectedGraph : TestCaseProblem<Pair<Int
     }
 
     private fun countPairs(n: Int, edges: Array<IntArray>): Long {
+        val ds = DisjointSetBySize(n)
+        for ((u, v) in edges) {
+            if (ds.findParent(u) != ds.findParent(v)) ds.union(u, v)
+        }
+
+        var sum = 0L
+        var squareSum = 0L
+
+        val uniqueParents = ds.uniqueParents()
+        for (parent in uniqueParents) {
+            val count = ds.nodesCountFor(parent)
+            sum += count
+            squareSum += count * count
+        }
+
+        return ((sum * sum) - squareSum) / 2
+    }
+
+    private fun countPairsDfs(n: Int, edges: Array<IntArray>): Long {
         val adjList = Array(n) { mutableListOf<Int>() }
         for ((u, v) in edges) {
             adjList[u].add(v)
@@ -47,15 +67,26 @@ class CountUnreachablePairsOfNodesInAnUndirectedGraph : TestCaseProblem<Pair<Int
         }
 
         val visited = hashSetOf<Int>()
-        var sum = 0L
-        var squareSum = 0L
+
+        fun dfs(node: Int): Long {
+            visited += node
+
+            var ans = 1L
+
+            for (neighbour in adjList[node]) {
+                if (neighbour !in visited) ans += dfs(neighbour)
+            }
+
+            return ans
+        }
 
         val connectedComponentsSizeList = mutableListOf<Long>()
         for (u in 0 until n) {
-            if (u !in visited) {
-                connectedComponentsSizeList.add(dfs(u, visited, adjList))
-            }
+            if (u !in visited) connectedComponentsSizeList.add(dfs(u))
         }
+
+        var sum = 0L
+        var squareSum = 0L
 
         for (i in connectedComponentsSizeList.indices) {
             val x = connectedComponentsSizeList[i]
@@ -64,17 +95,5 @@ class CountUnreachablePairsOfNodesInAnUndirectedGraph : TestCaseProblem<Pair<Int
         }
 
         return ((sum * sum) - squareSum) / 2
-    }
-
-    private fun dfs(node: Int, visited: HashSet<Int>, adjList: Array<MutableList<Int>>): Long {
-        visited += node
-
-        var ans = 1L
-
-        for (neighbour in adjList[node]) {
-            if (neighbour !in visited) ans += dfs(neighbour, visited, adjList)
-        }
-
-        return ans
     }
 }
