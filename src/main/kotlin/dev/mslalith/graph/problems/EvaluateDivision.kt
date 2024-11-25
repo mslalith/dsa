@@ -66,28 +66,29 @@ class EvaluateDivision : TestCaseProblem<EvaluateDivisionParams, DoubleArray>() 
             hashMap[b] = hashMap.getOrDefault(b, arrayListOf()).apply { add(a to 1 / values[i]) }
         }
 
-        var path = -1.0
+        val visited = linkedSetOf<String>()
 
-        fun dfs(visited: HashSet<String>, node: String, dst: String, pathProduct: Double) {
-            if (visited.contains(node)) return
-            if (node == dst) {
-                path = pathProduct
-                return
-            }
+        fun dfs(node: String, dst: String, pathProduct: Double): Double {
+            if (node in visited) return -1.0
+            if (node == dst) return pathProduct
 
-            visited.add(node)
+            visited += node
+
+            var pathProd = -1.0
             hashMap[node]?.forEach {
-                dfs(visited, it.first, dst, pathProduct * it.second)
+                val res = dfs(it.first, dst, pathProduct * it.second)
+                if (res != -1.0) pathProd = res
             }
+
+            return pathProd
         }
 
         for (i in queries.indices) {
             val (a, b) = queries[i]
             if (!hashMap.contains(a) || !hashMap.contains(b)) continue
 
-            dfs(hashSetOf(), a, b, 1.0)
-            result[i] = path
-            path = -1.0
+            visited.clear()
+            result[i] = dfs(a, b, 1.0)
         }
 
         return result
