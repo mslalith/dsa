@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class ValidSudoku : TestCaseProblem<Array<CharArray>, Boolean>() {
 
@@ -55,16 +55,16 @@ class ValidSudoku : TestCaseProblem<Array<CharArray>, Boolean>() {
                 val char = board[i][j]
                 if (char == '.') continue
 
-                if (rowMap[i].contains(char)) return false
-                rowMap[i].add(char)
+                if (char in rowMap[i]) return false
+                rowMap[i] += char
 
-                if (columnMap[j].contains(char)) return false
-                columnMap[j].add(char)
+                if (char in columnMap[j]) return false
+                columnMap[j] += char
 
                 val boxX = i / 3
                 val boxY = j / 3
-                if (boxMap[boxX][boxY].contains(char)) return false
-                boxMap[boxX][boxY].add(char)
+                if (char in boxMap[boxX][boxY]) return false
+                boxMap[boxX][boxY] += char
             }
         }
 

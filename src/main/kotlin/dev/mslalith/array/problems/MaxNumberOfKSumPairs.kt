@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class MaxNumberOfKSumPairs : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
@@ -31,19 +31,19 @@ class MaxNumberOfKSumPairs : TestCaseProblem<Pair<IntArray, Int>, Int>() {
 
     private fun maxOperations(nums: IntArray, k: Int): Int {
         val hashMap = hashMapOf<Int, Int>()
-        nums.forEach {
-            if (it < k) hashMap[it] = hashMap.getOrDefault(it, 0) + 1
+        for (num in nums) {
+            if (num < k) hashMap[num] = hashMap.getOrDefault(num, 0) + 1
         }
 
         var count = 0
-        nums.forEach {
-            val other = k - it
+        for (num in nums) {
+            val other = k - num
             val minimum = when {
-                other == it -> 2
+                other == num -> 2
                 else -> 1
             }
-            if (hashMap.getOrDefault(it, 0) > 0 && hashMap.getOrDefault(other, 0) >= minimum) {
-                hashMap[it] = hashMap.getOrDefault(it, 0) - 1
+            if (hashMap.getOrDefault(num, 0) > 0 && hashMap.getOrDefault(other, 0) >= minimum) {
+                hashMap[num] = hashMap.getOrDefault(num, 0) - 1
                 hashMap[other] = hashMap.getOrDefault(other, 0) - 1
                 count++
             }

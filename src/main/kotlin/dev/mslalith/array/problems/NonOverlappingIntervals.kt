@@ -1,7 +1,8 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 
 class NonOverlappingIntervals : TestCaseProblem<Array<IntArray>, Int>() {
 
@@ -55,14 +56,14 @@ class NonOverlappingIntervals : TestCaseProblem<Array<IntArray>, Int>() {
     )
 
     override fun solve(testCaseInput: Array<IntArray>): Int {
-        return eraseOverlapIntervals(testCaseInput)
+        return eraseOverlapIntervals(testCaseInput.createClone())
     }
 
     private fun eraseOverlapIntervals(intervals: Array<IntArray>): Int {
         if (intervals.isEmpty()) return 0
 
         intervals.sortWith { one, two ->
-            one[1].compareTo(two[1])
+            one[1] - two[1]
         }
 
         var count = 0

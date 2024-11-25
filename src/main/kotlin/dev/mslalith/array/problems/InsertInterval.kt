@@ -87,15 +87,15 @@ class InsertInterval : TestCaseProblem<Pair<Array<IntArray>, IntArray>, Array<In
         ),
         TestCase(
             input = arrayOf(
-                intArrayOf(0,10),
-                intArrayOf(14,14),
-                intArrayOf(15,20)
+                intArrayOf(0, 10),
+                intArrayOf(14, 14),
+                intArrayOf(15, 20)
             ) to intArrayOf(11, 11),
             output = arrayOf(
-                intArrayOf(0,10),
-                intArrayOf(11,11),
-                intArrayOf(14,14),
-                intArrayOf(15,20)
+                intArrayOf(0, 10),
+                intArrayOf(11, 11),
+                intArrayOf(14, 14),
+                intArrayOf(15, 20)
             )
         )
     )

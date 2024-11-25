@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class TwoSum : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 

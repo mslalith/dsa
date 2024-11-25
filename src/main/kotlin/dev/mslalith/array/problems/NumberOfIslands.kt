@@ -1,7 +1,8 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 
 class NumberOfIslands : TestCaseProblem<Array<CharArray>, Int>() {
 
@@ -32,7 +33,7 @@ class NumberOfIslands : TestCaseProblem<Array<CharArray>, Int>() {
     )
 
     override fun solve(testCaseInput: Array<CharArray>): Int {
-        return numIslands(testCaseInput)
+        return numIslands(testCaseInput.createClone())
     }
 
     private fun numIslands(grid: Array<CharArray>): Int {

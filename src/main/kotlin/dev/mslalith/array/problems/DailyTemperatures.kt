@@ -38,10 +38,8 @@ class DailyTemperatures : TestCaseProblem<IntArray, IntArray>() {
         val ans = IntArray(n) { 0 }
 
         for (i in (n - 1) downTo 0) {
-            if (!stack.isEmpty()) {
-                while (stack.isNotEmpty() && temperatures[i] >= temperatures[stack.peek()]) stack.pop()
-                if (stack.isNotEmpty()) ans[i] = stack.peek() - i
-            }
+            while (stack.isNotEmpty() && temperatures[i] >= temperatures[stack.peek()]) stack.pop()
+            if (stack.isNotEmpty()) ans[i] = stack.peek() - i
             stack.push(i)
         }
 

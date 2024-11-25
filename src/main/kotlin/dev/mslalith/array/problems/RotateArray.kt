@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class RotateArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
 
@@ -24,7 +24,6 @@ class RotateArray : TestCaseProblem<Pair<IntArray, Int>, IntArray>() {
             output = intArrayOf(2, 1)
         )
     )
-        .let { arrayOf(it.last()) }
 
     override fun solve(testCaseInput: Pair<IntArray, Int>): IntArray {
         rotate(testCaseInput.first, testCaseInput.second)

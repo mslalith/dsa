@@ -2,6 +2,7 @@ package dev.mslalith.array.problems
 
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.utils.createClone
 
 class MinimumNumberOfArrowsToBurstBalloons : TestCaseProblem<Array<IntArray>, Int>() {
 
@@ -41,7 +42,7 @@ class MinimumNumberOfArrowsToBurstBalloons : TestCaseProblem<Array<IntArray>, In
     )
 
     override fun solve(testCaseInput: Array<IntArray>): Int {
-        return findMinArrowShots(testCaseInput)
+        return findMinArrowShots(testCaseInput.createClone())
     }
 
     private fun findMinArrowShots(points: Array<IntArray>): Int {

@@ -65,6 +65,7 @@ class MergeIntervals : TestCaseProblem<Array<IntArray>, Array<IntArray>>() {
 
     private fun merge(intervals: Array<IntArray>): Array<IntArray> {
         intervals.sortWith { a, b -> a[0].compareTo(b[0]) }
+
         val result = mutableListOf(intervals[0])
 
         for (i in 1 until intervals.size) {

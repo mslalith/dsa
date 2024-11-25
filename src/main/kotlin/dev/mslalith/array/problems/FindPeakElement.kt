@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class FindPeakElement : TestCaseProblem<IntArray, Int>() {
 
@@ -12,15 +12,15 @@ class FindPeakElement : TestCaseProblem<IntArray, Int>() {
 
     override fun getTestCases(): Array<TestCase<IntArray, Int>> = arrayOf(
         TestCase(
-            input = intArrayOf(1,2,3,1),
+            input = intArrayOf(1, 2, 3, 1),
             output = 2
         ),
         TestCase(
-            input = intArrayOf(3,2,1,3,5,6,4),
+            input = intArrayOf(3, 2, 1, 3, 5, 6, 4),
             output = 5
         ),
         TestCase(
-            input = intArrayOf(3,2,1),
+            input = intArrayOf(3, 2, 1),
             output = 0
         )
     )

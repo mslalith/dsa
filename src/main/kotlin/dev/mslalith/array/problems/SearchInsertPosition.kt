@@ -29,7 +29,6 @@ class SearchInsertPosition : TestCaseProblem<Pair<IntArray, Int>, Int>() {
             output = 0
         )
     )
-        .let { arrayOf(it.last()) }
 
     override fun solve(testCaseInput: Pair<IntArray, Int>): Int {
         return searchInsert(testCaseInput.first, testCaseInput.second)

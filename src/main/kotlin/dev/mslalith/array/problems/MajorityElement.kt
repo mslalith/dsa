@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class MajorityElement : TestCaseProblem<IntArray, Int>() {
 
@@ -26,9 +26,10 @@ class MajorityElement : TestCaseProblem<IntArray, Int>() {
     }
 
     private fun majorityElement(nums: IntArray): Int {
-        val half = nums.size / 2
         val map = hashMapOf<Int, Int>()
-        nums.forEach { map[it] = map.getOrDefault(it, 0) + 1 }
+        for (num in nums) map[num] = map.getOrDefault(num, 0) + 1
+
+        val half = nums.size / 2
         return map.keys.maxBy { map.getValue(it) > half }
     }
 }

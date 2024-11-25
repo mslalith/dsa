@@ -12,11 +12,11 @@ class FindDifferenceOfTwoArrays : TestCaseProblem<Pair<IntArray, IntArray>, List
 
     override fun getTestCases(): Array<TestCase<Pair<IntArray, IntArray>, List<List<Int>>>> = arrayOf(
         TestCase(
-            input = intArrayOf(1,2,3) to intArrayOf(2,4,6),
-            output = listOf(listOf(1,3), listOf(4,6))
+            input = intArrayOf(1, 2, 3) to intArrayOf(2, 4, 6),
+            output = listOf(listOf(1, 3), listOf(4, 6))
         ),
         TestCase(
-            input = intArrayOf(1,2,3,3) to intArrayOf(1,1,2,2),
+            input = intArrayOf(1, 2, 3, 3) to intArrayOf(1, 1, 2, 2),
             output = listOf(listOf(3), listOf())
         )
     )

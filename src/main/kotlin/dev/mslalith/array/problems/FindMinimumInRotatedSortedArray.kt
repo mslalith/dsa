@@ -29,7 +29,6 @@ class FindMinimumInRotatedSortedArray : TestCaseProblem<IntArray, Int>() {
             output = 1
         )
     )
-        .let { arrayOf(it.last()) }
 
     override fun solve(testCaseInput: IntArray): Int {
         return findMin(testCaseInput)

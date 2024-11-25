@@ -34,11 +34,11 @@ class ContainsDuplicateII : TestCaseProblem<Pair<IntArray, Int>, Boolean>() {
 
         for (i in nums.indices) {
             val num = nums[i]
-            if (map.contains(num)) {
-                val index = map.getValue(num)
-                if (i - index <= k) return true
+            if (num !in map) {
                 map[num] = i
             } else {
+                val index = map.getValue(num)
+                if (i - index <= k) return true
                 map[num] = i
             }
         }

@@ -32,10 +32,10 @@ class LastStoneWeight : TestCaseProblem<IntArray, Int>() {
 
         while (queue.isNotEmpty()) {
             val y = queue.poll()
+            if (queue.isEmpty()) return y
+
             val x = queue.poll()
-            if (x != null && y != null) {
-                if (x < y) queue.add(y - x)
-            } else return y
+            if (x < y) queue.add(y - x)
         }
 
         return 0

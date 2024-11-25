@@ -1,7 +1,8 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 import dev.mslalith.utils.unOrderEquals
 
 class ThreeSum : TestCaseProblem<IntArray, List<List<Int>>>() {
@@ -36,7 +37,7 @@ class ThreeSum : TestCaseProblem<IntArray, List<List<Int>>>() {
     }
 
     override fun solve(testCaseInput: IntArray): List<List<Int>> {
-        return threeSum(testCaseInput)
+        return threeSum(testCaseInput.createClone())
     }
 
     private fun threeSum(nums: IntArray): List<List<Int>> {

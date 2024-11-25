@@ -1,7 +1,8 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 
 class SortColors : TestCaseProblem<IntArray, IntArray>() {
 
@@ -22,8 +23,9 @@ class SortColors : TestCaseProblem<IntArray, IntArray>() {
     )
 
     override fun solve(testCaseInput: IntArray): IntArray {
-        sortColors(testCaseInput)
-        return testCaseInput
+        val clone = testCaseInput.createClone()
+        sortColors(clone)
+        return clone
     }
 
     private fun sortColors(nums: IntArray) {

@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class PlusOne : TestCaseProblem<IntArray, IntArray>() {
 
@@ -34,20 +34,21 @@ class PlusOne : TestCaseProblem<IntArray, IntArray>() {
     }
 
     private fun plusOne(digits: IntArray): IntArray {
-        return plusOne(digits, digits.lastIndex)
-    }
 
-    private fun plusOne(digits: IntArray, index: Int): IntArray {
-        if (index == -1) {
-            digits[0] = 0
-            return intArrayOf(1, *digits)
-        }
-        if (digits[index] < 9) {
-            digits[index] = digits[index] + 1
-            return digits
+        fun plusOne(index: Int): IntArray {
+            if (index == -1) {
+                digits[0] = 0
+                return intArrayOf(1, *digits)
+            }
+            if (digits[index] < 9) {
+                digits[index] = digits[index] + 1
+                return digits
+            }
+
+            digits[index] = 0
+            return plusOne(index - 1)
         }
 
-        digits[index] = 0
-        return plusOne(digits, index - 1)
+        return plusOne(digits.lastIndex)
     }
 }

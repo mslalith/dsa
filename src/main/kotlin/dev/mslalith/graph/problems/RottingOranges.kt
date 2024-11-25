@@ -1,4 +1,4 @@
-package dev.mslalith.array.problems
+package dev.mslalith.graph.problems
 
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase

@@ -44,10 +44,10 @@ class LongestConsecutiveSequence : TestCaseProblem<IntArray, Int>() {
         nums.forEach { hashSet.add(it) }
 
         for (num in nums) {
-            if (!hashSet.contains(num - 1)) {
+            if ((n - 1) !in hashSet) {
                 var run = num
                 var currCount = 0
-                while (hashSet.contains(run)) {
+                while (run in hashSet) {
                     run++
                     currCount++
                 }

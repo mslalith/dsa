@@ -1,7 +1,8 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 import dev.mslalith.utils.stringFromArray
 
 class MergeSortedArray : TestCaseProblem<MergeSortedArrayParams, IntArray>() {
@@ -51,8 +52,9 @@ class MergeSortedArray : TestCaseProblem<MergeSortedArrayParams, IntArray>() {
     )
 
     override fun solve(testCaseInput: MergeSortedArrayParams): IntArray {
-        merge(testCaseInput.nums1, testCaseInput.m, testCaseInput.nums2, testCaseInput.n)
-        return testCaseInput.nums1
+        val clone = testCaseInput.nums1.createClone()
+        merge(clone, testCaseInput.m, testCaseInput.nums2, testCaseInput.n)
+        return clone
     }
 
     private fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int) {

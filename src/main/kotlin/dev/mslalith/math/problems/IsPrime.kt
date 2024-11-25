@@ -1,7 +1,7 @@
 package dev.mslalith.math.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 
 class IsPrime : TestCaseProblem<Int, Boolean>() {
 
@@ -11,8 +11,14 @@ class IsPrime : TestCaseProblem<Int, Boolean>() {
     }
 
     override fun getTestCases(): Array<TestCase<Int, Boolean>> = arrayOf(
-        TestCase(input = 10, output = false),
-        TestCase(input = 59, output = true)
+        TestCase(
+            input = 10,
+            output = false
+        ),
+        TestCase(
+            input = 59,
+            output = true
+        )
     )
 
     override fun solve(testCaseInput: Int): Boolean {
@@ -20,13 +26,27 @@ class IsPrime : TestCaseProblem<Int, Boolean>() {
     }
 
     private fun isPrime(n: Int): Boolean {
-        if (n == 2 || n == 3) return true
-        if (n % 2 == 0 || n % 3 == 0) return false
-        var i = 5
-        while (i * i <= n) {
-            if (n % i == 0 || n % (i + 2) == 0) return false
-            i += 6
+        var count = 0
+
+        var i = 2
+        while ((i * i) <= n) {
+            if (n % i == 0) {
+                count++
+                if (n % i != i) count++
+            }
+            i++
         }
-        return true
+
+        return count == 0
+    }
+
+    private fun isPrimeNaive(n: Int): Boolean {
+        var count = 0
+
+        for (i in 2 until n) {
+            if (n % i == 0) count++
+        }
+
+        return count == 0
     }
 }

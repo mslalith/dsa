@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.utils.stringFromArray
 import java.util.*
 import kotlin.math.max
@@ -47,7 +47,7 @@ class MaximumSubsequenceScore : TestCaseProblem<MaximumSubsequenceScoreParams, L
 
     private fun maxScore(nums1: IntArray, nums2: IntArray, k: Int): Long {
         val array = Array(nums1.size) { nums1[it] to nums2[it] }
-        array.sortWith { one, two -> two.second.compareTo(one.second) }
+        array.sortWith { one, two -> two.second - one.second }
 
         val queue = PriorityQueue<Int>()
         var ans = 0L

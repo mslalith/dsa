@@ -1,7 +1,7 @@
 package dev.mslalith.array.problems
 
-import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.utils.stringFromArray
 
 class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>() {
@@ -13,12 +13,24 @@ class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>(
 
     override fun getTestCases(): Array<TestCase<RemoveElementParams, RemoveElementOutput>> = arrayOf(
         TestCase(
-            input = RemoveElementParams(nums = intArrayOf(3, 2, 2, 3), value = 3),
-            output = RemoveElementOutput(nums = intArrayOf(2, 2, 2, 3), length = 2)
+            input = RemoveElementParams(
+                nums = intArrayOf(3, 2, 2, 3),
+                value = 3
+            ),
+            output = RemoveElementOutput(
+                nums = intArrayOf(2, 2, 2, 3),
+                length = 2
+            )
         ),
         TestCase(
-            input = RemoveElementParams(nums = intArrayOf(0, 1, 2, 2, 3, 0, 4, 2), value = 2),
-            output = RemoveElementOutput(nums = intArrayOf(0, 1, 3, 0, 4, 0, 4, 2), length = 5)
+            input = RemoveElementParams(
+                nums = intArrayOf(0, 1, 2, 2, 3, 0, 4, 2),
+                value = 2
+            ),
+            output = RemoveElementOutput(
+                nums = intArrayOf(0, 1, 3, 0, 4, 0, 4, 2),
+                length = 5
+            )
         )
     )
 
