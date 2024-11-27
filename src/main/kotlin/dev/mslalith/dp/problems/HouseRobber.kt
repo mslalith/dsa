@@ -39,17 +39,52 @@ class HouseRobber : TestCaseProblem<IntArray, Int>() {
     }
 
     private fun rob(nums: IntArray): Int {
-        if (nums.isEmpty()) return 0
+        val n = nums.size
 
-        var rob2 = 0
-        var rob1 = nums[0]
+        var next = 0
+        var later = 0
 
-        for (i in 1 until nums.size) {
-            val rob = nums[i] + rob2
-            rob2 = rob1
-            rob1 = max(rob1, rob)
+        for (i in (n - 1) downTo 0) {
+            val notTake = next
+            val take = nums[i] + later
+
+            val curr = max(notTake, take)
+            later = next
+            next = curr
         }
 
-        return max(rob1, rob2)
+        return next
+    }
+
+    private fun robDp(nums: IntArray): Int {
+        val n = nums.size
+        val dp = IntArray(n + 2)
+
+        for (i in (n - 1) downTo 0) {
+            val notTake = dp[i + 1]
+            val take = nums[i] + dp[i + 2]
+
+            dp[i] = max(notTake, take)
+        }
+
+        return dp[0]
+    }
+
+    private fun robRecursive(nums: IntArray): Int {
+        val n = nums.size
+        val dp = IntArray(n) { -1 }
+
+        fun findRob(i: Int): Int {
+            if (i >= n) return 0
+            if (dp[i] != -1) return dp[i]
+
+            val notTake = findRob(i + 1)
+            val take = nums[i] + findRob(i + 2)
+
+            dp[i] = max(notTake, take)
+            return dp[i]
+        }
+
+        return findRob(0)
     }
 }
