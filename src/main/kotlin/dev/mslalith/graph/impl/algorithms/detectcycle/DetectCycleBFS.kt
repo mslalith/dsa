@@ -15,7 +15,7 @@ object DetectCycleBFS : DetectCycle {
 
         fun checkForCycle(vertex: Int): Boolean {
             // (node, parent)
-            val queue: Queue<Pair<Int, Int>> = LinkedList() //BFS
+            val queue: Queue<Pair<Int, Int>> = LinkedList()
             queue.add(vertex to -1)
 
             visited += vertex

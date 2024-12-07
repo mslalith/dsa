@@ -72,7 +72,7 @@ abstract class TestCaseProblem<I, O> : Problem {
         return isTestPassed
     }
 
-    protected fun stringFromType(input: Any?, pretty: Boolean = false): String = when (input) {
+    protected fun stringFromType(input: Any?, pretty: Boolean = true): String = when (input) {
         is List<*> -> displayStringFromList(input, pretty)
         is Array<*> -> displayStringFromArray(input, pretty)
         is IntArray -> stringFromArray(input)
@@ -85,7 +85,7 @@ abstract class TestCaseProblem<I, O> : Problem {
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun displayStringFromArray(array: Array<*>, pretty: Boolean = false): String = when {
+    private fun displayStringFromArray(array: Array<*>, pretty: Boolean = true): String = when {
         array.isEmpty() -> stringFromArray(array)
         else -> when (array.first()) {
             is IntArray -> buildDisplayStringFromIntArray(array as Array<IntArray>, pretty)

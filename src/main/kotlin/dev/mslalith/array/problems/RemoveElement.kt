@@ -2,6 +2,7 @@ package dev.mslalith.array.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 import dev.mslalith.utils.stringFromArray
 
 class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>() {
@@ -35,7 +36,7 @@ class RemoveElement : TestCaseProblem<RemoveElementParams, RemoveElementOutput>(
     )
 
     override fun solve(testCaseInput: RemoveElementParams): RemoveElementOutput {
-        val nums = testCaseInput.nums.clone()
+        val nums = testCaseInput.nums.createClone()
         val result = removeElement(nums, testCaseInput.value)
         return RemoveElementOutput(nums, result)
     }

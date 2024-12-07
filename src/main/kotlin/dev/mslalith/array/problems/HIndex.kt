@@ -2,6 +2,7 @@ package dev.mslalith.array.problems
 
 import dev.mslalith.core.problem.TestCaseProblem
 import dev.mslalith.core.TestCase
+import dev.mslalith.utils.createClone
 import kotlin.math.min
 
 class HIndex : TestCaseProblem<IntArray, Int>() {
@@ -27,7 +28,7 @@ class HIndex : TestCaseProblem<IntArray, Int>() {
     )
 
     override fun solve(testCaseInput: IntArray): Int {
-        return hIndex(testCaseInput.clone())
+        return hIndex(testCaseInput.createClone())
     }
 
     private fun hIndex(citations: IntArray): Int {

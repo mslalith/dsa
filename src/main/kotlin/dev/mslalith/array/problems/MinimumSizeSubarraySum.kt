@@ -2,6 +2,7 @@ package dev.mslalith.array.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
+import dev.mslalith.utils.createClone
 import kotlin.math.min
 
 
@@ -36,7 +37,7 @@ class MinimumSizeSubarraySum : TestCaseProblem<Pair<Int, IntArray>, Int>() {
     )
 
     override fun solve(testCaseInput: Pair<Int, IntArray>): Int {
-        return minSubArrayLen(testCaseInput.first, testCaseInput.second.clone())
+        return minSubArrayLen(testCaseInput.first, testCaseInput.second.createClone())
     }
 
     private fun minSubArrayLen(target: Int, nums: IntArray): Int {
