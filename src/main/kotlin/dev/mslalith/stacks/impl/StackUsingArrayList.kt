@@ -4,7 +4,7 @@ import dev.mslalith.stacks.IStack
 
 class StackUsingArrayList : IStack {
 
-    private var arrayList = arrayListOf<Int>()
+    private val arrayList = arrayListOf<Int>()
 
     override fun push(item: Int) {
         arrayList.add(item)

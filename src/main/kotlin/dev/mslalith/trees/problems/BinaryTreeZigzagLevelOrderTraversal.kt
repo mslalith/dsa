@@ -41,19 +41,22 @@ class BinaryTreeZigzagLevelOrderTraversal : TestCaseProblem<TreeNode?, List<List
         queue.add(null)
 
         val result = mutableListOf<List<Int>>()
-        var level = mutableListOf<Int>()
+        val level = mutableListOf<Int>()
         var isReverse = false
 
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
+
             if (node != null) {
                 if (isReverse) level.add(0, node.`val`) else level.add(node.`val`)
+
                 if (node.left != null) queue.add(node.left)
                 if (node.right != null) queue.add(node.right)
             } else {
                 isReverse = !isReverse
-                result.add(level)
-                level = mutableListOf()
+                result.add(level.toList())
+                level.clear()
+
                 if (queue.isNotEmpty()) queue.add(null)
             }
         }

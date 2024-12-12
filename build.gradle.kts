@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.0.21"
+    id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }
 
 group = "dev.mslalith"
@@ -19,4 +20,9 @@ tasks.test {
 
 kotlin {
     jvmToolchain(17)
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    config.from("config/detekt/detekt.yml")
 }

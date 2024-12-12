@@ -1,6 +1,6 @@
 package dev.mslalith.graph.impl
 
-abstract class Graph(
+open class Graph(
     val edges: List<Edge>
 ) {
     val vertices: List<Int> = buildSet {

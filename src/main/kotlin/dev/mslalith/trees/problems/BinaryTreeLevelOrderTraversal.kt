@@ -36,23 +36,29 @@ class BinaryTreeLevelOrderTraversal : TestCaseProblem<TreeNode?, List<List<Int>>
         val finalList = mutableListOf<List<Int>>()
         if (root == null) return finalList
 
-        var levelList = mutableListOf<Int>()
         val queue = LinkedList<TreeNode?>()
         queue.add(root)
         queue.add(null)
+
+        val levelList = mutableListOf<Int>()
+
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
+
             if (node != null) {
                 levelList.add(node.`val`)
+
                 node.left?.let { queue.add(it) }
                 node.right?.let { queue.add(it) }
             } else {
-                finalList.add(levelList)
-                levelList = mutableListOf()
+                finalList.add(levelList.toList())
+                levelList.clear()
+
                 if (queue.isEmpty()) break
                 queue.add(null)
             }
         }
+
         return finalList
     }
 }

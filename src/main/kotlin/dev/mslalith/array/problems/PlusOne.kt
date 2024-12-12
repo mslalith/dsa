@@ -33,6 +33,7 @@ class PlusOne : TestCaseProblem<IntArray, IntArray>() {
         return plusOne(testCaseInput)
     }
 
+    @SuppressWarnings("SpreadOperator")
     private fun plusOne(digits: IntArray): IntArray {
 
         fun plusOne(index: Int): IntArray {

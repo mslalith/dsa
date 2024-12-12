@@ -2,9 +2,8 @@ package dev.mslalith.graph.problems
 
 import dev.mslalith.core.TestCase
 import dev.mslalith.core.problem.TestCaseProblem
-import dev.mslalith.graph.problems.CloneGraph.*
-import java.util.LinkedList
-import java.util.Queue
+import dev.mslalith.graph.problems.CloneGraph.Node
+import java.util.*
 
 class CloneGraph : TestCaseProblem<Node?, Node?>() {
 

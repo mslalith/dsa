@@ -69,6 +69,7 @@ object RunAllProblems {
     }
 }
 
+@SuppressWarnings("SwallowedException")
 private fun classFromFile(file: File): Class<*>? = try {
     val packageName = file.parentFile.path.split("src")[1].replace("/", ".").replace(".main.kotlin.", "")
     Class.forName("$packageName.${file.nameWithoutExtension}")
@@ -79,5 +80,5 @@ private fun classFromFile(file: File): Class<*>? = try {
 private fun Topic.allProblems(): List<File> = File("./src/main/kotlin/dev/mslalith/$dirName/problems")
     .listFiles()
     ?.filterNotNull()
-    ?: emptyList()
+    .orEmpty()
 

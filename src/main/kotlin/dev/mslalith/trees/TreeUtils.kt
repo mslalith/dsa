@@ -3,7 +3,7 @@ package dev.mslalith.trees
 fun buildTreeNode(input: String): TreeNode? {
     val numStrings = input.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
     val numbers = numStrings.map { it.toIntOrNull() }
-    if (numStrings.size != numbers.size) throw Exception("Unable to parse input")
+    if (numStrings.size != numbers.size) error("Unable to parse input")
 
     val queue = ArrayDeque<TreeNode>()
     val root = TreeNode(numbers.getOrNull(0) ?: return null)
