@@ -2,4 +2,4 @@ root = true
 
 [*.{kt,kts}]
 charset = utf-8
-max_line_length = 250
+max_line_length = 300

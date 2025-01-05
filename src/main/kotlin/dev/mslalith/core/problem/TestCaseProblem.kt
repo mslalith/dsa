@@ -146,12 +146,19 @@ private fun <T> buildDisplayStringFromIterable(
     pretty: Boolean,
     map: (T) -> String
 ) = buildString {
+    val isEmpty = !iterable.iterator().hasNext()
+    if (isEmpty) {
+        append("[]")
+        return@buildString
+    }
+
     append("[")
     append("\n\t")
     iterable.forEach {
         append(map(it))
         if (pretty) append(",\n\t") else append(", ")
     }
+
     // remove last appended chars
     deleteAt(length - 1)
     deleteAt(length - 1)
