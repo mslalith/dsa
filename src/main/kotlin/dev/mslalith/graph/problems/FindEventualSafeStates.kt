@@ -50,8 +50,22 @@ class FindEventualSafeStates : TestCaseProblem<Array<IntArray>, List<Int>>() {
         val visited = IntArray(n)
         val safeNodes = BooleanArray(n)
 
+        fun visitNode(node: Int, safeNodes: BooleanArray): Boolean {
+            visited[node] = 2
+
+            for (neighbour in adjList[node]) {
+                if (visited[neighbour] == 0) {
+                    if (!visitNode(neighbour, safeNodes)) return false
+                } else if (visited[neighbour] == 2) return false
+            }
+
+            visited[node] = 1
+            safeNodes[node] = true
+            return true
+        }
+
         for (i in graph.indices) {
-            if (visited[i] == 0) visitNode(i, visited, adjList, safeNodes)
+            if (visited[i] == 0) visitNode(i, safeNodes)
         }
 
         val result = mutableListOf<Int>()
@@ -59,19 +73,5 @@ class FindEventualSafeStates : TestCaseProblem<Array<IntArray>, List<Int>>() {
             if (safeNodes[i]) result.add(i)
         }
         return result
-    }
-
-    private fun visitNode(node: Int, visited: IntArray, adjList: Array<MutableList<Int>>, safeNodes: BooleanArray): Boolean {
-        visited[node] = 2
-
-        for (neighbour in adjList[node]) {
-            if (visited[neighbour] == 0) {
-                if (!visitNode(neighbour, visited, adjList, safeNodes)) return false
-            } else if (visited[neighbour] == 2) return false
-        }
-
-        visited[node] = 1
-        safeNodes[node] = true
-        return true
     }
 }
