@@ -15,10 +15,17 @@ abstract class TestCaseProblem<I, O> : Problem {
 
     open val skipIO: Boolean get() = false
 
-    open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
     open fun displayInput(input: I): String = stringFromType(input)
     open fun displayOutput(output: O): String = stringFromType(output)
     open fun displayExpected(expected: O): String = stringFromType(expected)
+
+    open fun isTestPassed(actual: O, expected: O): Boolean = isTestPassedInternal(actual, expected)
+    open fun isTestPassed(actual: O, testCase: TestCase<I, O>): Boolean {
+        if (isTestPassed(actual, testCase.output)) return true
+        if (testCase.otherAcceptableOutputs.isEmpty()) return false
+
+        return testCase.otherAcceptableOutputs.any { expected -> isTestPassed(actual, expected) }
+    }
 
     fun runSilent(): TestResult {
         val testCases = getTestCases()
@@ -54,7 +61,7 @@ abstract class TestCaseProblem<I, O> : Problem {
             println("Output: $outputString")
         }
 
-        val isTestPassed = isTestPassed(testCase.output, output)
+        val isTestPassed = isTestPassed(output, testCase)
 
         if (!silentInternal && !isTestPassed) println("Expected: " + displayExpected(testCase.output))
 
