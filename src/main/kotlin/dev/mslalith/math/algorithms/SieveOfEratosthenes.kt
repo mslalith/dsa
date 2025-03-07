@@ -5,23 +5,46 @@ package dev.mslalith.math.algorithms
  *
  * Time Complexity: O(n * log(log(n)))
  */
-fun generatePrimesTill(n: Int): List<Int> = buildList {
-    val primes = IntArray(n + 1) { 1 }
-    primes[0] = 0
-    primes[1] = 0
+fun generatePrimesTill(n: Int): BooleanArray {
+    val primes = BooleanArray(n + 1) { true }
+    primes[0] = false
+    primes[1] = false
 
     var i = 2
     while (i * i <= n) {
-        if (primes[i] == 1) {
-            add(i)
+        if (primes[i]) {
 
             // mark multiples of i as not prime
             var j = i * i
             while (j <= n) {
-                primes[j] = 0
+                primes[j] = false
                 j += i
             }
         }
         i++
     }
+
+    return primes
+}
+
+fun generatePrimesTillAsList(n: Int): List<Int> {
+    val primes = BooleanArray(n + 1) { true }
+    primes[0] = false
+    primes[1] = false
+
+    var i = 2
+    while (i * i <= n) {
+        if (primes[i]) {
+
+            // mark multiples of i as not prime
+            var j = i * i
+            while (j <= n) {
+                primes[j] = false
+                j += i
+            }
+        }
+        i++
+    }
+
+    return primes.indices.filter { primes[it] }
 }
