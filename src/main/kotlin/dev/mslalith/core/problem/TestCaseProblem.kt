@@ -41,6 +41,11 @@ abstract class TestCaseProblem<I, O> : Problem {
 
     override fun runForConsole() {
         val testCases = getTestCases()
+
+        // first test is adding uptime
+        // so run beforehand once to get correct execution time
+//        testCases.firstOrNull()?.let { runSingle(it, true) }
+
         testCases.forEach { runSingle(testCase = it, silent = false) }
     }
 
@@ -50,16 +55,23 @@ abstract class TestCaseProblem<I, O> : Problem {
     }
 
     private fun runSingle(testCase: TestCase<I, O>, silent: Boolean): Boolean {
+        val result = kotlin.runCatching {
+            measureTimedValue { solve(testCase.input) }
+        }
         val (output, timeTaken) = measureTimedValue { solve(testCase.input) }
         val silentInternal = silent || skipIO
 
         if (!silentInternal) {
             val inputString = displayInput(testCase.input)
-            val outputString = displayOutput(output)
-
             println("Input: $inputString")
-            println("Output: $outputString")
+
+            if (result.isSuccess) {
+                val outputString = displayOutput(output)
+                println("Output: $outputString")
+            }
         }
+
+        if (result.isFailure) throw result.exceptionOrNull()!!
 
         val isTestPassed = isTestPassed(output, testCase)
 
