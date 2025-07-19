@@ -13,6 +13,7 @@ fun <T : Any> T.createClone(): T = when (this) {
 }
 
 private fun Array<*>.createClone(): Array<*> = if (isEmpty()) this else when (first()) {
+    is String -> clone()
     is IntArray -> Array(size) { (get(it) as IntArray).clone() }
     is CharArray -> Array(size) { (get(it) as CharArray).clone() }
     else -> throw UnsupportedOperationException("Not handled for ${firstOrNull()?.javaClass?.simpleName} type")
