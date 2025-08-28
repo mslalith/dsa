@@ -50,56 +50,34 @@ class SortMatrixByDiagonals : TestCaseProblem<Array<IntArray>, Array<IntArray>>(
     private fun sortMatrix(grid: Array<IntArray>): Array<IntArray> {
         val m = grid.size
         val n = grid[0].size
-
         val result = Array(m) { IntArray(n) }
-        val list = mutableListOf<Int>()
 
         // bottom left triangle
-        for (si in 0..<m) {
-            var i = si
+        for (row in 0..<m) {
+            val elements = mutableListOf<Int>()
+            var i = row
             var j = 0
 
-            while (i < m && j < n) {
-                list += grid[i][j]
-                i++
-                j++
-            }
+            while (i < m && j < n) elements += grid[i++][j++]
+            elements.sortDescending()
 
-            list.sortDescending()
-
-            i = si
+            i = row
             j = 0
-            for (k in list) {
-                result[i][j] = k
-                i++
-                j++
-            }
-
-            list.clear()
+            for (k in elements) result[i++][j++] = k
         }
 
         // top right triangle
-        for (sj in 1..<n) {
+        for (col in 1..<n) {
+            val elements = mutableListOf<Int>()
             var i = 0
-            var j = sj
+            var j = col
 
-            while (i < m && j < n) {
-                list += grid[i][j]
-                i++
-                j++
-            }
-
-            list.sort()
+            while (i < m && j < n) elements += grid[i++][j++]
+            elements.sort()
 
             i = 0
-            j = sj
-            for (k in list) {
-                result[i][j] = k
-                i++
-                j++
-            }
-
-            list.clear()
+            j = col
+            for (k in elements) result[i++][j++] = k
         }
 
         return result
